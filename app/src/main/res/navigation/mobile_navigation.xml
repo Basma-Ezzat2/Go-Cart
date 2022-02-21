@@ -13,13 +13,13 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.gocart.ui.dashboard.DashboardFragment"
+        android:name="com.example.gocart.ui.dashboard.CategoryFragment"
         android:label="@string/title_category"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.example.gocart.ui.notifications.NotificationsFragment"
+        android:name="com.example.gocart.ui.notifications.MeFragment"
         android:label="@string/title_me"
         tools:layout="@layout/fragment_notifications" />
 </navigation>
