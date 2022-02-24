@@ -28,9 +28,7 @@ class WomenFragment : Fragment() {
         // Inflate the layout for this fragment
          inflater.inflate(R.layout.fragment_women, container, false)
         _binding = FragmentWomenBinding.inflate(inflater, container, false)
-
         return _binding.root
-
     }
     override fun onViewCreated(view: View,savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

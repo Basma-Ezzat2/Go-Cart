@@ -11,12 +11,14 @@ import com.example.gocart.ui.dashboard.adapter.ViewPagerAdapter
 import com.example.gocart.ui.dashboard.fragments.KidsFragment
 import com.example.gocart.ui.dashboard.fragments.MenFragment
 import com.example.gocart.ui.dashboard.fragments.WomenFragment
-import com.google.android.material.tabs.TabLayout
+import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter
+import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems
 
 class CategoryFragment : Fragment() {
 
     private lateinit var categoryViewModel: CategoryViewModel
     private lateinit var _binding: FragmentCategoryBinding
+
 
 
     override fun onCreateView(
@@ -36,16 +38,21 @@ class CategoryFragment : Fragment() {
         (activity as AppCompatActivity?)!!.setSupportActionBar(_binding.toolbar)
         _binding.toolbar.title = "Category"
     }
+
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.toolbar_menu, menu)
     }
     private fun setUpTabs(){
-        val fragmentAdapter= ViewPagerAdapter(requireActivity().supportFragmentManager)
-        fragmentAdapter.addFragment(MenFragment(),"Men")
-        fragmentAdapter.addFragment(WomenFragment(),"Women")
-        fragmentAdapter.addFragment(KidsFragment(),"Kids")
-        _binding.viewpager2.adapter=fragmentAdapter
-        val tabLayout = view?.findViewById<TabLayout>(R.id.tabs)
-        tabLayout?.setupWithViewPager(_binding.viewpager2)
+        val adapter = FragmentPagerItemAdapter(
+            childFragmentManager,
+            FragmentPagerItems.with(activity)
+                .add("Men", MenFragment::class.java)
+                .add("Women", WomenFragment::class.java)
+                .add("Kids", KidsFragment::class.java)
+                .create()
+        )
+        _binding.viewpager2.adapter = adapter
+        _binding.tabs.setViewPager(_binding.viewpager2)
     }
 }
