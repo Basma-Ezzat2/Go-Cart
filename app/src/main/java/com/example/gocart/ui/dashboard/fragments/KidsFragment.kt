@@ -28,7 +28,6 @@ class KidsFragment : Fragment() {
         // Inflate the layout for this fragment
         inflater.inflate(R.layout.fragment_women, container, false)
         _binding = FragmentKidsBinding.inflate(inflater, container, false)
-
         return _binding.root
 
     }
