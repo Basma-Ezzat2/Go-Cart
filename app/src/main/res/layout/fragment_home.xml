@@ -27,8 +27,13 @@
             android:weightSum="4">
 
             <LinearLayout
+                android:id="@+id/ads"
+                android:clickable="true"
+                android:onClick="editActions"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
+                android:layout_marginStart="7dp"
+                android:layout_marginEnd="7dp"
                 android:layout_marginTop="70dp"
                 android:layout_weight="1"
                 android:orientation="vertical">
@@ -41,17 +46,33 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="7dp"
+                android:layout_marginEnd="7dp"
+                android:orientation="vertical"
                 android:layout_height="match_parent"
                 android:layout_weight="3">
 
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/brands"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/amaranth"
+                    android:text="Brands"
+                    android:layout_gravity="center"
+                    android:textColor="#5F6467"
+                    android:textSize="35sp"
+                    android:textStyle="bold"
+                  ></com.google.android.material.textview.MaterialTextView>
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"></androidx.recyclerview.widget.RecyclerView>
+                    android:layout_height="match_parent">
+
+                </androidx.recyclerview.widget.RecyclerView>
 
             </LinearLayout>
-
-
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
