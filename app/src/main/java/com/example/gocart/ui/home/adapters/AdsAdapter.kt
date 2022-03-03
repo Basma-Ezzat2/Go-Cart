@@ -1,4 +1,4 @@
-package com.example.gocart.ui.home
+package com.example.gocart.ui.home.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -21,12 +21,12 @@ class AdsAdapter(val context: Context) : RecyclerView.Adapter<AdsAdapter.AdsView
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdsAdapter.AdsViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdsViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.list_item, parent, false)
         return AdsViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: AdsAdapter.AdsViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: AdsViewHolder, position: Int) {
         holder.image.setImageResource(list[position])
     }
 

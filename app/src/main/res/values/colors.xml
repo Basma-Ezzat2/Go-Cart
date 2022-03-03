@@ -14,4 +14,12 @@
     <color name="fourth">#28a9e0</color>
     <color name="fifth">#FFBA00</color>
     <color name="grey">#AFAFAF</color>
+
+
+    <color name="colorPrimaryDark">#0A8791</color>
+    <color name="transparent">#00000000</color>
+    <color name="rate_active_color">#FFFEBA39</color>
+    <color name="rate_normal_color">#FFA5A5A5</color>
+
+
 </resources>

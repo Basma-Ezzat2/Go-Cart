@@ -2,22 +2,6 @@
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
-
-    <item
-        android:id="@+id/cartIcon"
-        android:icon="@drawable/car_icon"
-        android:iconTint="@color/white"
-        app:showAsAction="ifRoom"
-        android:title="Cart" />
-
-    <item
-        android:id="@+id/fav_Icon"
-        android:icon="@drawable/fav_icon"
-        app:showAsAction="ifRoom"
-        android:iconTint="@color/white"
-        android:title="Favourite" />
-
     <item
         android:id="@+id/search"
         android:icon="@drawable/ic_search"
@@ -25,6 +9,4 @@
         app:showAsAction="ifRoom"
         android:title="Search"
         app:actionViewClass="androidx.appcompat.widget.SearchView" />
-
-
 </menu>

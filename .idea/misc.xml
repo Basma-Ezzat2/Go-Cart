@@ -3,25 +3,29 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Go-Cart/app/src/main/res/drawable/rounded.xml" value="0.26614583333333336" />
+        <entry key="..\:/Go-Cart/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Go-Cart/app/src/main/res/layout/brand_item.xml" value="0.264" />
+        <entry key="..\:/Go-Cart/app/src/main/res/layout/fragment_category.xml" value="0.25" />
+        <entry key="..\:/Go-Cart/app/src/main/res/layout/fragment_favourite.xml" value="0.25" />
+        <entry key="..\:/Go-Cart/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/Go-Cart/app/src/main/res/layout/fragment_me.xml" value="0.1" />
+        <entry key="..\:/Go-Cart/app/src/main/res/layout/fragment_men.xml" value="0.1" />
+        <entry key="..\:/Go-Cart/app/src/main/res/layout/fragment_product.xml" value="0.25" />
+        <entry key="..\:/Go-Cart/app/src/main/res/layout/fragment_product_detail.xml" value="0.264" />
+        <entry key="..\:/Go-Cart/app/src/main/res/layout/list_item.xml" value="0.25" />
+        <entry key="..\:/Go-Cart/app/src/main/res/layout/product_item.xml" value="0.25" />
+        <entry key="..\:/Go-Cart/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
+        <entry key="..\:/Go-Cart/app/src/main/res/menu/search.xml" value="0.25" />
+        <entry key="..\:/Go-Cart/app/src/main/res/menu/toolbar_menu.xml" value="0.25" />
         <entry key="..\:/GoCart/app/src/main/res/layout/activity_main.xml" value="0.17481884057971014" />
-        <entry key="..\:/Users/amune/AndroidStudioProjects/Go-Cart/app/src/main/res/drawable/fav_icon.xml" value="0.21574074074074073" />
-        <entry key="..\:/Users/amune/AndroidStudioProjects/Go-Cart/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.21574074074074073" />
-        <entry key="..\:/Users/amune/AndroidStudioProjects/Go-Cart/app/src/main/res/drawable/ic_search.xml" value="0.21574074074074073" />
-        <entry key="..\:/Users/amune/AndroidStudioProjects/Go-Cart/app/src/main/res/layout/activity_main.xml" value="0.12760416666666666" />
-        <entry key="..\:/Users/amune/AndroidStudioProjects/Go-Cart/app/src/main/res/layout/activity_splash_screen.xml" value="0.12760416666666666" />
-        <entry key="..\:/Users/amune/AndroidStudioProjects/Go-Cart/app/src/main/res/layout/brand_item.xml" value="0.2105978260869565" />
-        <entry key="..\:/Users/amune/AndroidStudioProjects/Go-Cart/app/src/main/res/layout/fragment_category.xml" value="0.17481884057971014" />
-        <entry key="..\:/Users/amune/AndroidStudioProjects/Go-Cart/app/src/main/res/layout/fragment_kids.xml" value="0.17481884057971014" />
-        <entry key="..\:/Users/amune/AndroidStudioProjects/Go-Cart/app/src/main/res/layout/fragment_me.xml" value="0.2105978260869565" />
-        <entry key="..\:/Users/amune/AndroidStudioProjects/Go-Cart/app/src/main/res/layout/fragment_men.xml" value="0.12760416666666666" />
-        <entry key="..\:/Users/amune/AndroidStudioProjects/Go-Cart/app/src/main/res/layout/fragment_women.xml" value="0.2" />
         <entry key="..\:/Users/hossa/OneDrive/Documents/GitHub/Go-Cart/app/src/main/res/layout/fragment_home.xml" value="0.3625" />
         <entry key="..\:/Users/hossa/OneDrive/Documents/GitHub/Go-Cart/app/src/main/res/layout/fragment_notifications.xml" value="0.3625" />
         <entry key="..\:/Users/hossa/OneDrive/Documents/GitHub/Go-Cart/app/src/main/res/menu/bottom_nav_menu.xml" value="0.3625" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
