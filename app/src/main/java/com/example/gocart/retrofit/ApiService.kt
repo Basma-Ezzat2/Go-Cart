@@ -14,6 +14,8 @@ interface ApiService {
     suspend fun getProducts(@Path("collection_id") collectionId: Long): Response<ProductsModel>
 
 
+
+
    /* @GET("products/{product_id}.json")
     suspend fun getProductDetails(@Path("product_id") product_id:Long): Response<>
 */
