@@ -1,15 +1,13 @@
-package com.example.gocart
+package com.example.gocart.ui.activities
 
 import android.os.Bundle
-import android.view.MenuItem
-import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.gocart.R
 import com.example.gocart.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

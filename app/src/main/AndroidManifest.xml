@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GoCart">
         <activity
-            android:name=".SplashScreen"
+            android:name=".ui.onBoarding.OnBoarding"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activities.SplashScreen"
             android:exported="true">
            <intent-filter>
             <action android:name="android.intent.action.MAIN" />
@@ -20,7 +23,7 @@
            </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.activities.MainActivity"
             android:exported="true">
         </activity>
         <meta-data

@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import com.example.gocart.databinding.BrandItemBinding
 import com.example.gocart.ui.home.pojo.brands.SmartCollections
 
-class BrandsAdapter(val context: Context, val brandsClickListener: BrandsClickListener) :
+class BrandsAdapter(val context: Context, private val brandsClickListener: BrandsClickListener) :
     RecyclerView.Adapter<BrandsAdapter.BrandsViewHolder>() {
 
     private val brandsList: ArrayList<SmartCollections> = ArrayList()
