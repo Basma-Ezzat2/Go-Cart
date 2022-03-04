@@ -64,5 +64,18 @@
             app:layout_constraintBottom_toTopOf="@+id/floatingActionButton2"
             app:layout_constraintEnd_toEndOf="@+id/floatingActionButton2"
             app:layout_constraintStart_toStartOf="@+id/floatingActionButton2" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewMyProduct"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="80dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="3"
+            tools:listitem="@layout/card_view_product"
+            android:paddingBottom="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

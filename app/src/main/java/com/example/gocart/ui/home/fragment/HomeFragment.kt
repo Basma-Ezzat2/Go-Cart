@@ -7,12 +7,10 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import com.example.gocart.R
 import android.view.MenuInflater
-import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.gocart.MainActivity
 import com.example.gocart.databinding.FragmentHomeBinding
 import com.example.gocart.ui.home.adapters.AdsAdapter
 import com.example.gocart.ui.home.adapters.BrandsAdapter

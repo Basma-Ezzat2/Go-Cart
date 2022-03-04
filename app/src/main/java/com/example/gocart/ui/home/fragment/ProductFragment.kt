@@ -10,7 +10,6 @@ import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.gocart.MainActivity
 import com.example.gocart.R
 import com.example.gocart.databinding.FragmentProductBinding
 import com.example.gocart.ui.home.adapters.ProductAdapter
