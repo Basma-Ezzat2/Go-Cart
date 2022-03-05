@@ -1,6 +1,7 @@
 package com.example.gocart.retrofit
 
-import com.example.gocart.BuildConfig
+import androidx.viewbinding.BuildConfig
+//import com.example.gocart.BuildConfig
 import com.example.gocart.utils.Constants
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
