@@ -11,5 +11,8 @@ class HomeRepository(private val api: ApiService) {
 
     suspend fun getProductsByBrand(brandId: Long) = api.getProducts(brandId)
 
+    suspend fun getProductDetails(ProductId: Long) = api.getProductDetails(ProductId)
+
+
 
 }
