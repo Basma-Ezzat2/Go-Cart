@@ -39,7 +39,11 @@
         android:id="@+id/productDetailFragment"
         android:name="com.example.gocart.ui.home.fragment.ProductDetailFragment"
         android:label="fragment_product_detail"
-        tools:layout="@layout/fragment_product_detail" />
+        tools:layout="@layout/fragment_product_detail" >
+        <action
+            android:id="@+id/action_productDetailFragment_to_reviewFragment"
+            app:destination="@id/reviewFragment" />
+    </fragment>
     <fragment
         android:id="@+id/favouriteFragment"
         android:name="com.example.gocart.ui.home.fragment.FavouriteFragment"
@@ -49,4 +53,9 @@
             android:id="@+id/action_favouriteFragment_to_navigation_home"
             app:destination="@id/navigation_home" />
     </fragment>
+    <fragment
+        android:id="@+id/reviewFragment"
+        android:name="com.example.gocart.ui.home.fragment.ReviewFragment"
+        android:label="fragment_review"
+        tools:layout="@layout/fragment_review" />
 </navigation>

@@ -5,6 +5,8 @@
       <map>
         <entry key="..\:/Go-Cart/app/src/main/res/drawable/rounded.xml" value="0.26614583333333336" />
         <entry key="..\:/Go-Cart/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Go-Cart/app/src/main/res/layout/activity_review.xml" value="0.25" />
+        <entry key="..\:/Go-Cart/app/src/main/res/layout/activity_splash_screen.xml" value="0.25" />
         <entry key="..\:/Go-Cart/app/src/main/res/layout/brand_item.xml" value="0.264" />
         <entry key="..\:/Go-Cart/app/src/main/res/layout/fragment_category.xml" value="0.25" />
         <entry key="..\:/Go-Cart/app/src/main/res/layout/fragment_favourite.xml" value="0.25" />
@@ -13,8 +15,11 @@
         <entry key="..\:/Go-Cart/app/src/main/res/layout/fragment_men.xml" value="0.1" />
         <entry key="..\:/Go-Cart/app/src/main/res/layout/fragment_product.xml" value="0.25" />
         <entry key="..\:/Go-Cart/app/src/main/res/layout/fragment_product_detail.xml" value="0.264" />
+        <entry key="..\:/Go-Cart/app/src/main/res/layout/fragment_review.xml" value="0.25" />
         <entry key="..\:/Go-Cart/app/src/main/res/layout/list_item.xml" value="0.25" />
+        <entry key="..\:/Go-Cart/app/src/main/res/layout/product_deatils_activity.xml" value="0.25" />
         <entry key="..\:/Go-Cart/app/src/main/res/layout/product_item.xml" value="0.25" />
+        <entry key="..\:/Go-Cart/app/src/main/res/layout/review_row.xml" value="0.25" />
         <entry key="..\:/Go-Cart/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
         <entry key="..\:/Go-Cart/app/src/main/res/menu/search.xml" value="0.25" />
         <entry key="..\:/Go-Cart/app/src/main/res/menu/toolbar_menu.xml" value="0.25" />

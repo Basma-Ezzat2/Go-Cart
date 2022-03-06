@@ -1,14 +1,17 @@
 package com.example.gocart.ui.home.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavDeepLinkBuilder
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.gocart.R
 import com.example.gocart.databinding.ProductDeatilsActivityBinding
 import com.example.gocart.ui.home.adapters.ProductImagesAdapter
+import com.example.gocart.ui.home.fragment.ReviewFragment
 import com.example.gocart.ui.home.viewmodels.HomeViewModel
 
 class ProductDetailsActivity : AppCompatActivity() {
@@ -25,6 +28,18 @@ class ProductDetailsActivity : AppCompatActivity() {
         homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
         binding.toolbar3.setNavigationOnClickListener { finish() }
+        binding.ratingCount.rating=3.5f
+        binding.review.setOnClickListener {
+            val intent=Intent(this,ReviewActivity::class.java)
+            startActivity(intent)
+//////            findNavController(this.binding.root).navigate(R.id.reviewFragment)
+//            val pendingIntent = NavDeepLinkBuilder(this.applicationContext)
+//                .setGraph(R.navigation.mobile_navigation)
+//                .setDestination(R.id.reviewFragment)
+//                .createPendingIntent()
+//
+//            pendingIntent.send()
+        }
 
 
         productImagesAdapter = ProductImagesAdapter(this)
@@ -44,7 +59,7 @@ class ProductDetailsActivity : AppCompatActivity() {
         })
 
         homeViewModel.varients.observe(this, {
-            binding.tvPrice.text = it.price.toString()
+            binding.tvPrice.text = it.price.toString()+"$"
         })
     }
 }

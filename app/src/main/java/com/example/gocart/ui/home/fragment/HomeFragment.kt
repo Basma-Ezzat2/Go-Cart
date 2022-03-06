@@ -72,8 +72,8 @@ class HomeFragment : Fragment(), BrandsAdapter.BrandsClickListener {
         adsAdapter.setContentList(list)
 
 
-        val DELAY_MS: Long = 5000
-        val PERIOD_MS: Long = 5000
+        val DELAY_MS: Long = 3000
+        val PERIOD_MS: Long = 3000
         var currentPage = 0
 
         val handler = Handler(Looper.myLooper()!!)

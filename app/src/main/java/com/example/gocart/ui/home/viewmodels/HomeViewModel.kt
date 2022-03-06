@@ -44,6 +44,7 @@ class HomeViewModel : ViewModel() {
             val repo = homeRepository.getBrands()
             if (repo.isSuccessful) {
                 mutableResponse.postValue(repo.body())
+
                 // Log.d("ayaaa333", "HomeViewModel: Sucess " )
             } else {
                 handleError("حدث خطا اثناء تحميل المنتجات")
