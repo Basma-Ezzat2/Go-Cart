@@ -22,8 +22,7 @@ interface ApiService {
     @PUT("customers/{id}.json")
     suspend fun updateCustomer(@Path("id") customerId:Long,
                                @Body customer: EditCustomerModel
-    ):
-            Response<EditCustomerModel>
+    ):Response<EditCustomerModel>
 
 
 
