@@ -58,4 +58,5 @@ class ProductAdapter(val context: Context, val productsClickListener: ProductsCl
         fun onProductClickListener(collection: Products, position: Int)
     }
 
+
 }

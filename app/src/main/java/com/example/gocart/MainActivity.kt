@@ -1,8 +1,11 @@
 package com.example.gocart
 
 import android.os.Bundle
+<<<<<<< Updated upstream:app/src/main/java/com/example/gocart/MainActivity.kt
 import android.view.MenuItem
 import android.widget.Toast
+=======
+>>>>>>> Stashed changes:app/src/main/java/com/example/gocart/ui/activities/MainActivity.kt
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider

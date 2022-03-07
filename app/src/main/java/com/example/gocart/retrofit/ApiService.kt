@@ -2,8 +2,15 @@ package com.example.gocart.retrofit
 
 import com.example.gocart.ui.home.pojo.brands.Brands
 import com.example.gocart.ui.home.pojo.product.ProductsModel
+<<<<<<< Updated upstream
 import com.example.gocart.ui.home.pojo.productdetail.ProductDetails
 import com.example.gocart.ui.home.pojo.search.SearchProduct
+=======
+import com.example.gocart.data.entity.collection.ProductsList
+import com.example.gocart.ui.home.pojo.productdetail.ProductDetails
+import com.example.gocart.ui.home.pojo.search.SearchProduct
+import com.stash.shopeklobek.model.entities.CustomerLoginModel
+>>>>>>> Stashed changes
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -17,6 +24,13 @@ interface ApiService {
 
     @GET("products/{product_id}.json")
     suspend fun getProductDetails(@Path("product_id") product_id:Long): Response<ProductDetails>
+<<<<<<< Updated upstream
+=======
+
+    @GET("products.json")
+    suspend fun getSearchProducts() : Response<SearchProduct>
+
+>>>>>>> Stashed changes
 
     @GET("products.json")
     suspend fun getSearchProducts() : Response<SearchProduct>

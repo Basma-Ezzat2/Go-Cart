@@ -10,6 +10,10 @@ import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.gocart.R
 import com.example.gocart.databinding.ProductDeatilsActivityBinding
+<<<<<<< Updated upstream
+=======
+import com.example.gocart.pojo.Product
+>>>>>>> Stashed changes
 import com.example.gocart.ui.home.adapters.ProductImagesAdapter
 import com.example.gocart.ui.home.fragment.ReviewFragment
 import com.example.gocart.ui.home.viewmodels.HomeViewModel
@@ -27,6 +31,13 @@ class ProductDetailsActivity : AppCompatActivity() {
 
         homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
+<<<<<<< Updated upstream
+=======
+        binding.addToCart.setOnClickListener {
+//            onAddToCart()
+        }
+
+>>>>>>> Stashed changes
         binding.toolbar3.setNavigationOnClickListener { finish() }
         binding.ratingCount.rating=3.5f
         binding.review.setOnClickListener {
@@ -62,4 +73,10 @@ class ProductDetailsActivity : AppCompatActivity() {
             binding.tvPrice.text = it.price.toString()+"$"
         })
     }
+<<<<<<< Updated upstream
+=======
+
+    fun onAddToCart(collection: Product, position: Int) {
+        homeViewModel.addToCart(collection)  }
+>>>>>>> Stashed changes
 }

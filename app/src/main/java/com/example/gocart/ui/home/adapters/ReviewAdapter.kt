@@ -1,6 +1,9 @@
 package com.example.gocart.ui.home.adapters
 
+<<<<<<< Updated upstream
 import android.content.Context
+=======
+>>>>>>> Stashed changes
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

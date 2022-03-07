@@ -15,7 +15,13 @@
         <entry key="..\:/Go-Cart/app/src/main/res/layout/fragment_men.xml" value="0.1" />
         <entry key="..\:/Go-Cart/app/src/main/res/layout/fragment_product.xml" value="0.25" />
         <entry key="..\:/Go-Cart/app/src/main/res/layout/fragment_product_detail.xml" value="0.264" />
+<<<<<<< Updated upstream
         <entry key="..\:/Go-Cart/app/src/main/res/layout/fragment_review.xml" value="0.25" />
+=======
+        <entry key="..\:/Go-Cart/app/src/main/res/layout/fragment_register.xml" value="0.25" />
+        <entry key="..\:/Go-Cart/app/src/main/res/layout/fragment_review.xml" value="0.25" />
+        <entry key="..\:/Go-Cart/app/src/main/res/layout/fragment_sales.xml" value="0.25" />
+>>>>>>> Stashed changes
         <entry key="..\:/Go-Cart/app/src/main/res/layout/list_item.xml" value="0.25" />
         <entry key="..\:/Go-Cart/app/src/main/res/layout/product_deatils_activity.xml" value="0.25" />
         <entry key="..\:/Go-Cart/app/src/main/res/layout/product_item.xml" value="0.25" />

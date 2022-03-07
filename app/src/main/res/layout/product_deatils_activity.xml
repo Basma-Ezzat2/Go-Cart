@@ -175,6 +175,10 @@
             android:textSize="18sp" />
 
         <androidx.appcompat.widget.AppCompatButton
+<<<<<<< Updated upstream
+=======
+            android:id="@+id/add_to_cart"
+>>>>>>> Stashed changes
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginStart="19dp"

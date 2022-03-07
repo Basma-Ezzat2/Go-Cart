@@ -1,5 +1,6 @@
 package com.example.gocart.ui.home.adapters
 
+<<<<<<< Updated upstream
 import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
@@ -9,6 +10,8 @@ import com.bumptech.glide.Glide
 import com.example.gocart.databinding.ProductItemBinding
 import com.example.gocart.ui.home.pojo.product.Products
 
+=======
+>>>>>>> Stashed changes
 //class productDetailAdapter (val context: Context, val productsClickListener: ProductsClickListener) : RecyclerView.Adapter<productDetailAdapter.ProductsViewHolder>() {
 //
 //    private val productsList: ArrayList<Products> = ArrayList()
