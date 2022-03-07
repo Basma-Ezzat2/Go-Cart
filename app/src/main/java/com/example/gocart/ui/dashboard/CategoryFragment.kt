@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gocart.R
@@ -46,6 +47,15 @@ class CategoryFragment : Fragment() {
         })
 //        (activity as AppCompatActivity?)!!.setSupportActionBar(_binding.toolbar)
 //        _binding.toolbar.title = "Category"
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val navController = findNavController()
+
+        if (item.itemId == R.id.cartIcon){
+            navController.navigate(R.id.action_navigation_dashboard_to_cartFragment)
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 

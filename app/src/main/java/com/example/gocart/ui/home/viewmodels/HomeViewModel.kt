@@ -1,17 +1,18 @@
 package com.example.gocart.ui.home.viewmodels
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import android.app.Application
+import androidx.lifecycle.*
+import com.example.gocart.pojo.Product
 import com.example.gocart.retrofit.RetrofitBuilder
+import com.example.gocart.room.RoomDataBase
+import com.example.gocart.room.RoomRepository
 import com.example.gocart.ui.home.pojo.brands.Brands
 import com.example.gocart.ui.home.pojo.product.ProductsModel
 import com.example.gocart.ui.home.repository.HomeRepository
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
     //    var api = RetrofitBuilder.retro.create(ApiService::class.java)
     private val homeRepository = HomeRepository(RetrofitBuilder.api)
@@ -23,6 +24,8 @@ class HomeViewModel : ViewModel() {
     val productsByBrand: LiveData<ProductsModel> get() = productsMutable
 
     val errorMutable = MutableLiveData<String>()
+
+    val repo = RoomRepository(RoomDataBase.getInstance(application))
 
     init {
         getAllBrands()
@@ -41,9 +44,9 @@ class HomeViewModel : ViewModel() {
         }
     }
 
-    fun getProductByBrand(brandId: Long?) {
+    fun getProductByBrand(brandId: String?) {
         viewModelScope.launch {
-            val products = homeRepository.getProductsByBrand(brandId!!)
+            val products = homeRepository.getProduct(brandId!!)
             if (products.isSuccessful) {
                 productsMutable.postValue(products.body())
             } else {
@@ -53,9 +56,9 @@ class HomeViewModel : ViewModel() {
         }
     }
 
-    fun getProductDetails(productdId: Long?) {
+    fun getProductDetails(productdId: String?) {
         viewModelScope.launch {
-            val products = homeRepository.getProductsByBrand(productdId!!)
+            val products = homeRepository.getProduct(productdId!!)
             if (products.isSuccessful) {
                 productsMutable.postValue(products.body())
             } else {
@@ -68,5 +71,10 @@ class HomeViewModel : ViewModel() {
     private fun handleError(errorMsg: String) {
         errorMutable.postValue(errorMsg)
     }
+
+    fun addToCart(product : Product) = viewModelScope.launch {
+        repo.saveCartItem(product.toProductCartModule())
+    }
+
 
 }

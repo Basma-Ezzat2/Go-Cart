@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.gocart.R
 import com.example.gocart.databinding.FragmentProductBinding
+import com.example.gocart.pojo.Product
 import com.example.gocart.ui.home.adapters.ProductAdapter
 import com.example.gocart.ui.home.pojo.product.Products
 import com.example.gocart.ui.home.viewmodels.HomeViewModel
@@ -51,10 +52,11 @@ class ProductFragment : Fragment(), ProductAdapter.ProductsClickListener {
     }
 
 
-    override fun onProductClickListener(collection: Products, position: Int) {
-        viewModel.getProductDetails(collection.id)
+    override fun onProductClickListener(collection: Product, position: Int) {
+        viewModel.getProductDetails(collection.vendor)
         Toast.makeText(requireActivity(), collection.id.toString(), Toast.LENGTH_LONG).show()
         Log.d("ayaa", "onProductClickListener: " + collection.id)
+        viewModel.addToCart(collection)
     }
 
 
