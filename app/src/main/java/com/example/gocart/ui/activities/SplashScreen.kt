@@ -1,9 +1,11 @@
-package com.example.gocart
+package com.example.gocart.ui.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import com.example.gocart.R
+import com.example.gocart.ui.onBoarding.OnBoarding
 
 class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,6 +15,9 @@ class SplashScreen : AppCompatActivity() {
         val intent = Intent(this@SplashScreen, MainActivity::class.java)
         Handler().postDelayed({
             startActivity(intent)
+            finish()
+            val signInIntent = Intent(this, OnBoarding::class.java)
+            startActivity(signInIntent)
             finish()
         }, splashTimeOut.toLong())
     }

@@ -1,19 +1,14 @@
-package com.example.gocart
+package com.example.gocart.ui.activities
 
 import android.os.Bundle
-<<<<<<< Updated upstream:app/src/main/java/com/example/gocart/MainActivity.kt
-import android.view.MenuItem
-import android.widget.Toast
-=======
->>>>>>> Stashed changes:app/src/main/java/com/example/gocart/ui/activities/MainActivity.kt
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.gocart.R
 import com.example.gocart.databinding.ActivityMainBinding
 import com.example.gocart.ui.home.viewmodels.HomeViewModel
 

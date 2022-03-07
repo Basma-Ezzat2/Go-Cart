@@ -8,10 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.gocart.databinding.ProductItemBinding
 import com.example.gocart.ui.home.pojo.search.Products
-<<<<<<< Updated upstream
-import com.example.gocart.ui.home.pojo.search.SearchProduct
-=======
->>>>>>> Stashed changes
 
 class SearchAdapter (val context: Context, val productsClickListener: ProductsClickListener) : RecyclerView.Adapter<SearchAdapter.ProductSearchViewHolder>() {
 

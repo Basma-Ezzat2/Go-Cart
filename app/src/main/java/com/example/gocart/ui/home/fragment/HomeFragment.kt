@@ -12,7 +12,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.gocart.MainActivity
 import com.example.gocart.databinding.FragmentHomeBinding
 import com.example.gocart.ui.home.adapters.AdsAdapter
 import com.example.gocart.ui.home.adapters.BrandsAdapter
@@ -113,7 +112,7 @@ class HomeFragment : Fragment(), BrandsAdapter.BrandsClickListener {
     }
 
     override fun brandClick(collection: SmartCollections, position: Int) {
-        homeViewModel.getProductByBrand(collection.id)
+        homeViewModel.getProductByBrand(collection.title)
         //(activity as MainActivity).findViewById<Toolbar>(R.id.toolbar).title = collection.title
         val bundle = Bundle()
         bundle.putString("BrandName", collection.title)

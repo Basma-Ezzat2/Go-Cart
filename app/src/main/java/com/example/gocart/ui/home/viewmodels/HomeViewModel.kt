@@ -1,25 +1,14 @@
 package com.example.gocart.ui.home.viewmodels
 
-<<<<<<< Updated upstream
-import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-=======
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.*
 import com.example.gocart.pojo.Product
->>>>>>> Stashed changes
 import com.example.gocart.retrofit.RetrofitBuilder
+import com.example.gocart.room.RoomDataBase
+import com.example.gocart.room.RoomRepository
 import com.example.gocart.ui.home.pojo.brands.Brands
 import com.example.gocart.ui.home.pojo.product.ProductsModel
-<<<<<<< Updated upstream
-import com.example.gocart.ui.home.pojo.productdetail.Product
-import com.example.gocart.ui.home.pojo.productdetail.ProductDetails
-=======
->>>>>>> Stashed changes
 import com.example.gocart.ui.home.pojo.productdetail.Variants
 import com.example.gocart.ui.home.pojo.search.Products
 import com.example.gocart.ui.home.pojo.search.SearchProduct
@@ -27,12 +16,7 @@ import com.example.gocart.ui.home.repository.HomeRepository
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 
-class HomeViewModel : ViewModel() {
-
-
-//    /admin/api/2022-01/products.json
-
-    var mylist: ArrayList<Products> = ArrayList()
+class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
     var mylist: ArrayList<Products> = ArrayList()
 
@@ -46,17 +30,9 @@ class HomeViewModel : ViewModel() {
     private val productsMutable = MutableLiveData<ProductsModel>()
     val productsByBrand: LiveData<ProductsModel> get() = productsMutable
 
-    private val productDetailsMutable = MutableLiveData<Product>()
-    val productDetails: LiveData<Product> get() = productDetailsMutable
-
-    private val varientsMutable = MutableLiveData<Variants>()
-    val varients: LiveData<Variants> get() = varientsMutable
-
-    private val productsSearchMutable = MutableLiveData<SearchProduct>()
-    val productsSearch: LiveData<SearchProduct> get() = productsSearchMutable
-
-
     val errorMutable = MutableLiveData<String>()
+
+    val repo = RoomRepository(RoomDataBase.getInstance(application))
 
 
     private val productDetailsMutable = MutableLiveData<com.example.gocart.ui.home.pojo.productdetail.Product>()
@@ -82,7 +58,6 @@ class HomeViewModel : ViewModel() {
             val repo = homeRepository.getBrands()
             if (repo.isSuccessful) {
                 mutableResponse.postValue(repo.body())
-
                 // Log.d("ayaaa333", "HomeViewModel: Sucess " )
             } else {
                 handleError("حدث خطا اثناء تحميل المنتجات")
@@ -91,11 +66,9 @@ class HomeViewModel : ViewModel() {
         }
     }
 
-
-
-    fun getProductByBrand(brandId: Long?) {
+    fun getProductByBrand(brandId: String?) {
         viewModelScope.launch {
-            val products = homeRepository.getProductsByBrand(brandId!!)
+            val products = homeRepository.getProduct(brandId!!)
             if (products.isSuccessful) {
                 productsMutable.postValue(products.body())
             } else {
@@ -105,8 +78,6 @@ class HomeViewModel : ViewModel() {
         }
     }
 
-<<<<<<< Updated upstream
-
     fun getProductDetails(ProductId: Long?) {
         viewModelScope.launch {
             val productDetails = homeRepository.getProductDetails(ProductId!!)
@@ -129,30 +100,6 @@ class HomeViewModel : ViewModel() {
 
     fun getSearch() {
         viewModelScope.launch {
-=======
-    fun getProductDetails(ProductId: Long?) {
-        viewModelScope.launch {
-            val productDetails = homeRepository.getProductDetails(ProductId!!)
-            if (productDetails.isSuccessful) {
-                productDetailsMutable.postValue(productDetails.body()!!.product!!)
-                productDetails.body()!!.product?.variants!!.forEach {
-                    varientsMutable.postValue(it)
-                }
-
-
-
-                Log.d("ayaa", "getProductDetails: "+productDetails.raw().request().url())
-            } else {
-                Log.d("ayaa", "getProductDetails: "+productDetails.raw().request().url())
-                handleError("حدث خطا اثناء تحميل المنتجات")
-            }
-            cancel()
-        }
-    }
-
-    fun getSearch() {
-        viewModelScope.launch {
->>>>>>> Stashed changes
             val products = homeRepository.getSearch()
             if (products.isSuccessful) {
                 productsSearchMutable.postValue(products.body())
@@ -170,8 +117,6 @@ class HomeViewModel : ViewModel() {
 //            mylist.addAll(listOf(allProducts))
 
         }
-<<<<<<< Updated upstream
-=======
     }
 
     fun searchAll( query : String){
@@ -184,21 +129,11 @@ class HomeViewModel : ViewModel() {
 
     private fun handleError(errorMsg: String) {
         errorMutable.postValue(errorMsg)
->>>>>>> Stashed changes
     }
 
-    fun searchAll( query : String){
-        var word=mylist.filter {
-            it!!.title.equals(query)
-
-        }
-
+    fun addToCart(product : Product) = viewModelScope.launch {
+        repo.saveCartItem(product.toProductCartModule())
     }
 
-
-
-    private fun handleError(errorMsg: String) {
-        errorMutable.postValue(errorMsg)
-    }
 
 }

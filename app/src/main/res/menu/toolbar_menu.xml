@@ -24,11 +24,7 @@
         android:iconTint="@color/white"
         app:showAsAction="ifRoom"
         android:title="Search"/>
-<<<<<<< Updated upstream
-<!--        app:actionViewClass="androidx.appcompat.widget.SearchView" -->
-=======
     <!--        app:actionViewClass="androidx.appcompat.widget.SearchView" -->
->>>>>>> Stashed changes
 
 
 

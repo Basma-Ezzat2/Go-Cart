@@ -7,14 +7,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.gocart.databinding.ProductItemBinding
+import com.example.gocart.pojo.Product
 import com.example.gocart.ui.home.pojo.product.Products
 
 class ProductAdapter(val context: Context, val productsClickListener: ProductsClickListener) :
     RecyclerView.Adapter<ProductAdapter.ProductsViewHolder>() {
 
-    private val productsList: ArrayList<Products> = ArrayList()
+    private val productsList: ArrayList<Product> = ArrayList()
 
-    fun addList(brandsList: ArrayList<Products>) {
+    fun addList(brandsList: ArrayList<Product>) {
         this.productsList.clear()
         this.productsList.addAll(brandsList)
         notifyDataSetChanged()
@@ -55,7 +56,7 @@ class ProductAdapter(val context: Context, val productsClickListener: ProductsCl
     }
 
     interface ProductsClickListener {
-        fun onProductClickListener(collection: Products, position: Int)
+        fun onProductClickListener(collection: Product, position: Int)
     }
 
 

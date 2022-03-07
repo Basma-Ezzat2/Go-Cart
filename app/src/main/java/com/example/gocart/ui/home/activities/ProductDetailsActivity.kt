@@ -5,15 +5,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.NavDeepLinkBuilder
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.fragment.findNavController
-import com.example.gocart.R
+
 import com.example.gocart.databinding.ProductDeatilsActivityBinding
-<<<<<<< Updated upstream
-=======
 import com.example.gocart.pojo.Product
->>>>>>> Stashed changes
 import com.example.gocart.ui.home.adapters.ProductImagesAdapter
 import com.example.gocart.ui.home.fragment.ReviewFragment
 import com.example.gocart.ui.home.viewmodels.HomeViewModel
@@ -31,17 +25,14 @@ class ProductDetailsActivity : AppCompatActivity() {
 
         homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
-<<<<<<< Updated upstream
-=======
         binding.addToCart.setOnClickListener {
 //            onAddToCart()
         }
 
->>>>>>> Stashed changes
         binding.toolbar3.setNavigationOnClickListener { finish() }
-        binding.ratingCount.rating=3.5f
+        binding.ratingCount.rating = 3.5f
         binding.review.setOnClickListener {
-            val intent=Intent(this,ReviewActivity::class.java)
+            val intent = Intent(this, ReviewActivity::class.java)
             startActivity(intent)
 //////            findNavController(this.binding.root).navigate(R.id.reviewFragment)
 //            val pendingIntent = NavDeepLinkBuilder(this.applicationContext)
@@ -70,13 +61,11 @@ class ProductDetailsActivity : AppCompatActivity() {
         })
 
         homeViewModel.varients.observe(this, {
-            binding.tvPrice.text = it.price.toString()+"$"
+            binding.tvPrice.text = it.price.toString() + "$"
         })
     }
-<<<<<<< Updated upstream
-=======
 
     fun onAddToCart(collection: Product, position: Int) {
-        homeViewModel.addToCart(collection)  }
->>>>>>> Stashed changes
+        homeViewModel.addToCart(collection)
+    }
 }

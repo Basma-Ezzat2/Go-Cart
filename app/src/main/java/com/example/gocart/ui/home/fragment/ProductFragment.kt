@@ -11,13 +11,9 @@ import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.gocart.MainActivity
 import com.example.gocart.R
 import com.example.gocart.databinding.FragmentProductBinding
-<<<<<<< Updated upstream
-=======
 import com.example.gocart.pojo.Product
->>>>>>> Stashed changes
 import com.example.gocart.ui.home.activities.ProductDetailsActivity
 import com.example.gocart.ui.home.adapters.ProductAdapter
 import com.example.gocart.ui.home.pojo.product.Products
@@ -70,24 +66,10 @@ class ProductFragment : Fragment(), ProductAdapter.ProductsClickListener {
 ////        Log.d("ayaa", "onProductClickListener: " + collection.id)
 //    }
 
-<<<<<<< Updated upstream
-    override fun onProductClickListener(collection: Products, position: Int) {
-        //viewModel.getProductDetails(collection.id)
-        val intent = Intent(requireActivity(),ProductDetailsActivity::class.java)
-        intent.putExtra("product_id",collection.id)
-        startActivity(intent)
-
-       // findNavController().navigate(R.id.productDetailFragment)
-
-//        Toast.makeText(requireActivity(), collection.id.toString(), Toast.LENGTH_LONG).show()
-//        Log.d("ayaa", "onProductClickListener: " + collection.id)
-    }
-=======
     override fun onProductClickListener(collection: Product, position: Int) {
         val intent = Intent(requireActivity(),ProductDetailsActivity::class.java)
         intent.putExtra("product_id",collection.id)
         startActivity(intent)    }
->>>>>>> Stashed changes
 
 
 }
