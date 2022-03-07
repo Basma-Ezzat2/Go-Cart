@@ -20,11 +20,9 @@ import kotlinx.coroutines.launch
 class HomeViewModel : ViewModel() {
 
 
-//    /admin/api/2022-01/products.json
 
     var mylist: ArrayList<Products> = ArrayList()
 
-    //    var api = RetrofitBuilder.retro.create(ApiService::class.java)
     private val homeRepository = HomeRepository(RetrofitBuilder.api)
 
     private val mutableResponse = MutableLiveData<Brands>()
@@ -65,7 +63,6 @@ class HomeViewModel : ViewModel() {
     }
 
 
-
     fun getProductByBrand(brandId: Long?) {
         viewModelScope.launch {
             val products = homeRepository.getProductsByBrand(brandId!!)
@@ -90,9 +87,9 @@ class HomeViewModel : ViewModel() {
 
 
 
-                Log.d("ayaa", "getProductDetails: "+productDetails.raw().request().url())
+                Log.d("ayaa", "getProductDetails: " + productDetails.raw().request().url())
             } else {
-                Log.d("ayaa", "getProductDetails: "+productDetails.raw().request().url())
+                Log.d("ayaa", "getProductDetails: " + productDetails.raw().request().url())
                 handleError("حدث خطا اثناء تحميل المنتجات")
             }
             cancel()
@@ -111,23 +108,21 @@ class HomeViewModel : ViewModel() {
         }
     }
 
-    fun getData(){
-        viewModelScope.launch{
-            val data= homeRepository.getSearch()
-            val allProducts=data.body()
+    fun getData() {
+        viewModelScope.launch {
+            val data = homeRepository.getSearch()
+            val allProducts = data.body()
 //            mylist.addAll(listOf(allProducts))
 
         }
     }
 
-    fun searchAll( query : String){
-        var word=mylist.filter {
+    fun searchAll(query: String) {
+        var word = mylist.filter {
             it!!.title.equals(query)
 
         }
-
     }
-
 
 
     private fun handleError(errorMsg: String) {
