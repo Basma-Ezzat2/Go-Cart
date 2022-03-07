@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.gocart.databinding.ProductItemBinding
-import com.example.gocart.ui.home.pojo.product.Products
+import com.example.gocart.ui.home.pojo.search.Products
+import com.example.gocart.ui.home.pojo.search.SearchProduct
 
-class ProductAdapter(val context: Context, val productsClickListener: ProductsClickListener) :
-    RecyclerView.Adapter<ProductAdapter.ProductsViewHolder>() {
+class SearchAdapter (val context: Context, val productsClickListener: ProductsClickListener) : RecyclerView.Adapter<SearchAdapter.ProductSearchViewHolder>() {
 
     private val productsList: ArrayList<Products> = ArrayList()
 
@@ -21,7 +21,7 @@ class ProductAdapter(val context: Context, val productsClickListener: ProductsCl
     }
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, p1: Int) = ProductsViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, p1: Int) = ProductSearchViewHolder(
         ProductItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
     )
 
@@ -30,7 +30,7 @@ class ProductAdapter(val context: Context, val productsClickListener: ProductsCl
     }
 
     @SuppressLint("CheckResult")
-    override fun onBindViewHolder(holder: ProductsViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ProductSearchViewHolder, position: Int) {
         val productsModel = productsList[position]
 
         holder.apply {
@@ -42,20 +42,20 @@ class ProductAdapter(val context: Context, val productsClickListener: ProductsCl
             }
 
             itemView.setOnClickListener {
-                productsClickListener.onProductClickListener(productsModel, position)
+                productsClickListener.onProductSearchClickListener(productsModel, position)
             }
 
         }
     }
 
-    class ProductsViewHolder(binding: ProductItemBinding) :
+    class ProductSearchViewHolder(binding: ProductItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         val ivProduct = binding.productImage
         val tvTitle = binding.productName
     }
 
     interface ProductsClickListener {
-        fun onProductClickListener(collection: Products, position: Int)
+        fun onProductSearchClickListener(collection: Products, position: Int)
     }
 
 }

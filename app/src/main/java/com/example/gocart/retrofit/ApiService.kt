@@ -3,6 +3,7 @@ package com.example.gocart.retrofit
 import com.example.gocart.ui.home.pojo.brands.Brands
 import com.example.gocart.ui.home.pojo.product.ProductsModel
 import com.example.gocart.ui.home.pojo.productdetail.ProductDetails
+import com.example.gocart.ui.home.pojo.search.SearchProduct
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -16,6 +17,9 @@ interface ApiService {
 
     @GET("products/{product_id}.json")
     suspend fun getProductDetails(@Path("product_id") product_id:Long): Response<ProductDetails>
+
+    @GET("products.json")
+    suspend fun getSearchProducts() : Response<SearchProduct>
 
 
 //    @GET("products.json?")

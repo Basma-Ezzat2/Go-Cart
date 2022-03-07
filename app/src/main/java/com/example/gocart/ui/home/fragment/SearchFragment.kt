@@ -1,33 +1,90 @@
 package com.example.gocart.ui.home.fragment
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.view.*
+import android.widget.EditText
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.gocart.R
-import com.example.gocart.ui.home.viewmodels.SearchViewModel
+import com.example.gocart.databinding.SearchFragmentBinding
+import com.example.gocart.ui.home.adapters.ProductAdapter
+import com.example.gocart.ui.home.adapters.SearchAdapter
+import com.example.gocart.ui.home.pojo.product.Products
+import com.example.gocart.ui.home.viewmodels.HomeViewModel
 
-class SearchFragment : Fragment() {
+class SearchFragment : Fragment(),SearchAdapter.ProductsClickListener {
 
-    companion object {
-        fun newInstance() = SearchFragment()
-    }
-
-    private lateinit var viewModel: SearchViewModel
+    private lateinit var binding: SearchFragmentBinding
+    private lateinit var etSearch: EditText
+    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var searchAdapter:SearchAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.search_fragment, container, false)
+        binding = SearchFragmentBinding.inflate(inflater)
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(SearchViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        homeViewModel=ViewModelProvider(requireActivity())[HomeViewModel::class.java]
+        searchAdapter = SearchAdapter(requireContext(), this)
+
+        homeViewModel.productsSearch.observe(requireActivity(),{
+
+            searchAdapter.addList(it.products)
+            binding.searchRecycler.adapter=searchAdapter
+
+        })
+        activity!!.findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar).apply {
+            setNavigationIcon(R.drawable.ic_arrow_back)
+            setNavigationOnClickListener {
+                findNavController().navigate(R.id.navigation_home)
+            }
+        }
+
+        etSearch = activity!!.findViewById(R.id.et_search)
+        etSearch?.visibility = View.VISIBLE
+
     }
+
+    override fun onStop() {
+        super.onStop()
+        etSearch.visibility = View.GONE
+//        Toast.makeText(requireContext(), "click", Toast.LENGTH_SHORT).show()
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+//        if (etSearch.visibility == View.VISIBLE){
+//            Toast.makeText(requireContext(), "click", Toast.LENGTH_SHORT).show()
+
+    }
+
+    override fun onProductSearchClickListener(
+        collection: com.example.gocart.ui.home.pojo.search.Products,
+        position: Int
+    ) {
+        TODO("Not yet implemented")
+    }
+
+
+//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+//        inflater.inflate(R.menu.toolbar_menu, menu)
+//    }
+//
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        when (item.itemId) {
+//            R.id.searchIcon -> {
+//            }
+//        }
+//        return super.onOptionsItemSelected(item)
+//
+//    }
+
 
 }

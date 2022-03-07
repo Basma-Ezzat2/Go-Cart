@@ -11,11 +11,18 @@ import com.example.gocart.ui.home.pojo.product.ProductsModel
 import com.example.gocart.ui.home.pojo.productdetail.Product
 import com.example.gocart.ui.home.pojo.productdetail.ProductDetails
 import com.example.gocart.ui.home.pojo.productdetail.Variants
+import com.example.gocart.ui.home.pojo.search.Products
+import com.example.gocart.ui.home.pojo.search.SearchProduct
 import com.example.gocart.ui.home.repository.HomeRepository
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 
 class HomeViewModel : ViewModel() {
+
+
+//    /admin/api/2022-01/products.json
+
+    var mylist: ArrayList<SearchProduct?> = ArrayList()
 
     //    var api = RetrofitBuilder.retro.create(ApiService::class.java)
     private val homeRepository = HomeRepository(RetrofitBuilder.api)
@@ -32,11 +39,15 @@ class HomeViewModel : ViewModel() {
     private val varientsMutable = MutableLiveData<Variants>()
     val varients: LiveData<Variants> get() = varientsMutable
 
+    private val productsSearchMutable = MutableLiveData<SearchProduct>()
+    val productsSearch: LiveData<SearchProduct> get() = productsSearchMutable
+
 
     val errorMutable = MutableLiveData<String>()
 
     init {
         getAllBrands()
+        getSearch()
     }
 
     private fun getAllBrands() {
@@ -53,6 +64,8 @@ class HomeViewModel : ViewModel() {
         }
     }
 
+
+
     fun getProductByBrand(brandId: Long?) {
         viewModelScope.launch {
             val products = homeRepository.getProductsByBrand(brandId!!)
@@ -64,6 +77,7 @@ class HomeViewModel : ViewModel() {
             cancel()
         }
     }
+
 
     fun getProductDetails(ProductId: Long?) {
         viewModelScope.launch {
@@ -84,6 +98,38 @@ class HomeViewModel : ViewModel() {
             cancel()
         }
     }
+
+    fun getSearch() {
+        viewModelScope.launch {
+            val products = homeRepository.getSearch()
+            if (products.isSuccessful) {
+                productsSearchMutable.postValue(products.body())
+            } else {
+                handleError("حدث خطا اثناء تحميل المنتجات")
+            }
+            cancel()
+        }
+    }
+
+    fun getData(){
+        viewModelScope.launch{
+            val data= homeRepository.getSearch()
+            val allProducts=data.body()
+            mylist.addAll(listOf(allProducts))
+
+        }
+    }
+
+    fun searchAll( query : String){
+//        var word=mylist.filter {
+////            it.products.
+//
+//
+//        }
+
+    }
+
+
 
     private fun handleError(errorMsg: String) {
         errorMutable.postValue(errorMsg)
