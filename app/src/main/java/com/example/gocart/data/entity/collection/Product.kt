@@ -3,6 +3,7 @@ package com.example.gocart.data.entity.collection
 
 import com.example.gocart.data.entity.collection.Image
 import com.example.gocart.data.entity.collection.Option
+import com.example.gocart.pojo.Variants
 import com.google.gson.annotations.SerializedName
 
 data class Product(
@@ -29,11 +30,12 @@ data class Product(
     val title: String,
     @SerializedName("updated_at")
     val updatedAt: String,
-    val vendor: String
+    val vendor: String,
+    @SerializedName("variants") val variants: List<Variants> = listOf()
 ) {
-    constructor(title: String, vendor: String) : this(
+    /*constructor(title: String, vendor: String) : this(
         "",
         "", "", "", 0.0, null, null, null, "", "", "", "", "",title,"",vendor
 
-    )
+    )*/
 }

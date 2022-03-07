@@ -42,13 +42,11 @@ class LoginFragment : Fragment() {
                      }
                  }
              }
-             }
          }
-
     }
-}
 
-private fun validate():Boolean{
-    userEmail=binding.emailEdt.text.toString()
-
+    private fun validate():Boolean{
+        userEmail = binding.emailEdt.text.toString()
+        return true
+    }
 }

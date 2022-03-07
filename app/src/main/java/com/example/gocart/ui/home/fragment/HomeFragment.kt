@@ -93,6 +93,8 @@ class HomeFragment : Fragment(), BrandsAdapter.BrandsClickListener {
         _binding.viewpager.adapter = adsAdapter
     }
 
+
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.toolbar_menu, menu)
     }
@@ -102,13 +104,16 @@ class HomeFragment : Fragment(), BrandsAdapter.BrandsClickListener {
             R.id.fav_Icon -> {
                 findNavController().navigate(R.id.favouriteFragment)
             }
+            R.id.cartIcon ->{
+                findNavController().navigate(R.id.action_navigation_home_to_cartFragment)
+            }
         }
         return super.onOptionsItemSelected(item)
 
     }
 
     override fun brandClick(collection: SmartCollections, position: Int) {
-        homeViewModel.getProductByBrand(collection.id)
+        homeViewModel.getProductByBrand(collection.title)
         //(activity as MainActivity).findViewById<Toolbar>(R.id.toolbar).title = collection.title
         val bundle = Bundle()
         bundle.putString("BrandName", collection.title)

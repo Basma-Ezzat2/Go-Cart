@@ -7,7 +7,6 @@ import androidx.lifecycle.*
 import com.example.gocart.auth.pojo.CustomerModel
 import com.example.gocart.auth.repositories.AuthenticationRepo
 import com.example.gocart.auth.repositories.RepoErrors
-import com.example.gocart.auth.sharedpreferences.SettingsPreferences
 import com.example.gocart.auth.utils.Either
 import com.example.gocart.retrofit.RetrofitBuilder
 import kotlinx.coroutines.launch

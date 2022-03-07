@@ -34,6 +34,8 @@ interface ApiService {
     @GET("collections/{collection_id}/products.json")
     suspend fun getProducts(@Path("collection_id") collectionId: Long): Response<ProductsModel>
 
+
+
 //main categories api
     @GET("collections/398034600167/products.json")
     fun getWomanProductsList(): Response<ProductsList>
