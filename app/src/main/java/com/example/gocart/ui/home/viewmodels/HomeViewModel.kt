@@ -22,7 +22,7 @@ class HomeViewModel : ViewModel() {
 
 //    /admin/api/2022-01/products.json
 
-    var mylist: ArrayList<SearchProduct?> = ArrayList()
+    var mylist: ArrayList<Products> = ArrayList()
 
     //    var api = RetrofitBuilder.retro.create(ApiService::class.java)
     private val homeRepository = HomeRepository(RetrofitBuilder.api)
@@ -115,17 +115,16 @@ class HomeViewModel : ViewModel() {
         viewModelScope.launch{
             val data= homeRepository.getSearch()
             val allProducts=data.body()
-            mylist.addAll(listOf(allProducts))
+//            mylist.addAll(listOf(allProducts))
 
         }
     }
 
     fun searchAll( query : String){
-//        var word=mylist.filter {
-////            it.products.
-//
-//
-//        }
+        var word=mylist.filter {
+            it!!.title.equals(query)
+
+        }
 
     }
 
