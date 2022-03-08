@@ -7,6 +7,7 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import com.example.gocart.R
 import android.view.MenuInflater
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -70,8 +71,8 @@ class HomeFragment : Fragment(), BrandsAdapter.BrandsClickListener {
         adsAdapter.setContentList(list)
 
 
-        val DELAY_MS: Long = 5000
-        val PERIOD_MS: Long = 5000
+        val DELAY_MS: Long = 3000
+        val PERIOD_MS: Long = 3000
         var currentPage = 0
 
         val handler = Handler(Looper.myLooper()!!)
@@ -93,8 +94,6 @@ class HomeFragment : Fragment(), BrandsAdapter.BrandsClickListener {
         _binding.viewpager.adapter = adsAdapter
     }
 
-
-
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.toolbar_menu, menu)
     }
@@ -104,8 +103,8 @@ class HomeFragment : Fragment(), BrandsAdapter.BrandsClickListener {
             R.id.fav_Icon -> {
                 findNavController().navigate(R.id.favouriteFragment)
             }
-            R.id.cartIcon ->{
-                findNavController().navigate(R.id.action_navigation_home_to_cartFragment)
+            R.id.searchIcon -> {
+                findNavController().navigate(R.id.searchFragment)
             }
         }
         return super.onOptionsItemSelected(item)

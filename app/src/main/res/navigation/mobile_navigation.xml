@@ -60,4 +60,9 @@
         android:id="@+id/cartFragment"
         android:name="com.example.gocart.ui.cart.CartFragment"
         android:label="CartFragment" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.gocart.ui.home.fragment.SearchFragment"
+        android:label="search_fragment"
+        tools:layout="@layout/search_fragment" />
 </navigation>

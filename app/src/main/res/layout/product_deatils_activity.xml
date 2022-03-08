@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.fragment.ProductDetailFragment">
+
+
+    <Toolbar
+        android:id="@+id/toolbar3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/fourth"
+        android:navigationIcon="@drawable/ic_arrow_back"
+        android:title="Home"
+        android:titleTextColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+
+    <ProgressBar
+        android:id="@+id/details_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:visibility="gone"
+        android:layout_marginTop="?actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="60dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager2"
+                android:layout_marginTop="?actionBarSize"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.47"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:elevation="2dp"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewPager2">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/review"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="Reviews"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginEnd="10dp"></TextView>
+
+                    <TextView
+                        android:id="@+id/tv_productName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:padding="10dp"
+                        android:text="product name"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <RatingBar
+                        android:id="@+id/ratingCount"
+                        style="@style/Widget.AppCompat.RatingBar.Small"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_productName"
+                        android:layout_marginStart="270dp"
+                        android:layout_marginEnd="20dp"
+                        android:numStars="5"
+                        android:layout_marginTop="15dp"
+                        android:theme="@style/AppRatingBar"
+                        app:layout_constraintHorizontal_bias="0.9" />
+
+                    <TextView
+                        android:id="@+id/tv_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_productName"
+                        android:padding="10dp"
+                        android:text="product price"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+
+                </RelativeLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="14dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="Description"
+                        android:textColor="@color/fourth"
+                        android:textSize="32sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtdescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/desc"
+                        android:padding="10dp"
+                        android:text="Detail"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/add_to_fav"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:src="@drawable/fav_icon"
+            android:text="add to bag"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/add_to_cart"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="19dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="6dp"
+            android:background="@drawable/rounded"
+            android:text="add to bag"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

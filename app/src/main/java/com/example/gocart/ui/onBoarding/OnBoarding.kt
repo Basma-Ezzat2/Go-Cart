@@ -25,6 +25,7 @@ class OnBoarding : AppCompatActivity() {
         // check if app already running once time
         if (restorePrefData()) {
             val i = Intent(applicationContext, MainActivity::class.java)
+            finish()
             startActivity(i)
         }
         setContentView(R.layout.activity_on_boarding)

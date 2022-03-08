@@ -9,8 +9,11 @@ class HomeRepository(private val api: ApiService) {
 
     suspend fun getBrands() = api.getBrands()
 
+    suspend fun getProduct(vendor: String) = api.getProductsByVendor(vendor)
 
-    suspend fun getProduct(vendor : String) = api.getProductsByVendor(vendor)
+    suspend fun getProductDetails(ProductId: Long) = api.getProductDetails(ProductId)
+
+    suspend fun getSearch() = api.getSearchProducts()
 
 
 }
