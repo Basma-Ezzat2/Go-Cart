@@ -6,6 +6,30 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <string name="total">Total</string>
+    <string name="total">Total: </string>
     <string name="waiting_for_payment">Waiting For Payment</string>
+    <string name="payment_method">Payment Method</string>
+    <string name="cash_on_delivery">Cash On Delivery</string>
+    <string name="paypal">PayPal</string>
+    <string name="go_pay">Go Pay</string>
+    <string name="choose_address">Choose Address</string>
+    <string name="sub_total">Sub Total</string>
+    <string name="shipping_fees">Shipping Fees</string>
+    <string name="coupon">Coupon</string>
+    <string name="discount">Discount</string>
+    <string name="confirm_order">Confirm Order</string>
+    <string name="address">Address</string>
+    <string name="currency">Currency</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="about_us">About Us</string>
+    <string name="log_out">Log Out</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="country">Country</string>
+    <string name="street_name">Street Name</string>
+    <string name="city">City</string>
+    <string name="building_no_floor_apartment">Building no., Floor, Apartment</string>
+    <string name="government">Government</string>
+    <string name="full_name">Full Name</string>
+    <string name="address">Address</string>
 </resources>

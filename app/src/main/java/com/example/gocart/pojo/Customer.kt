@@ -26,14 +26,14 @@ data class Customer(
     val acceptsMarketing: Boolean?,
     @SerializedName("accepts_marketing_updated_at")
     val acceptsMarketingUpdatedAt: String?,
-    val addresses: List<Addresse>?,
+    val addresses: List<Address>?,
     @SerializedName("admin_graphql_api_id")
     val adminGraphqlApiId: String?,
     @SerializedName("created_at")
     val createdAt: String?,
     val currency: String?,
     @SerializedName("default_address")
-    val defaultAddress: Addresse?,
+    val defaultAddress: Address?,
     val email: String?,
     @SerializedName("first_name")
     val firstName: String?,
@@ -95,68 +95,3 @@ data class Customer(
     }
 }
 
-data class Addresse(
-    val address1: String?,
-    val address2: Any?,
-    val city: String?,
-    val company: Any?,
-    val country: String?,
-    @SerializedName("country_code")
-    val countryCode: String?,
-    @SerializedName("country_name")
-    val countryName: String?,
-    @SerializedName("customer_id")
-    val customerId: Long?,
-    val default: Boolean?,
-    @SerializedName("first_name")
-    val firstName: String?,
-    val id: Long?,
-    @SerializedName("last_name")
-    val lastName: String?,
-    val name: String?,
-    val phone: String?,
-    val province: String?,
-    @SerializedName("province_code")
-    val provinceCode: String?,
-    val zip: String?
-)
-
-data class Address(
-    val address1: String?,
-    val address2: String?,
-    val city: String?,
-    val company: String?,
-    val country: String?,
-    @SerializedName("country_code")
-    val countryCode: String?,
-    @SerializedName("country_name")
-    val countryName: String?,
-    @SerializedName("first_name")
-    val firstName: String?,
-    @SerializedName("last_name")
-    val lastName: String?,
-    val name: String?,
-    val phone: String?,
-    val province: String?,
-    @SerializedName("province_code")
-    val provinceCode: String?,
-    val zip: String?,
-    val default: Boolean?,
-)
-
-data class CreateAddress(
-    val address: Address?
-)
-
-data class UpdateAddresse(
-    val address: Addresse?
-)
-
-data class CreateAddressX(
-    @SerializedName("customer_address")
-    val address: Addresse?
-)
-
-data class customerAddresses(
-    val addresses: List<Addresse>
-)
