@@ -5,15 +5,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.ScaleAnimation
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.gocart.R
 import com.example.gocart.databinding.ItemCartBinding
 import com.example.gocart.pojo.ProductCartModule
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import kotlin.random.Random
 
 class CartAdapter (
-    var cartList: List<ProductCartModule>, var decreamenter: (ProductCartModule)->Unit, var incremeanter: (ProductCartModule)->Unit) : RecyclerView.Adapter<CartAdapter.ViewHolder>() {
+    var cartList: List<ProductCartModule>, var decreamenter: (ProductCartModule)->Unit  ,var incremeanter: (ProductCartModule)->Unit , var deleter : (ProductCartModule)->Unit) : RecyclerView.Adapter<CartAdapter.ViewHolder>() {
 
     /*fun addNewList(orderNewList: List<ProductCartModule>) {
         cartList.clear()
@@ -26,6 +31,7 @@ class CartAdapter (
         notifyItemRemoved(pos);
 
     }*/
+
 
     class ViewHolder(var myView: ItemCartBinding) : RecyclerView.ViewHolder(myView.root)
 
@@ -47,6 +53,10 @@ class CartAdapter (
         }
         holder.myView.increaseButton.setOnClickListener{
             incremeanter(cartList[position])
+        }
+
+        holder.myView.btnDelete.setOnClickListener {
+            deleter(cartList[position])
         }
 
 

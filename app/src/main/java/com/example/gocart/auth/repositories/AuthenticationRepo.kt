@@ -3,7 +3,7 @@ package com.example.gocart.auth.repositories
 import android.app.Application
 import com.example.gocart.auth.pojo.CustomerModel
 import com.example.gocart.auth.utils.Either
-import com.example.gocart.retrofit.RetrofitBuilder.api
+import com.example.gocart.retrofit.RetrofitBuilder.apiService
 import com.stash.shopeklobek.model.entities.CustomerLoginModel
 
 class AuthenticationRepo(
@@ -15,7 +15,7 @@ class AuthenticationRepo(
 
     suspend fun signUp(customer: CustomerModel): Either<CustomerModel, RepoErrors> {
         return try {
-            val res =api.register(customer)
+            val res =apiService.register(customer)
             if (res.isSuccessful){
                 return Either.Success(res.body()!!)
             }else{
@@ -30,7 +30,7 @@ class AuthenticationRepo(
 
     suspend fun login(email: String): Either<CustomerLoginModel, LoginErrors> {
         return try {
-            val res = api.login()
+            val res = apiService.login()
             if (res.isSuccessful) {
 
                 val customer = res.body()?.customer?.first {

@@ -106,6 +106,10 @@ class HomeFragment : Fragment(), BrandsAdapter.BrandsClickListener {
             R.id.searchIcon -> {
                 findNavController().navigate(R.id.searchFragment)
             }
+
+            R.id.cartIcon -> {
+                findNavController().navigate(R.id.cartFragment)
+            }
         }
         return super.onOptionsItemSelected(item)
 

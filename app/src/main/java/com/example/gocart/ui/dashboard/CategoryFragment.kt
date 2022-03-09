@@ -55,6 +55,10 @@ class CategoryFragment : Fragment() {
         if (item.itemId == R.id.cartIcon){
             navController.navigate(R.id.action_navigation_dashboard_to_cartFragment)
         }
+
+        if(item.itemId == R.id.cartIcon){
+                findNavController().navigate(R.id.cartFragment)
+        }
         return super.onOptionsItemSelected(item)
     }
 

@@ -8,6 +8,9 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
+import com.example.gocart.R
 import com.example.gocart.databinding.FragmentMeBinding
 
 class MeFragment : Fragment() {
@@ -30,10 +33,9 @@ class MeFragment : Fragment() {
         _binding = FragmentMeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textNotifications
-        meViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+        binding.goToSettingsBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_notifications_to_settingsFragment)
+        }
         return root
     }
 

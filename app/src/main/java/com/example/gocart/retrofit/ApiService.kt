@@ -5,6 +5,8 @@ import com.example.gocart.auth.pojo.EditCustomerModel
 import com.example.gocart.ui.home.pojo.brands.Brands
 import com.example.gocart.ui.home.pojo.product.ProductsModel
 import com.example.gocart.data.entity.collection.ProductsList
+import com.example.gocart.pojo.Discount
+import com.example.gocart.pojo.DiscountModel
 import com.example.gocart.ui.home.pojo.productdetail.ProductDetails
 import com.example.gocart.ui.home.pojo.search.SearchProduct
 import com.stash.shopeklobek.model.entities.CustomerLoginModel
@@ -65,6 +67,11 @@ interface ApiService {
     @GET("products.json?")
     suspend fun getProductsFromType(@Query("product_type") productType: String): Response<ProductsModel>
 
+
+    // discount
+
+    @GET("price_rules.json")
+    suspend fun getAllDiscounts():Response<DiscountModel>
 
 
 //    @GET("products/{productID}/images.json")

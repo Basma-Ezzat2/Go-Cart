@@ -1,6 +1,7 @@
 package com.example.gocart.pojo
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 
 data class Image (
@@ -16,4 +17,4 @@ data class Image (
 	@SerializedName("src") val src : String?,
 	@SerializedName("variant_ids") val variant_ids : List<String>?,
 	@SerializedName("admin_graphql_api_id") val admin_graphql_api_id : String?
-)
+) : Serializable

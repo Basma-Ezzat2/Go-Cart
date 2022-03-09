@@ -3,8 +3,10 @@ package com.example.gocart.ui.home.activities
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.example.gocart.R
 
 import com.example.gocart.databinding.ProductDeatilsActivityBinding
 import com.example.gocart.pojo.Product
@@ -27,9 +29,7 @@ class ProductDetailsActivity : AppCompatActivity() {
 
         title = ""
 
-        binding.addToCart.setOnClickListener {
-//            onAddToCart()
-        }
+
 
         binding.toolbar3.setNavigationOnClickListener { finish() }
         binding.ratingCount.rating = 3.5f
@@ -55,6 +55,12 @@ class ProductDetailsActivity : AppCompatActivity() {
                 binding.detailsProgress.visibility = View.GONE
                 binding.scrollView.visibility = View.VISIBLE
                 binding.toolbar3.title = it.title
+
+
+            }
+            binding.addToCart.setOnClickListener {view ->
+                val product = intent.extras!!.getSerializable("cart_product") as Product
+                homeViewModel.addToCart(product)
             }
 
             productImagesAdapter.setContentList(it.images)
@@ -66,6 +72,9 @@ class ProductDetailsActivity : AppCompatActivity() {
         homeViewModel.varients.observe(this, {
             binding.tvPrice.text = it.price.toString() + "$"
         })
+
+
+
     }
 
     fun onAddToCart(collection: Product, position: Int) {

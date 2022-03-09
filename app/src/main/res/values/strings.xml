@@ -11,14 +11,13 @@
     <string name="payment_method">Payment Method</string>
     <string name="cash_on_delivery">Cash On Delivery</string>
     <string name="paypal">PayPal</string>
-    <string name="go_pay">Go Pay</string>
+    <string name="go_pay">Google Pay</string>
     <string name="choose_address">Choose Address</string>
     <string name="sub_total">Sub Total</string>
     <string name="shipping_fees">Shipping Fees</string>
     <string name="coupon">Coupon</string>
     <string name="discount">Discount</string>
     <string name="confirm_order">Confirm Order</string>
-    <string name="address">Address</string>
     <string name="currency">Currency</string>
     <string name="contact_us">Contact Us</string>
     <string name="about_us">About Us</string>
@@ -32,4 +31,6 @@
     <string name="government">Government</string>
     <string name="full_name">Full Name</string>
     <string name="address">Address</string>
+    <string name="phone">Phone</string>
+    <string name="continue_to_payment">Continue To Payment</string>
 </resources>

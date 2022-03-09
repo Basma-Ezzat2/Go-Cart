@@ -22,7 +22,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
 
     //    var api = RetrofitBuilder.retro.create(ApiService::class.java)
-    private val homeRepository = HomeRepository(RetrofitBuilder.api)
+    private val homeRepository = HomeRepository(RetrofitBuilder.apiService)
 
     private val mutableResponse = MutableLiveData<Brands>()
     val liveDataResponse: LiveData<Brands> get() = mutableResponse
