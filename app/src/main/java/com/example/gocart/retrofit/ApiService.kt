@@ -2,9 +2,9 @@ package com.example.gocart.retrofit
 
 import com.example.gocart.auth.pojo.CustomerModel
 import com.example.gocart.auth.pojo.EditCustomerModel
+import com.example.gocart.data.entity.categoriesPojo.ExampleJson2KtKotlin
 import com.example.gocart.ui.home.pojo.brands.Brands
 import com.example.gocart.ui.home.pojo.product.ProductsModel
-import com.example.gocart.data.entity.collection.ProductsList
 import com.example.gocart.ui.home.pojo.productdetail.ProductDetails
 import com.example.gocart.ui.home.pojo.search.SearchProduct
 import com.stash.shopeklobek.model.entities.CustomerLoginModel
@@ -41,19 +41,19 @@ interface ApiService {
 
 
 
-//main categories api
+    //main categories api
     @GET("collections/398034600167/products.json")
-    fun getWomanProductsList(): Response<ProductsList>
+    suspend fun getWomenProductsList(): Response<ExampleJson2KtKotlin>
 
-//    @GET("collections/268359663814/products.json")
-//    fun getKidsProductsList(): Call<ProductsList>
-//
-//    @GET("collections/268359598278/products.json")
-//    fun getMenProductsList(): Call<ProductsList>
-//
-//    @GET("collections/268359696582/products.json")
-//    fun getOnSaleProductsList(): Call<ProductsList>
-//
+    @GET("collections/398034632935/products.json")
+    suspend fun getKidsProductsList(): Response<ExampleJson2KtKotlin>
+    //
+    @GET("collections/398034567399/products.json")
+    suspend fun getMenProductsList(): Response<ExampleJson2KtKotlin>
+
+    @GET("collections/398034665703/products.json")
+    suspend fun getOnSaleProductsList(): Response<ExampleJson2KtKotlin>
+
    /* @GET("products/{product_id}.json")
     suspend fun getProductDetails(@Path("product_id") product_id:Long): Response<>
 */
