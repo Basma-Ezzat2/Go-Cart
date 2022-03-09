@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 
 class CategoryViewModel : ViewModel() {
 
-    private val categoryRepository = CategoryRepository(RetrofitBuilder.api)
+    private val categoryRepository = CategoryRepository(RetrofitBuilder.apiService)
 
     private val productResponse = MutableLiveData<ExampleJson2KtKotlin>()
     val liveDataResponse: LiveData<ExampleJson2KtKotlin> get() = productResponse

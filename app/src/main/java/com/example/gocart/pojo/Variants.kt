@@ -1,6 +1,7 @@
 package com.example.gocart.pojo
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 
 data class Variants (
@@ -31,4 +32,4 @@ data class Variants (
     @SerializedName("old_inventory_quantity") val old_inventory_quantity : Int?,
     @SerializedName("requires_shipping") val requires_shipping : Boolean?,
     @SerializedName("admin_graphql_api_id") val admin_graphql_api_id : String?
-)
+): Serializable

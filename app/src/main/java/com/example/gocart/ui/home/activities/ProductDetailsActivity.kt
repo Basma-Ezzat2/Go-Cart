@@ -3,6 +3,7 @@ package com.example.gocart.ui.home.activities
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 
@@ -55,6 +56,12 @@ class ProductDetailsActivity : AppCompatActivity() {
                 binding.detailsProgress.visibility = View.GONE
                 binding.scrollView.visibility = View.VISIBLE
                 binding.toolbar3.title = it.title
+            }
+
+            binding.addToCart.setOnClickListener {view ->
+                val product = intent.extras!!.getSerializable("cart_product") as Product
+                homeViewModel.addToCart(product)
+                Toast.makeText(applicationContext, "Added To Cart", Toast.LENGTH_SHORT).show()
             }
 
             productImagesAdapter.setContentList(it.images)
