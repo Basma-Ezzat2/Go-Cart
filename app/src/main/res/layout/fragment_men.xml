@@ -4,17 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.dashboard.fragments.MenFragment">
+    tools:context=".ui.category.fragments.MenFragment">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-       >
-
+        android:background="@color/first"
+        >
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floatingActionButtonAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/grey"
+            android:backgroundTint="@color/fifth"
             android:clickable="true"
             android:focusable="true"
             android:src="@drawable/ic_baseline_add_24"
@@ -35,7 +35,7 @@
             android:focusable="true"
             android:visibility="invisible"
             android:backgroundTint="@color/first"
-            android:src="@drawable/jacket"
+            android:src="@drawable/accesories"
             app:layout_constraintBottom_toTopOf="@+id/floatingActionButtonAdd"
             app:layout_constraintEnd_toEndOf="@+id/floatingActionButtonAdd"
             app:layout_constraintStart_toStartOf="@+id/floatingActionButtonAdd" />
@@ -48,7 +48,8 @@
             android:focusable="true"
             android:visibility="invisible"
             android:backgroundTint="@color/first"
-            android:src="@drawable/backbag"
+            android:src="@drawable/clothes"
+            android:tint="@color/white"
             app:layout_constraintBottom_toTopOf="@+id/floatingActionButton"
             app:layout_constraintEnd_toEndOf="@+id/floatingActionButton"
             app:layout_constraintStart_toStartOf="@+id/floatingActionButton" />
@@ -65,6 +66,8 @@
             app:layout_constraintBottom_toTopOf="@+id/floatingActionButton2"
             app:layout_constraintEnd_toEndOf="@+id/floatingActionButton2"
             app:layout_constraintStart_toStartOf="@+id/floatingActionButton2" />
+
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewMyProduct3"
             android:layout_width="match_parent"
@@ -74,6 +77,7 @@
             app:spanCount="3"
             tools:listitem="@layout/card_view_product"
             android:paddingBottom="50dp"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

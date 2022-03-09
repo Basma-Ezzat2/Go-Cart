@@ -1,24 +1,34 @@
-package com.example.gocart.ui.dashboard.fragments
+package com.example.gocart.ui.category.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.gocart.R
+import com.example.gocart.data.entity.categoriesPojo.Products
 import com.example.gocart.databinding.FragmentWomenBinding
+import com.example.gocart.ui.category.CategoryViewModel
+import com.example.gocart.ui.category.adapter.RecyclerViewAdapterProduct
+import com.example.gocart.ui.home.activities.ProductDetailsActivity
 
-class WomenFragment : Fragment() {
+
+class WomenFragment : Fragment(), RecyclerViewAdapterProduct.OnItemClickListener {
     private lateinit var _binding: FragmentWomenBinding
+    private lateinit var categoryViewModel: CategoryViewModel
+    private lateinit var recyclerViewAdapterProduct: RecyclerViewAdapterProduct
     private var clicked =false
+    private val rotateOpen: Animation by lazy { AnimationUtils.loadAnimation(requireActivity(),R.anim.rotate_open_anim) }
+    private val rotateClose: Animation by lazy { AnimationUtils.loadAnimation(requireActivity(),R.anim.rotate_close_anim) }
+    private val fromBottom: Animation by lazy { AnimationUtils.loadAnimation(requireActivity(),R.anim.from_bottom_anim) }
+    private val toBottom: Animation by lazy { AnimationUtils.loadAnimation(requireActivity(),R.anim.to_bottom_anim) }
 
-    private val rotateOpen:Animation by lazy { AnimationUtils.loadAnimation(requireActivity(),R.anim.rotate_open_anim) }
-    private val rotateClose:Animation by lazy { AnimationUtils.loadAnimation(requireActivity(),R.anim.rotate_close_anim) }
-    private val fromBottom:Animation by lazy { AnimationUtils.loadAnimation(requireActivity(),R.anim.from_bottom_anim) }
-    private val toBottom:Animation by lazy { AnimationUtils.loadAnimation(requireActivity(),R.anim.to_bottom_anim) }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,8 +36,10 @@ class WomenFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-         inflater.inflate(R.layout.fragment_women, container, false)
+        inflater.inflate(R.layout.fragment_women, container, false)
         _binding = FragmentWomenBinding.inflate(inflater, container, false)
+
+
         return _binding.root
     }
     override fun onViewCreated(view: View,savedInstanceState: Bundle?) {
@@ -36,16 +48,27 @@ class WomenFragment : Fragment() {
             onAddButtonClicked()
         }
         _binding.floatingActionButton.setOnClickListener {
-            Toast.makeText(requireContext(),"Button 1 Clicked",Toast.LENGTH_SHORT).show()
+            val bundle = bundleOf("Flag" to 0)
+            findNavController().navigate(R.id.womenSubCategories,bundle)
         }
         _binding.floatingActionButton2.setOnClickListener {
-            Toast.makeText(requireContext(),"Button 2 Clicked",Toast.LENGTH_SHORT).show()
+            val bundle = bundleOf("Flag" to 1)
+            findNavController().navigate(R.id.womenSubCategories,bundle)
         }
         _binding.floatingActionButton3.setOnClickListener {
-            Toast.makeText(requireContext(),"Button 3 Clicked",Toast.LENGTH_SHORT).show()
+            val bundle = bundleOf("Flag" to 2)
+            findNavController().navigate(R.id.womenSubCategories,bundle)
         }
-    }
+        recyclerViewAdapterProduct= RecyclerViewAdapterProduct(requireContext(),this)
+        categoryViewModel = ViewModelProvider(requireActivity())[CategoryViewModel::class.java]
 
+        categoryViewModel.liveDataResponse.observe(viewLifecycleOwner,{
+            val productList=it.products
+            recyclerViewAdapterProduct.addList(productList)
+            _binding.recyclerViewWomen.adapter=recyclerViewAdapterProduct
+
+        })
+    }
     private fun onAddButtonClicked() {
         setVisibility(clicked)
         setAnimation(clicked)
@@ -77,5 +100,10 @@ class WomenFragment : Fragment() {
             _binding.floatingActionButton3.visibility=View.INVISIBLE
         }
     }
+
+    override fun onItemEditClickProduct(book: Products, position: Int) {
+        val intent = Intent(requireContext(), ProductDetailsActivity::class.java)
+        intent.putExtra("product_id", book.id)
+        startActivity(intent)     }
 
 }

@@ -17,10 +17,73 @@
             android:id="@+id/action_navigation_home_to_cartFragment"
             app:destination="@id/cartFragment" />
     </fragment>
-
+    <fragment
+        android:id="@+id/menFragment"
+        android:name="com.example.gocart.ui.category.fragments.MenFragment"
+        tools:layout="@layout/fragment_men">
+        <action
+            android:id="@+id/action_menFragment_to_menSubCategories"
+            app:destination="@id/menSubCategories" />
+    </fragment>
+    <fragment
+        android:id="@+id/womenFragment"
+        android:name="com.example.gocart.ui.category.fragments.WomenFragment"
+        tools:layout="@layout/fragment_women">
+        <action
+            android:id="@+id/action_womenFragment_to_womenSubCategories"
+            app:destination="@id/womenSubCategories" />
+    </fragment>
+    <fragment
+        android:id="@+id/kidsFragment"
+        android:name="com.example.gocart.ui.category.fragments.KidsFragment"
+        tools:layout="@layout/fragment_kids">
+        <action
+            android:id="@+id/action_kidsFragment_to_kidSubCategories"
+            app:destination="@id/kidSubCategories" />
+    </fragment>
+    <fragment
+        android:id="@+id/salesFragment"
+        android:name="com.example.gocart.ui.category.fragments.SalesFragment"
+        tools:layout="@layout/fragment_sales">
+        <action
+            android:id="@+id/action_salesFragment_to_saleSubCategories"
+            app:destination="@id/saleSubCategories" />
+    </fragment>
+    <fragment
+        android:id="@+id/menSubCategories"
+        android:name="com.example.gocart.ui.category.subCategory.MenSubFragment"
+        tools:layout="@layout/fragment_sub_men" >
+        <action
+            android:id="@+id/action_menSubCategories_to_menFragment"
+            app:destination="@id/menFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/kidSubCategories"
+        android:name="com.example.gocart.ui.category.subCategory.KidsSubFragment"
+        tools:layout="@layout/fragment_sub_kids" >
+        <action
+            android:id="@+id/action_kidSubCategories_to_kidsFragment"
+            app:destination="@id/kidsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/womenSubCategories"
+        android:name="com.example.gocart.ui.category.subCategory.WomenSubFragment"
+        tools:layout="@layout/fragment_sub_women" >
+        <action
+            android:id="@+id/action_womenSubCategories_to_womenFragment"
+            app:destination="@id/womenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/saleSubCategories"
+        android:name="com.example.gocart.ui.category.subCategory.SalesSubFragment"
+        tools:layout="@layout/fragment_sales_sub" >
+        <action
+            android:id="@+id/action_saleSubCategories_to_salesFragment"
+            app:destination="@id/salesFragment" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.gocart.ui.dashboard.CategoryFragment"
+        android:name="com.example.gocart.ui.category.CategoryFragment"
         android:label="@string/title_category"
         tools:layout="@layout/fragment_category" >
         <action
