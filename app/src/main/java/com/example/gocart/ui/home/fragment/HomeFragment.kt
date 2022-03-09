@@ -7,6 +7,7 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import com.example.gocart.R
 import android.view.MenuInflater
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -70,8 +71,8 @@ class HomeFragment : Fragment(), BrandsAdapter.BrandsClickListener {
         adsAdapter.setContentList(list)
 
 
-        val DELAY_MS: Long = 5000
-        val PERIOD_MS: Long = 5000
+        val DELAY_MS: Long = 3000
+        val PERIOD_MS: Long = 3000
         var currentPage = 0
 
         val handler = Handler(Looper.myLooper()!!)
@@ -102,13 +103,16 @@ class HomeFragment : Fragment(), BrandsAdapter.BrandsClickListener {
             R.id.fav_Icon -> {
                 findNavController().navigate(R.id.favouriteFragment)
             }
+            R.id.searchIcon -> {
+                findNavController().navigate(R.id.searchFragment)
+            }
         }
         return super.onOptionsItemSelected(item)
 
     }
 
     override fun brandClick(collection: SmartCollections, position: Int) {
-        homeViewModel.getProductByBrand(collection.id)
+        homeViewModel.getProductByBrand(collection.title)
         //(activity as MainActivity).findViewById<Toolbar>(R.id.toolbar).title = collection.title
         val bundle = Bundle()
         bundle.putString("BrandName", collection.title)

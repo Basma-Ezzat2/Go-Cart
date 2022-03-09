@@ -13,13 +13,20 @@
         <action
             android:id="@+id/action_navigation_home_to_favouriteFragment"
             app:destination="@id/favouriteFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_cartFragment"
+            app:destination="@id/cartFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.example.gocart.ui.dashboard.CategoryFragment"
         android:label="@string/title_category"
-        tools:layout="@layout/fragment_category" />
+        tools:layout="@layout/fragment_category" >
+        <action
+            android:id="@+id/action_navigation_dashboard_to_cartFragment"
+            app:destination="@id/cartFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_notifications"
@@ -49,4 +56,13 @@
             android:id="@+id/action_favouriteFragment_to_navigation_home"
             app:destination="@id/navigation_home" />
     </fragment>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.example.gocart.ui.cart.CartFragment"
+        android:label="CartFragment" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.gocart.ui.home.fragment.SearchFragment"
+        android:label="search_fragment"
+        tools:layout="@layout/search_fragment" />
 </navigation>

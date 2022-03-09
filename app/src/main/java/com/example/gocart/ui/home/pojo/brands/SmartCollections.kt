@@ -3,7 +3,7 @@ package com.example.gocart.ui.home.pojo.brands
 import com.google.gson.annotations.SerializedName
 
 data class SmartCollections (
-    @SerializedName("id"                   ) var id                : Long?             = null,
+    @SerializedName("id"                   ) var id                : Long?            = null,
     @SerializedName("handle"               ) var handle            : String?          = null,
     @SerializedName("title"                ) var title             : String?          = null,
     @SerializedName("updated_at"           ) var updatedAt         : String?          = null,
