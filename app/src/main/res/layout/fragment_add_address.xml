@@ -7,7 +7,7 @@
     tools:context=".ui.settings.AddAddressFragment">
 
     <EditText
-        android:id="@+id/editText6"
+        android:id="@+id/addAddressFullName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -20,19 +20,19 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/addAddressPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="24dp"
-        android:hint="@string/government"
+        android:hint="@string/phone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText4" />
+        app:layout_constraintTop_toBottomOf="@+id/addAddressCity" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/addAddressCity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -42,10 +42,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/addAddressAddress" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/addAddressAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -55,10 +55,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.842"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/addAddressCountry" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/addAddressCountry"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -67,7 +67,7 @@
         android:hint="@string/country"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText6" />
+        app:layout_constraintTop_toBottomOf="@+id/addAddressFullName" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/saveAddressBtn"
@@ -81,6 +81,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText5" />
+        app:layout_constraintTop_toBottomOf="@+id/addAddressPhone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,27 +6,24 @@ import java.io.Serializable
 data class Address(
 
     @SerializedName( "id")
-    val id: Long? = 0,
+    var id: Long? = 0,
 
     @SerializedName( "country")
-    val country: String? = "",
+    var country: String? = "",
 
     @SerializedName( "city")
-    val city: String? = "",
+    var city: String? = "",
 
     @SerializedName( "first_name")
-    val firstName: String? = "",
+    var firstName: String? = "",
 
-    @SerializedName( "last_name")
-    val lastName: String? = "",
-
-    @SerializedName( "address")
-    val address: String? = "",
+    @SerializedName( "address1")
+    var address: String? = "",
 
     @SerializedName( "phone")
-    val phone: String? = "",
+    var phone: String? = "",
 
     @SerializedName( "default")
-    val default: Boolean = false,
+    var default: Boolean = false,
 
     ):Serializable

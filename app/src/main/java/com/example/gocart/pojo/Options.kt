@@ -1,6 +1,7 @@
 package com.example.gocart.pojo
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 
 data class Options (
@@ -10,4 +11,4 @@ data class Options (
 	@SerializedName("name") val name : String?,
 	@SerializedName("position") val position : Int?,
 	@SerializedName("values") var values : List<String>?
-)
+): Serializable
