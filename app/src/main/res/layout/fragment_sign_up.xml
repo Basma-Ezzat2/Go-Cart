@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="49dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/topguid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.0" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Go Cart"
+                    android:textColor="@color/fourth"
+                    android:textSize="40dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/topguid" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/centerguid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.14" />
+
+                <LinearLayout
+                    android:id="@+id/ll_taps"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/centerguid">
+
+                    <TextView
+                        android:id="@+id/tv_signin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Sign in"
+                        android:textColor="@color/fourth"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_signup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Register"
+                        android:textColor="@color/fourth"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tv_nameField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@color/fourth"
+                    app:cardCornerRadius="70dp"
+                    app:hintTextColor="@color/fourth"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ll_taps"
+                    app:strokeColor="@color/fourth"
+                    tools:ignore="MissingConstraints">
+
+                    <EditText
+                        android:id="@+id/name_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:backgroundTint="@color/white"
+                        android:drawableLeft="@drawable/ic_person"
+                        android:drawablePadding="10dp"
+                        android:ems="10"
+                        android:hint="user name"
+                        android:minHeight="48dp"
+                        android:textColor="@color/fourth"
+                        android:textColorHint="@color/fourth"
+                        android:textCursorDrawable="@drawable/cursor_color" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tv_emailField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textColorHint="@color/fourth"
+                    app:cardCornerRadius="70dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_nameField"
+                    app:strokeColor="@color/fourth"
+                    tools:ignore="MissingConstraints">
+
+                    <EditText
+                        android:id="@+id/email_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_marginTop="16dp"
+                        android:backgroundTint="@color/white"
+                        android:drawableStart="@drawable/ic_email"
+                        android:drawablePadding="10dp"
+                        android:ems="10"
+                        android:hint="email address"
+                        android:minHeight="48dp"
+                        android:textColor="@color/fourth"
+                        android:textColorHint="@color/fourth"
+                        android:textCursorDrawable="@drawable/cursor_color" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tv_passField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textColorHint="@color/fourth"
+                    app:cardCornerRadius="70dp"
+                    app:hintTextColor="@color/fourth"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_emailField"
+                    app:strokeColor="@color/fourth"
+                    tools:ignore="MissingConstraints">
+
+                    <EditText
+                        android:id="@+id/password_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:backgroundTint="@color/white"
+                        android:drawableStart="@drawable/ic_security"
+                        android:drawablePadding="10dp"
+                        android:ems="10"
+                        android:hint="password"
+                        android:inputType="textPassword"
+                        android:minHeight="48dp"
+                        android:textColor="@color/fourth"
+                        android:textColorHint="@color/fourth"
+                        android:textCursorDrawable="@drawable/cursor_color" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tv_ConfirmPassField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textColorHint="@color/fourth"
+                    app:cardCornerRadius="70dp"
+                    app:hintTextColor="@color/fourth"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_passField"
+                    app:strokeColor="@color/fourth"
+                    tools:ignore="MissingConstraints">
+
+                    <EditText
+                        android:id="@+id/confirm_password_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:backgroundTint="@color/white"
+                        android:drawableStart="@drawable/ic_security"
+                        android:drawablePadding="10dp"
+                        android:ems="10"
+                        android:hint="confirm password"
+                        android:inputType="textPassword"
+                        android:minHeight="48dp"
+                        android:textColor="@color/fourth"
+                        android:textColorHint="@color/fourth"
+                        android:textCursorDrawable="@drawable/cursor_color" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:constraint_referenced_ids="tv_pass,tv_pass2,tv_pass3"
+                    tools:layout_editor_absoluteX="10dp"
+                    tools:layout_editor_absoluteY="10dp" />
+
+                <TextView
+                    android:id="@+id/tv_pass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_weight="1"
+                    android:text="at least 8 characters "
+                    android:textColor="@color/black"
+                    android:textSize="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/ll_taps"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_passField" />
+
+                <TextView
+                    android:id="@+id/tv_pass2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_weight="1"
+                    android:text="at_least_one_letter"
+                    android:textColor="@color/black"
+                    android:textSize="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/ll_taps"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_pass" />
+
+                <TextView
+                    android:id="@+id/tv_pass3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="35dp"
+                    android:layout_weight="1"
+                    android:text="at least one number"
+                    android:textColor="@color/black"
+                    android:textSize="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/ll_taps"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_pass2" />
+
+                <Button
+                    android:id="@+id/register_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/btn_bg"
+                    android:backgroundTint="@color/fourth"
+                    android:padding="10dp"
+                    android:text="register"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    app:backgroundTint="@null"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_ConfirmPassField" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

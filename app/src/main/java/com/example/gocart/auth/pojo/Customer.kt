@@ -1,6 +1,6 @@
 package com.example.gocart.auth.pojo
 
-import android.location.Address
+import com.example.gocart.auth.pojo.Address
 import com.google.gson.annotations.SerializedName
 
 data class Customer(

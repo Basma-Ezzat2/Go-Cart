@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardUseCompatPadding="true">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="@drawable/shadow_bg"
+        android:elevation="7dp"
+        android:padding="10dp">
+        <ImageView
+            android:id="@+id/itemImage"
+            android:src="@drawable/dress"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="5dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+             />
+        <TextView
+            android:id="@+id/title"
+            android:textColorHint="@color/fourth"
+            android:textSize="15sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:lines="3"
+            android:padding="5dp"
+            android:text="7.00EGP"
+            android:gravity="center"
+            android:textColor="@color/fourth"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/itemImage" />
+
+        <ImageButton
+            android:id="@+id/delete"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="@color/white"
+            android:padding="5dp"
+            android:src="@drawable/ic_baseline_close"
+            app:layout_constraintBottom_toTopOf="@id/itemImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.25"
+            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

@@ -1,6 +1,7 @@
 package com.example.gocart.retrofit
 
 import com.example.gocart.auth.pojo.CustomerModel
+import com.example.gocart.auth.pojo.CustomersModel
 import com.example.gocart.auth.pojo.EditCustomerModel
 import com.example.gocart.data.entity.categoriesPojo.ExampleJson2KtKotlin
 import com.example.gocart.pojo.DiscountModel
@@ -8,7 +9,6 @@ import com.example.gocart.ui.home.pojo.brands.Brands
 import com.example.gocart.ui.home.pojo.product.ProductsModel
 import com.example.gocart.ui.home.pojo.productdetail.ProductDetails
 import com.example.gocart.ui.home.pojo.search.SearchProduct
-import com.stash.shopeklobek.model.entities.CustomerLoginModel
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -20,12 +20,13 @@ interface ApiService {
             Response<CustomerModel>
 
     @GET("customers.json")
-    suspend fun login(): Response<CustomerLoginModel>
+    suspend fun login(): Response<CustomersModel>
 
     @PUT("customers/{id}.json")
     suspend fun updateCustomer(@Path("id") customerId:Long,
                                @Body customer: EditCustomerModel
     ):Response<EditCustomerModel>
+
 
 
     @GET("smart_collections.json")

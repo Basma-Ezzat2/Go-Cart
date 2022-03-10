@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="60dp"
+            android:text="Go Cart"
+            android:textColor="@color/fourth"
+            android:textSize="40dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tv_emailField"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/tv_emailField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="272dp"
+            android:textColorHint="@color/fourth"
+            app:cardCornerRadius="70dp"
+            app:hintTextColor="@color/fourth"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/fourth"
+            tools:ignore="MissingConstraints">
+
+            <EditText
+                android:id="@+id/passwordEdt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/white"
+                android:drawableStart="@drawable/ic_security"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="Password"
+                android:minHeight="48dp"
+                android:textColor="@color/fourth"
+                android:textColorHint="@color/fourth"
+                android:textCursorDrawable="@drawable/cursor_color" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/tv_passField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textColorHint="@color/fourth"
+            app:cardCornerRadius="70dp"
+            app:hintTextColor="@color/fourth"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_emailField"
+            app:passwordToggleEnabled="true"
+            app:strokeColor="@color/fourth"
+            tools:ignore="MissingConstraints"/>
+
+        <Button
+            android:id="@+id/login_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginTop="160dp"
+            android:background="@drawable/btn_bg"
+            android:padding="10dp"
+            android:text="login"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:backgroundTint="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_passField" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
