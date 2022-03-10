@@ -1,19 +1,272 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.notifications.MeFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <Button
-        android:id="@+id/goToSettingsBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="go to settings"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:padding="10dp"
+        tools:context=".ui.meScreen.MeFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#f6f6f6">
+
+            <TextView
+                android:id="@+id/hiText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingStart="5dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="Hello user"
+                android:textColor="#039BE5"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:visibility="visible"
+                app:layout_constraintBottom_toTopOf="@+id/MyOrders"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/regesterAndLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:text="register/login"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:paddingStart="5dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <View
+                android:id="@+id/line1"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/second"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/MyOrders"
+                app:layout_constraintTop_toBottomOf="@id/hiText" />
+
+            <TextView
+                android:id="@+id/MyOrders"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="5dp"
+                android:text="my orders"
+                android:textColor="@color/fourth"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/hiText"
+                tools:ignore="TextContrastCheck,TextContrastCheck" />
+
+
+            <TextView
+                android:id="@+id/more_orders"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="232dp"
+                android:background="@color/white"
+                android:padding="5dp"
+                android:text="see more"
+                android:textColor="@color/fourth"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/wishList"
+                app:layout_constraintStart_toStartOf="@+id/MyOrders"
+                app:layout_constraintTop_toTopOf="@+id/hiText"
+                app:layout_constraintVertical_bias="0.811"
+                tools:ignore="TextContrastCheck,TextContrastCheck" />
+
+            <LinearLayout
+                android:id="@+id/layoutOfMyOrders"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/second"
+                android:baselineAligned="false"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/MyOrders"/>
+
+            <TextView
+                android:id="@+id/wishList"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:padding="5dp"
+                android:text="wish list"
+                android:textColor="@color/fourth"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layoutOfMyOrders"
+                tools:ignore="TextContrastCheck,TextContrastCheck" />
+
+            <TextView
+                android:id="@+id/more_wish"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:background="@color/white"
+                android:padding="5dp"
+                android:text="see more"
+                android:textColor="@color/fourth"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/seeAllArrow"
+                app:layout_constraintEnd_toStartOf="@id/seeAllArrow"
+                app:layout_constraintTop_toTopOf="@id/seeAllArrow"
+                app:layout_constraintVertical_bias="0.428"
+                tools:ignore="TextContrastCheck,TextContrastCheck" />
+
+            <ImageView
+                android:id="@+id/orders_arrows"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="11dp"
+                android:contentDescription="see all"
+                android:padding="5dp"
+                android:src="@drawable/ic_double_arrow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/more_orders"
+                app:layout_constraintTop_toBottomOf="@+id/hiText" />
+
+            <ImageView
+                android:id="@+id/seeAllArrow"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:contentDescription="see more"
+                android:padding="5dp"
+                android:src="@drawable/ic_double_arrow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layoutOfMyOrders" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/wishRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:visibility="visible"
+                android:background="@color/white"
+                android:paddingTop="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/wishList"
+                tools:listitem="@layout/wish_list_item" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/empty_state_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="goHome_btn,empty_text1" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/empty_state_group1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="emptyAnimationView,empty_text" />
+            <ImageButton
+                android:id="@+id/emptyAnimationView"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/wishList"
+                app:layout_constraintVertical_bias="0.4"
+                android:backgroundTint="@color/fourth"
+                android:background="@drawable/heart" />
+
+            <TextView
+                android:id="@+id/empty_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:visibility="visible"
+                android:layout_gravity="center"
+                android:textColor="@color/fourth"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/emptyAnimationView"
+                android:text="Wishlist empty" />
+
+            <TextView
+                android:id="@+id/empty_text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:padding="5dp"
+                android:visibility="visible"
+                android:layout_gravity="center"
+                android:textColor="@color/fourth"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/empty_text"
+                android:text="Add your favorites to your wishlist now !" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/goHome_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/empty_text1"
+                app:layout_constraintVertical_bias="0.4"
+                android:text="  Go Shopping "
+                android:padding="5dp"
+                android:textAllCaps="false"
+                android:textSize="15sp"
+                android:textStyle="normal"
+                android:textColor="@color/black"
+                android:backgroundTint="@null"
+                android:background="@drawable/btn_border" />
+            <TextView
+                android:id="@+id/tv_logged"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="invisible"
+                android:textColor="@color/fourth"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/empty_text"
+                android:text="please log in" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+</layout>

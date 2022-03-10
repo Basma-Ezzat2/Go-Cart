@@ -99,6 +99,9 @@
         <action
             android:id="@+id/action_navigation_notifications_to_settingsFragment"
             app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_navigation_notifications_to_signInFragment"
+            app:destination="@id/signInFragment" />
     </fragment>
 
     <fragment
@@ -178,4 +181,30 @@
         android:name="com.example.gocart.ui.home.fragment.SearchFragment"
         android:label="search_fragment"
         tools:layout="@layout/search_fragment" />
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.example.gocart.auth.register_login.SignInFragment"
+        android:label="SignInFragment"
+        tools:layout="@layout/fragment_sign_in">
+        <action
+            android:id="@+id/action_signInFragment_to_signInPasswordFragment"
+            app:destination="@id/signInPasswordFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signInPasswordFragment"
+        android:name="com.example.gocart.auth.register_login.complete.SignInPasswordFragment"
+        android:label="SignInPasswordFragment"
+        tools:layout="@layout/fragment_complete"/>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.gocart.auth.register_signup.SignUpFragment"
+        android:label="SignUpFragment"
+        tools:layout="@layout/fragment_sign_up">
+        <action
+            android:id="@+id/action_signUpFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
 </navigation>

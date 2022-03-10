@@ -1,10 +1,10 @@
-package com.stash.shopeklobek.model.entities
+package com.example.gocart.auth.pojo
 
 import com.example.gocart.auth.pojo.Customer
 import com.google.gson.annotations.SerializedName
 
 
-data class CustomerLoginModel(
+data class CustomersModel(
     @SerializedName( "customers")
     val customer: List<Customer?>,
 
