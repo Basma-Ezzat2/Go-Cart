@@ -6,8 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gocart.R
@@ -19,6 +21,7 @@ class CartFragment : Fragment() {
         fun newInstance() = CartFragment()
     }
 
+    lateinit var  checkoutBtn : Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -61,13 +64,26 @@ class CartFragment : Fragment() {
                 lifecycleScope.launch {
                     viewModel.updateCard(productCartModule.copy(quantitiy = productCartModule.quantitiy + 1))
                 }
-            })
+            }, { productCartModule ->
+                lifecycleScope.launch {
+                    viewModel.deleteCartItem(productCartModule.copy(quantitiy = productCartModule.quantitiy + 1))
+                }
+            }
+            )
 
             view.findViewById<RecyclerView>(R.id.rv_cartItems).apply {
                 adapter = cartAdapter
                 layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             }
         }
+
+
+        checkoutBtn = view.findViewById<Button>(R.id.checkoutButton)
+        checkoutBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_cartFragment_to_chooseAddressAndPaymentFragment)
+        }
+
+
     }
 
 

@@ -3,6 +3,7 @@ import android.util.Log
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 
 @Entity(tableName = "WishList")
@@ -26,7 +27,7 @@ data class Product (
 	@SerializedName("options") var options : List<Options>?,
 	@SerializedName("images") val images : List<Images>?,
 	@SerializedName("image") val image : Image
-){
+) : Serializable{
 	fun toProductCartModule():ProductCartModule{
 		Log.i("TAG",""+this)
 		return ProductCartModule (

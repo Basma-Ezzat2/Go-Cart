@@ -69,6 +69,7 @@ class ProductFragment : Fragment(), ProductAdapter.ProductsClickListener {
     override fun onProductClickListener(collection: Product, position: Int) {
         val intent = Intent(requireActivity(),ProductDetailsActivity::class.java)
         intent.putExtra("product_id",collection.id)
+        intent.putExtra("cart_product",collection )
         startActivity(intent)    }
 
 

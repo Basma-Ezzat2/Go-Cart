@@ -95,7 +95,37 @@
         android:id="@+id/navigation_notifications"
         android:name="com.example.gocart.ui.notifications.MeFragment"
         android:label="@string/title_me"
-        tools:layout="@layout/fragment_me" />
+        tools:layout="@layout/fragment_me" >
+        <action
+            android:id="@+id/action_navigation_notifications_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.gocart.ui.settings.SettingsFragment"
+        android:label="settings_fragment"
+        tools:layout="@layout/settings_fragment" >
+        <action
+            android:id="@+id/action_settingsFragment_to_addressFragment"
+            app:destination="@id/addressFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addressFragment"
+        android:name="com.example.gocart.ui.settings.AddressFragment"
+        android:label="fragment_address"
+        tools:layout="@layout/fragment_address" >
+        <action
+            android:id="@+id/action_addressFragment_to_addAddressFragment"
+            app:destination="@id/addAddressFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addAddressFragment"
+        android:name="com.example.gocart.ui.settings.AddAddressFragment"
+        android:label="fragment_add_address"
+        tools:layout="@layout/fragment_add_address" />
     <fragment
         android:id="@+id/productFragment"
         android:name="com.example.gocart.ui.home.fragment.ProductFragment"
@@ -122,7 +152,27 @@
     <fragment
         android:id="@+id/cartFragment"
         android:name="com.example.gocart.ui.cart.CartFragment"
-        android:label="CartFragment" />
+        android:label="CartFragment" >
+        <action
+            android:id="@+id/action_cartFragment_to_chooseAddressAndPaymentFragment"
+            app:destination="@id/chooseAddressAndPaymentFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/chooseAddressAndPaymentFragment"
+        android:name="com.example.gocart.ui.checkout.ChooseAddressAndPaymentFragment"
+        android:label="choose_address_payment_fragment"
+        tools:layout="@layout/choose_address_payment_fragment" >
+        <action
+            android:id="@+id/action_chooseAddressAndPaymentFragment_to_confirmPaymentFragment"
+            app:destination="@id/confirmPaymentFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/confirmPaymentFragment"
+        android:name="com.example.gocart.ui.checkout.ConfirmPaymentFragment"
+        android:label="confirm_payment_fragment"
+        tools:layout="@layout/confirm_payment_fragment" />
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.gocart.ui.home.fragment.SearchFragment"
