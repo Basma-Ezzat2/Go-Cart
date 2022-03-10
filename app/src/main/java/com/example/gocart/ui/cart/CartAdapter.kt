@@ -18,19 +18,7 @@ import kotlinx.coroutines.launch
 import kotlin.random.Random
 
 class CartAdapter (
-    var cartList: List<ProductCartModule>, var decreamenter: (ProductCartModule)->Unit  ,var incremeanter: (ProductCartModule)->Unit , var deleter : (ProductCartModule)->Unit) : RecyclerView.Adapter<CartAdapter.ViewHolder>() {
-
-    /*fun addNewList(orderNewList: List<ProductCartModule>) {
-        cartList.clear()
-        cartList.addAll(orderNewList)
-        notifyDataSetChanged()
-
-    }
-    fun delItem(pos:Int) {
-        cartList.removeAt(pos);
-        notifyItemRemoved(pos);
-
-    }*/
+    var cartList: MutableList<ProductCartModule>, var decreamenter: (ProductCartModule)->Unit  ,var incremeanter: (ProductCartModule)->Unit , var deleter : (ProductCartModule)->Unit) : RecyclerView.Adapter<CartAdapter.ViewHolder>() {
 
 
     class ViewHolder(var myView: ItemCartBinding) : RecyclerView.ViewHolder(myView.root)
@@ -66,31 +54,6 @@ class CartAdapter (
             .placeholder(R.drawable.ic_loading)
             .into(holder.myView.itemCartImage)
 
-
-        /* holder.myView.decreaseButton.setOnClickListener {
-             var num =((holder.myView.itemCountText.text.toString().toInt())-1)
-             if(num>0){
-                 cartList[position].variants?.get(0)?.inventory_quantity = num
-                 holder.myView.itemCountText.text=num.toString()
-                 cartViewModel.onChangeQuntity()
-             }
-             else{
-                 cartViewModel.onDelClick( cartList[position].id)
-             }
-         }
-         holder.myView.increaseButton.setOnClickListener {
-             var num =((holder.myView.itemCountText.text.toString().toInt())+1)
-             cartList[position].variants?.get(0)?.inventory_quantity = num
-             holder.myView.itemCountText.text=num.toString()
-             cartViewModel.onChangeQuntity()
-         }
-         holder.myView.btnFav.setOnClickListener {
-             cartViewModel.onFavClick( cartList[position])
-         }
-         holder.myView.itemCartImage.setOnClickListener {
-
-             cartViewModel.onImgClick( cartList[position].id)
-         }*/
     }
 
     override fun getItemCount() = cartList.size

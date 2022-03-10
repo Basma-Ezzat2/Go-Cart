@@ -16,7 +16,7 @@ interface RoomDAO {
     // *** CART ***
 
     @Query("SELECT * FROM Cart")
-    fun getAllCartList(): LiveData<List<ProductCartModule>>
+    fun getAllCartList(): LiveData<MutableList<ProductCartModule>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun saveCartItem(withItem: ProductCartModule)

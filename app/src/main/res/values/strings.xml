@@ -33,4 +33,8 @@
     <string name="full_name">Full Name</string>
     <string name="phone">Phone</string>
     <string name="continue_to_payment">Continue To Payment</string>
+    <string name="checkout">checkout</string>
+    <string name="your_cart_is_empty">Your cart is empty :(</string>
+    <string name="egp">EGP</string>
+    <string name="usd">USD</string>
 </resources>

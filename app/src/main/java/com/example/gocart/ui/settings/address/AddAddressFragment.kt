@@ -1,4 +1,4 @@
-package com.example.gocart.ui.settings
+package com.example.gocart.ui.settings.address
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -16,6 +16,8 @@ class AddAddressFragment : Fragment() {
 
     var addressClass : Address = Address()
     lateinit var saveAddressBtn : Button
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,10 +41,10 @@ class AddAddressFragment : Fragment() {
             addressClass.phone = view.findViewById<EditText>(R.id.addAddressPhone).text.toString()
 
             if (addressClass.country.isNullOrBlank() || addressClass.city.isNullOrBlank() || addressClass.address.isNullOrBlank() || addressClass.firstName.isNullOrBlank() || addressClass.phone.isNullOrBlank() ){
-                Toast.makeText(context, "Please fill all required fields", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Please fill all required fields", Toast.LENGTH_LONG).show()
             }
             else{
-                Toast.makeText(context, "Done", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Address Added Successfully", Toast.LENGTH_SHORT).show()
             }
         }
     }
