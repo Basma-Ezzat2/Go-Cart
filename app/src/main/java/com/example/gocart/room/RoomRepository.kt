@@ -13,7 +13,7 @@ val roomDao : RoomDAO = roomDatabase!!.roomDAO()
 
     //CART
 
-    fun getAllCartList(): LiveData<List<ProductCartModule>> {
+    fun getAllCartList(): LiveData<MutableList<ProductCartModule>> {
         return roomDao.getAllCartList()
     }
 

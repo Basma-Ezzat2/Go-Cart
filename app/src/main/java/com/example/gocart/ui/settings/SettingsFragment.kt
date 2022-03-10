@@ -6,16 +6,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.gocart.R
 import com.example.gocart.databinding.FragmentMeBinding
 import com.example.gocart.databinding.SettingsFragmentBinding
+import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class SettingsFragment : Fragment() {
 
     companion object {
         fun newInstance() = SettingsFragment()
     }
+
+    lateinit var bottomSheetDialog : BottomSheetDialog
 
     private lateinit var viewModel: SettingsViewModel
     val binding by lazy {
@@ -41,6 +46,26 @@ class SettingsFragment : Fragment() {
         binding.settingsAddressCvId.setOnClickListener {
             findNavController().navigate(R.id.action_settingsFragment_to_addressFragment)
         }
+
+        binding.settingsCurrencyCvId.setOnClickListener {
+            bottomSheetDialog = BottomSheetDialog(context!!,R.style.BottomSheetTheme)
+            var sheetView : View = LayoutInflater.from(context).inflate(R.layout.fragment_bottom_sheet, view.findViewById(R.id.bottom_sheet))
+            sheetView.findViewById<Button>(R.id.currencyEgpBtn).setOnClickListener {
+                Toast.makeText(context, "chosen EGP", Toast.LENGTH_SHORT).show()
+                bottomSheetDialog.dismiss()
+            }
+
+            sheetView.findViewById<Button>(R.id.currencyUsdBtn).setOnClickListener {
+                Toast.makeText(context, "chosen USD", Toast.LENGTH_SHORT).show()
+                bottomSheetDialog.dismiss()
+            }
+
+            bottomSheetDialog.setContentView(sheetView)
+            bottomSheetDialog.show()
+
+        }
+
+
     }
 
 }

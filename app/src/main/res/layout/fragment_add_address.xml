@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.settings.AddAddressFragment">
+    tools:context=".ui.settings.address.AddAddressFragment">
 
     <EditText
         android:id="@+id/addAddressFullName"

@@ -4,11 +4,13 @@ import com.example.gocart.auth.pojo.CustomerModel
 import com.example.gocart.auth.pojo.CustomersModel
 import com.example.gocart.auth.pojo.EditCustomerModel
 import com.example.gocart.data.entity.categoriesPojo.ExampleJson2KtKotlin
+import com.example.gocart.pojo.AddressModel
 import com.example.gocart.pojo.DiscountModel
 import com.example.gocart.ui.home.pojo.brands.Brands
 import com.example.gocart.ui.home.pojo.product.ProductsModel
 import com.example.gocart.ui.home.pojo.productdetail.ProductDetails
 import com.example.gocart.ui.home.pojo.search.SearchProduct
+import com.stash.shopeklobek.model.entities.CustomerAddressModel
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -70,6 +72,18 @@ interface ApiService {
 
     @GET("price_rules.json")
     suspend fun getAllDiscounts():Response<DiscountModel>
+
+
+    // address
+
+    @GET("customers/{customer_id}.json")
+    suspend fun getAddress(@Path("customer_id") customerId:Long):
+            Response<CustomerModel>
+    @POST("customers/{customer_id}/addresses.json")
+    suspend fun addAddress(@Path("customer_id") customerId:Long,
+                           @Body address: AddressModel
+    ):
+            Response<CustomerAddressModel>
 
 
 
