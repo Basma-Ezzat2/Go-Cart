@@ -1,10 +1,12 @@
 package com.example.gocart.ui.home.fragment
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.*
+import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.EditText
@@ -35,8 +37,12 @@ class SearchFragment : Fragment(), SearchAdapter.ProductsClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         homeViewModel = ViewModelProvider(requireActivity())[HomeViewModel::class.java]
         searchAdapter = SearchAdapter(requireContext(), this)
+        activity!!.findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(R.id.nav_view).apply {
+            visibility=View.GONE
+        }
 
         homeViewModel.searchedProduct.observe(requireActivity(), {
             if (it.isEmpty()) {
@@ -48,6 +54,7 @@ class SearchFragment : Fragment(), SearchAdapter.ProductsClickListener {
 
 
         })
+
 
 
         val spinnerList = ArrayList<String>()
@@ -103,6 +110,18 @@ class SearchFragment : Fragment(), SearchAdapter.ProductsClickListener {
     override fun onStop() {
         super.onStop()
         etSearch.visibility = View.GONE
+        activity!!.findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(R.id.nav_view).apply {
+            visibility=View.VISIBLE
+        }
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        etSearch.setSelection(etSearch.text.length)
+        val imm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager?
+        imm?.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
+
     }
 
 
