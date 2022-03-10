@@ -1,4 +1,4 @@
-package com.example.gocart.ui.dashboard.repo
+package com.example.gocart.ui.category.repo
 
 import com.example.gocart.retrofit.ApiService
 

@@ -70,9 +70,9 @@ class MenSubFragment : Fragment(),RecyclerViewAdapterProduct.OnItemClickListener
                 0 -> title= "ACCESSORIES"
                 1 -> title="T-SHIRTS"
                 2 -> title="SHOES"
-                else ->  "SHOES"
+                else ->  0
             } as Unit
-            setNavigationOnClickListener { findNavController().navigate(R.id.menFragment) }
+            setNavigationOnClickListener { findNavController().navigate(R.id.navigation_dashboard) }
             setNavigationIcon(R.drawable.ic_arrow_back)
         }
     }

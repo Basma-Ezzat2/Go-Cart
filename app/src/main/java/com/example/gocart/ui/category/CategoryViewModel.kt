@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.gocart.data.entity.categoriesPojo.ExampleJson2KtKotlin
 import com.example.gocart.retrofit.RetrofitBuilder
-import com.example.gocart.ui.dashboard.repo.CategoryRepository
+import com.example.gocart.ui.category.repo.CategoryRepository
 import kotlinx.coroutines.cancel
 
 import kotlinx.coroutines.launch

@@ -14,7 +14,6 @@ import com.example.gocart.databinding.CardViewProductBinding
 
 class RecyclerViewAdapterProduct(val context:Context, private val onItemClickListener: OnItemClickListener): RecyclerView.Adapter<RecyclerViewAdapterProduct.MyViewHolder>() {
     private var productList = mutableListOf<Products>()
-
     fun addList(productList: List<Products>) {
         this.productList.clear()
         this.productList.addAll(productList)
@@ -35,7 +34,6 @@ class RecyclerViewAdapterProduct(val context:Context, private val onItemClickLis
 
         holder.apply {
             tvDesc.text = productsModel.title
-
             Glide.with(context).apply {
                 load(productsModel.image!!.src).into(imageProduct)
             }
