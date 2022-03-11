@@ -3,38 +3,41 @@ package com.example.gocart.ui.notifications
 import android.os.Bundle
 import android.view.*
 import android.widget.TextView
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.gocart.R
+import com.example.gocart.auth.register_login.complete.SignInPasswordViewModel
+import com.example.gocart.databinding.FragmentCompleteBinding
 import com.example.gocart.databinding.FragmentMeBinding
 
 class MeFragment : Fragment() {
 
-    private lateinit var meViewModel: MeViewModel
-    private var _binding: FragmentMeBinding? = null
+    private lateinit var binding: FragmentMeBinding
+
+    private val meViewModel by lazy {
+        MeViewModel.create(this)
+    }
 
     // This property is only valid between onCreateView and
     // onDestroyView.
-    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        meViewModel =
-            ViewModelProvider(this).get(MeViewModel::class.java)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_me, container, false)
 
-        _binding = FragmentMeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+
 //
 //        binding.goToSettingsBtn.setOnClickListener {
 //            findNavController().navigate(R.id.action_navigation_notifications_to_settingsFragment)
 //        }
-        return root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -43,6 +46,8 @@ class MeFragment : Fragment() {
         binding.hiText.setOnClickListener {
             findNavController().navigate(R.id.signInFragment)
         }
+
+        binding.usernameTv.text = meViewModel.authenticationRepo.sharedPref.getSettings().customer!!.firstName
 
 
     }
@@ -71,8 +76,5 @@ class MeFragment : Fragment() {
 
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+
 }

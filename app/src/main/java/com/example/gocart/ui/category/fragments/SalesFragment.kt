@@ -14,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.gocart.R
 import com.example.gocart.data.entity.categoriesPojo.Products
 import com.example.gocart.databinding.FragmentSalesBinding
+import com.example.gocart.pojo.Product
 import com.example.gocart.ui.category.CategoryViewModel
 import com.example.gocart.ui.category.adapter.RecyclerViewAdapterProduct
 import com.example.gocart.ui.home.activities.ProductDetailsActivity
@@ -99,9 +100,10 @@ class SalesFragment : Fragment(), RecyclerViewAdapterProduct.OnItemClickListener
         }
     }
 
-    override fun onItemEditClickProduct(book: Products, position: Int) {
+    override fun onItemEditClickProduct(book: Product, position: Int) {
         val intent = Intent(requireContext(), ProductDetailsActivity::class.java)
         intent.putExtra("product_id", book.id)
+        intent.putExtra("cart_product",book )
         startActivity(intent)
     }
 }

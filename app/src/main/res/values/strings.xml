@@ -37,4 +37,10 @@
     <string name="your_cart_is_empty">Your cart is empty :(</string>
     <string name="egp">EGP</string>
     <string name="usd">USD</string>
+    <string name="settings">Settings</string>
+    <string name="your_addresses">Your Addresses</string>
+    <string name="add_an_address">Add an address</string>
+    <string name="your_cart">Your Cart</string>
+    <string name="proceed_to_checkout">Proceed To Checkout</string>
+    <string name="confirm_payment">Confirm Your Order</string>
 </resources>

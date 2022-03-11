@@ -10,11 +10,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.gocart.data.entity.categoriesPojo.Products
 import com.example.gocart.databinding.CardViewProductBinding
+import com.example.gocart.pojo.Product
 
 
 class RecyclerViewAdapterProduct(val context:Context, private val onItemClickListener: OnItemClickListener): RecyclerView.Adapter<RecyclerViewAdapterProduct.MyViewHolder>() {
-    private var productList = mutableListOf<Products>()
-    fun addList(productList: List<Products>) {
+    private var productList = mutableListOf<Product>()
+    fun addList(productList: List<Product>) {
         this.productList.clear()
         this.productList.addAll(productList)
         notifyDataSetChanged()
@@ -53,7 +54,7 @@ class RecyclerViewAdapterProduct(val context:Context, private val onItemClickLis
     }
 
     interface OnItemClickListener {
-        fun onItemEditClickProduct(book : Products, position:Int)
+        fun onItemEditClickProduct(book : Product, position:Int)
     }
 
 }

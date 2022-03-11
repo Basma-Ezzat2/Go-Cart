@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.gocart.R
 import com.example.gocart.data.entity.categoriesPojo.Products
 import com.example.gocart.databinding.FragmentSubKidsBinding
+import com.example.gocart.pojo.Product
 import com.example.gocart.ui.category.CategoryViewModel
 import com.example.gocart.ui.category.adapter.RecyclerViewAdapterProduct
 import com.example.gocart.ui.home.activities.ProductDetailsActivity
@@ -49,9 +50,9 @@ class KidsSubFragment : Fragment(), RecyclerViewAdapterProduct.OnItemClickListen
         categoryViewModel = ViewModelProvider(requireActivity())[CategoryViewModel::class.java]
         categoryViewModel.liveDataResponse3.observe(viewLifecycleOwner,{
             var productList = it.products
-            var list: MutableList<Products> = mutableListOf()
+            var list: MutableList<Product> = mutableListOf()
             for(i in productList){
-                if((i.productType.equals(subCollectionName))){
+                if((i.product_type.equals(subCollectionName))){
                     list.add(i)
                 }
 
@@ -74,9 +75,10 @@ class KidsSubFragment : Fragment(), RecyclerViewAdapterProduct.OnItemClickListen
         }
     }
 
-    override fun onItemEditClickProduct(book: Products, position: Int) {
+    override fun onItemEditClickProduct(book: Product, position: Int) {
         val intent = Intent(requireContext(), ProductDetailsActivity::class.java)
         intent.putExtra("product_id", book.id)
+        intent.putExtra("cart_product",book )
         startActivity(intent)
 
     }

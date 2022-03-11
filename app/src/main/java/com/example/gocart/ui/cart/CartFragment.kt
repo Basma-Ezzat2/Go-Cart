@@ -49,6 +49,7 @@ class CartFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         var viewModel: CartViewModel = ViewModelProvider(this).get(CartViewModel::class.java)
 
+
         viewModel.getAllData().observe(viewLifecycleOwner, {
             if (it.isEmpty()) {
                 binding.whenThereIsItemsGroup.visibility = View.GONE

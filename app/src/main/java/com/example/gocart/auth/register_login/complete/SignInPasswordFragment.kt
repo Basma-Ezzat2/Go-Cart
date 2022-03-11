@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.gocart.R
 import com.example.gocart.databinding.FragmentCompleteBinding
-import com.hema.e_commerce.ui.settings.auth.password.SignInPasswordViewModel
 
 
 class SignInPasswordFragment : Fragment() {
@@ -40,6 +40,7 @@ class SignInPasswordFragment : Fragment() {
             if (viewModel.authenticationRepo.sharedPref.getSettings().customer!!.lastName.equals(userPass)
             ) {
                 Toast.makeText(requireContext(), "Logged in successfully", Toast.LENGTH_LONG).show()
+                findNavController().navigate(R.id.action_signInPasswordFragment_to_navigation_notifications)
             }
         }
        viewModel.authenticationRepo.sharedPref.getSettings()

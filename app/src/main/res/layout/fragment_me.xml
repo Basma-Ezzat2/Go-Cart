@@ -21,19 +21,19 @@
 
             <TextView
                 android:id="@+id/hiText"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:background="@color/white"
                 android:paddingStart="5dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:text="Hello user"
+                android:text="Hello "
                 android:textColor="#039BE5"
-                android:textSize="15sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 android:visibility="visible"
                 app:layout_constraintBottom_toTopOf="@+id/MyOrders"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -70,6 +70,7 @@
                 android:id="@+id/MyOrders"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:background="@color/white"
                 android:padding="5dp"
                 android:text="my orders"
@@ -114,7 +115,7 @@
                 android:id="@+id/wishList"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="16dp"
                 android:background="@color/white"
                 android:padding="5dp"
                 android:text="wish list"
@@ -148,6 +149,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="11dp"
+                android:layout_marginTop="16dp"
                 android:contentDescription="see all"
                 android:padding="5dp"
                 android:src="@drawable/ic_double_arrow"
@@ -160,7 +162,7 @@
                 android:id="@+id/seeAllArrow"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="16dp"
                 android:contentDescription="see more"
                 android:padding="5dp"
                 android:src="@drawable/ic_double_arrow"
@@ -265,6 +267,23 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/empty_text"
                 android:text="please log in" />
+
+            <TextView
+                android:id="@+id/usernameTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingLeft="5dp"
+                android:paddingTop="10dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="10dp"
+                android:text="TextView"
+                android:textColor="#039BE5"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/hiText"
+                app:layout_constraintStart_toEndOf="@+id/hiText"
+                app:layout_constraintTop_toTopOf="@+id/hiText" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

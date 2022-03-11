@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/first"
     tools:context=".ui.checkout.ChooseAddressAndPaymentFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1.4">
+        android:layout_weight="1.2">
 
         <TextView
             android:id="@+id/chooseAddressTv"
@@ -20,6 +21,7 @@
             android:text="@string/choose_address"
             android:textSize="24sp"
             android:textStyle="bold"
+            android:textColor="@color/fourth"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -27,11 +29,13 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/chooseAddressRV"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/chooseAddressTv"
-            tools:listitem="@layout/address_item"/>
+            tools:listitem="@layout/address_item" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -49,6 +53,7 @@
             android:text="@string/payment_method"
             android:textSize="24sp"
             android:textStyle="bold"
+            android:textColor="@color/fourth"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -65,7 +70,8 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@color/white">
 
                 <RadioButton
                     android:id="@+id/googlePayMethodRBID"
@@ -81,6 +87,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/go_pay"
                     android:textSize="16sp"
+                    android:textColor="@color/fourth"
                     app:layout_constraintBottom_toBottomOf="@+id/googlePayMethodRBID"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/googlePayMethodRBID"
@@ -103,7 +110,8 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@color/white">
 
                 <RadioButton
                     android:id="@+id/paypalMethodRBID"
@@ -119,6 +127,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/paypal"
                     android:textSize="16sp"
+                    android:textColor="@color/fourth"
                     app:layout_constraintBottom_toBottomOf="@+id/paypalMethodRBID"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/paypalMethodRBID"
@@ -143,6 +152,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@color/white"
                 >
 
                 <RadioButton
@@ -159,6 +169,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/cash_on_delivery"
                     android:textSize="16sp"
+                    android:textColor="@color/fourth"
                     app:layout_constraintBottom_toBottomOf="@+id/cashOnDeliveryMethodRBID"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/cashOnDeliveryMethodRBID"
