@@ -1,4 +1,4 @@
-package com.hema.e_commerce.ui.settings.auth.password
+package com.example.gocart.auth.register_login.complete
 
 import android.app.Application
 import androidx.fragment.app.Fragment

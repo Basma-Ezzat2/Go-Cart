@@ -107,8 +107,11 @@
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.gocart.ui.settings.SettingsFragment"
-        android:label="settings_fragment"
+        android:label="@string/settings"
         tools:layout="@layout/settings_fragment" >
+        <action
+            android:id="@+id/action_settingsFragment_to_bottomSheetFragment"
+            app:destination="@id/bottomSheetFragment" />
         <action
             android:id="@+id/action_settingsFragment_to_addressFragment"
             app:destination="@id/addressFragment" />
@@ -124,21 +127,6 @@
             app:destination="@id/settingsFragment" />
     </dialog>
 
-    <fragment
-        android:id="@+id/addressFragment"
-        android:name="com.example.gocart.ui.settings.address.AddAddressFragment"
-        android:label="fragment_address"
-        tools:layout="@layout/fragment_address" >
-        <action
-            android:id="@+id/action_addressFragment_to_addAddressFragment"
-            app:destination="@id/addAddressFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/addAddressFragment"
-        android:name="com.example.gocart.ui.settings.address.AddAddressFragment"
-        android:label="fragment_add_address"
-        tools:layout="@layout/fragment_add_address" />
     <fragment
         android:id="@+id/productFragment"
         android:name="com.example.gocart.ui.home.fragment.ProductFragment"
@@ -165,7 +153,7 @@
     <fragment
         android:id="@+id/cartFragment"
         android:name="com.example.gocart.ui.cart.CartFragment"
-        android:label="CartFragment" >
+        android:label="@string/your_cart" >
         <action
             android:id="@+id/action_cartFragment_to_chooseAddressAndPaymentFragment"
             app:destination="@id/chooseAddressAndPaymentFragment" />
@@ -174,7 +162,7 @@
     <fragment
         android:id="@+id/chooseAddressAndPaymentFragment"
         android:name="com.example.gocart.ui.checkout.ChooseAddressAndPaymentFragment"
-        android:label="choose_address_payment_fragment"
+        android:label="@string/proceed_to_checkout"
         tools:layout="@layout/choose_address_payment_fragment" >
         <action
             android:id="@+id/action_chooseAddressAndPaymentFragment_to_confirmPaymentFragment"
@@ -184,7 +172,7 @@
     <fragment
         android:id="@+id/confirmPaymentFragment"
         android:name="com.example.gocart.ui.checkout.ConfirmPaymentFragment"
-        android:label="confirm_payment_fragment"
+        android:label="@string/confirm_payment"
         tools:layout="@layout/confirm_payment_fragment" />
     <fragment
         android:id="@+id/searchFragment"
@@ -207,7 +195,11 @@
         android:id="@+id/signInPasswordFragment"
         android:name="com.example.gocart.auth.register_login.complete.SignInPasswordFragment"
         android:label="SignInPasswordFragment"
-        tools:layout="@layout/fragment_complete"/>
+        tools:layout="@layout/fragment_complete">
+        <action
+            android:id="@+id/action_signInPasswordFragment_to_navigation_notifications"
+            app:destination="@id/navigation_notifications" />
+    </fragment>
     <fragment
         android:id="@+id/signUpFragment"
         android:name="com.example.gocart.auth.register_signup.SignUpFragment"
@@ -216,5 +208,23 @@
         <action
             android:id="@+id/action_signUpFragment_to_signInFragment"
             app:destination="@id/signInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addressFragment"
+        android:name="com.example.gocart.ui.settings.address.AddressFragment"
+        android:label="@string/your_addresses"
+        tools:layout="@layout/fragment_address" >
+        <action
+            android:id="@+id/action_addressFragment_to_addAddressFragment"
+            app:destination="@id/addAddressFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addAddressFragment"
+        android:name="com.example.gocart.ui.settings.address.AddAddressFragment"
+        android:label="@string/add_an_address"
+        tools:layout="@layout/fragment_add_address" >
+        <action
+            android:id="@+id/action_addAddressFragment_to_addressFragment"
+            app:destination="@id/addressFragment" />
     </fragment>
 </navigation>

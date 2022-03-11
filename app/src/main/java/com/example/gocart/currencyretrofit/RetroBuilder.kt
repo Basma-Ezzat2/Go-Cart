@@ -18,7 +18,7 @@ object RetroBuilder {
             .build()
     }
 
-    var currencyApiService: CurrencyApi = RetrofitBuilder.retro.create(CurrencyApi::class.java)
+    var currencyApiService: CurrencyApi = RetrofitBuilder.retrofit.create(CurrencyApi::class.java)
 
 
 }

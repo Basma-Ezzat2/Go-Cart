@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 
 import com.example.gocart.databinding.ProductDeatilsActivityBinding
 import com.example.gocart.pojo.Product
+import com.example.gocart.pojo.Variants
 import com.example.gocart.ui.home.adapters.ProductImagesAdapter
 import com.example.gocart.ui.home.fragment.ReviewFragment
 import com.example.gocart.ui.home.viewmodels.HomeViewModel
@@ -28,9 +29,6 @@ class ProductDetailsActivity : AppCompatActivity() {
 
         title = ""
 
-        binding.addToCart.setOnClickListener {
-//            onAddToCart()
-        }
 
         binding.toolbar3.setNavigationOnClickListener { finish() }
         binding.ratingCount.rating = 3.5f
@@ -58,11 +56,7 @@ class ProductDetailsActivity : AppCompatActivity() {
                 binding.toolbar3.title = it.title
             }
 
-            binding.addToCart.setOnClickListener {view ->
-                val product = intent.extras!!.getSerializable("cart_product") as Product
-                homeViewModel.addToCart(product)
-                Toast.makeText(applicationContext, "Added To Cart", Toast.LENGTH_SHORT).show()
-            }
+
 
             productImagesAdapter.setContentList(it.images)
             binding.viewPager2.adapter = productImagesAdapter
@@ -72,6 +66,12 @@ class ProductDetailsActivity : AppCompatActivity() {
 
         homeViewModel.varients.observe(this, {
             binding.tvPrice.text = it.price.toString() + "$"
+
+            binding.addToCart.setOnClickListener {view ->
+                val product = intent.extras!!.getSerializable("cart_product") as Product
+                homeViewModel.addToCart(product.copy(variants = listOf(Variants(id = it.id, price = it.price!!.toDouble()))))
+                Toast.makeText(applicationContext, "Added To Cart", Toast.LENGTH_SHORT).show()
+            }
         })
     }
 

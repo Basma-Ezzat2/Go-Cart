@@ -7,28 +7,47 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.gocart.R
+import com.example.gocart.auth.utils.Either
+import com.example.gocart.auth.utils.LoginErrors
+import com.example.gocart.databinding.ChooseAddressPaymentFragmentBinding
+import com.example.gocart.databinding.FragmentAddressBinding
+import com.example.gocart.ui.settings.address.AddressAdapter
+import com.example.gocart.ui.settings.address.AddressViewModel
+import kotlinx.coroutines.launch
 
 class ChooseAddressAndPaymentFragment : Fragment() {
+
+
+    val binding by lazy {
+        ChooseAddressPaymentFragmentBinding.inflate(layoutInflater)
+    }
+
+    val andPaymentViewModel by lazy {
+        ChooseAddressAndPaymentViewModel.create(this)
+    }
+
 
     companion object {
         fun newInstance() = ChooseAddressAndPaymentFragment()
     }
 
-    private lateinit var andPaymentViewModel: ChooseAddressAndPaymentViewModel
     lateinit var finishOrder : Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.choose_address_payment_fragment, container, false)
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        andPaymentViewModel = ViewModelProvider(this).get(ChooseAddressAndPaymentViewModel::class.java)
         // TODO: Use the ViewModel
     }
 
@@ -37,6 +56,47 @@ class ChooseAddressAndPaymentFragment : Fragment() {
         finishOrder = view.findViewById(R.id.finishOrderBtn)
         finishOrder.setOnClickListener {
             findNavController().navigate(R.id.action_chooseAddressAndPaymentFragment_to_confirmPaymentFragment)
+        }
+
+
+        lifecycleScope.launch {
+            val address = andPaymentViewModel.getCustomerAddresses()
+            when (address) {
+                is Either.Error -> when (address.errorCode) {
+                    LoginErrors.NoInternetConnection -> {
+                        Toast.makeText(
+                            requireContext(),
+                            "NoInternetConnection" + address.message,
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                    LoginErrors.ServerError -> {
+
+                        Toast.makeText(
+                            requireContext(),
+                            "ServerError" + address.message,
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                    LoginErrors.CustomerNotFound -> {
+                        Toast.makeText(
+                            requireContext(),
+                            "CustomerNotFound" + address.message,
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+                is Either.Success -> {
+                    val chooseAddressAdapter = CheckoutAddressAdapter(address.data,requireContext())
+                    view.findViewById<RecyclerView>(R.id.chooseAddressRV).apply {
+                        adapter = chooseAddressAdapter
+                        layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+
+
+                    }
+                }
+            }
+
         }
     }
 
