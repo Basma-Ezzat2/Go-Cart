@@ -38,9 +38,21 @@ class MeFragment : Fragment() {
 
         if (meViewModel.authenticationRepo.sharedPref.getSettings().customer != null){
            // println(meViewModel.authenticationRepo.sharedPref.getSettings().customer)
+               binding.whenUserLogged.visibility = View.VISIBLE
+            binding.whenUserNotLogged.visibility = View.GONE
             binding.usernameTv.text = meViewModel.authenticationRepo.sharedPref.getSettings().customer!!.firstName
+            meViewModel.getFourFromWishList().observe(viewLifecycleOwner, Observer {
+                val ad = MeAdapter(it, meViewModel, requireContext())
+                view!!.findViewById<RecyclerView>(R.id.wishRecyclerView).apply {
+                    adapter = ad
+                    layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+                }
+            })
         }else{
-            binding.usernameTv.text = getString(R.string.please_login)
+           // binding.usernameTv.text = getString(R.string.please_login)
+            binding.whenUserLogged.visibility = View.GONE
+            binding.whenUserNotLogged.visibility = View.VISIBLE
+
         }
 
 //
@@ -63,13 +75,7 @@ class MeFragment : Fragment() {
         }
 
         //binding.usernameTv.text = meViewModel.authenticationRepo.sharedPref.getSettings().customer!!.firstName
-        meViewModel.getFourFromWishList().observe(viewLifecycleOwner, Observer {
-            val ad = MeAdapter(it, meViewModel, requireContext())
-            view.findViewById<RecyclerView>(R.id.wishRecyclerView).apply {
-                adapter = ad
-                layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            }
-        })
+
 
     }
 

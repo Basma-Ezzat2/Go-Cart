@@ -45,7 +45,7 @@
     <string name="proceed_to_checkout">Proceed To Checkout</string>
     <string name="confirm_payment">Confirm Your Order</string>
     <string name="payments_show_name" translatable="false">Successfully received payment data for %s!</string>
-    <string name="please_login">...Please Login To View Your Info</string>
+    <string name="please_login">Please Login To View Your Info</string>
     <string name="title_activity_checkout">CheckoutActivity</string>
     <string name="checkout_item_description">Description</string>
     <string name="googlepay_status_unavailable" translatable="false">Unfortunately, Google Pay is not available on this phone.</string>

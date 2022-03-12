@@ -15,11 +15,16 @@ import com.example.gocart.auth.utils.LoginErrors
 import com.example.gocart.auth.utils.RepoErrors
 import com.example.gocart.pojo.AddressModel
 import com.example.gocart.pojo.AddressModelT
+import com.example.gocart.pojo.Orders
 import com.example.gocart.pojo.Product
 import com.example.gocart.retrofit.ApiService
+import com.example.gocart.retrofit.RetrofitBuilder
 import com.example.gocart.retrofit.RetrofitBuilder.apiService
 import com.example.gocart.room.RoomDataBase
 import com.example.gocart.room.RoomRepository
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 class AuthRepo(
@@ -135,7 +140,28 @@ class AuthRepo(
         }
     }
 
-    fun getFourFromWishList(): LiveData<List<Product>> = repo.getFourFromWishList()
+
+    suspend fun createOrder (id : Long, orders: Orders) : Either<Unit, LoginErrors> {
+        return try {
+            if (Connectivity.isOnline(application.applicationContext)) {
+                val response = apiService.createOrder(id, orders)
+                if (response.isSuccessful) {
+
+                    return Either.Success(Unit)    //postValue(response.body())
+                    // return response.body()
+                } else {
+                    return Either.Error(LoginErrors.ServerError, response.message())
+                }
+            } else {
+                return Either.Error(LoginErrors.NoInternetConnection,"NoInternetConnection")
+            }
+        } catch (t: Throwable) {
+            Either.Error(LoginErrors.ServerError, t.message)
+        }
+    }
+
+
+
 
 
 }

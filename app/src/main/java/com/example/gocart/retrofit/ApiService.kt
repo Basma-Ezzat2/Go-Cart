@@ -4,13 +4,14 @@ import com.example.gocart.auth.pojo.CustomerModel
 import com.example.gocart.auth.pojo.CustomersModel
 import com.example.gocart.auth.pojo.EditCustomerModel
 import com.example.gocart.data.entity.categoriesPojo.ExampleJson2KtKotlin
-import com.example.gocart.pojo.AddressModel
-import com.example.gocart.pojo.DiscountModel
+import com.example.gocart.pojo.*
 import com.example.gocart.ui.home.pojo.brands.Brands
 import com.example.gocart.ui.home.pojo.product.ProductsModel
 import com.example.gocart.ui.home.pojo.productdetail.ProductDetails
 import com.example.gocart.ui.home.pojo.search.SearchProduct
 import com.stash.shopeklobek.model.entities.CustomerAddressModel
+import io.reactivex.Observable
+import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -90,6 +91,24 @@ interface ApiService {
                            @Body address: AddressModel
     ):
             Response<CustomerAddressModel>
+
+
+    // order
+
+    @POST("orders.json")
+    suspend fun createOrder(
+        customerId:Long,
+        @Body order: Orders
+    ): Response<OneOrderResponce>
+
+    @GET("orders.json")
+    fun getAllOrders() : Observable<GetOrders>
+
+    @GET("orders/{id}.json")
+    fun getOneOrder(@Path("id") id: Long) : Observable<OneOrderResponce>
+
+    @DELETE("orders/{id}.json")
+    fun deleteOrder(@Path("id")order_id : Long) : Call<Delete>
 
 
 

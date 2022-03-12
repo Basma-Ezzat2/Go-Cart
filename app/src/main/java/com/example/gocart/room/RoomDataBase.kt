@@ -11,7 +11,7 @@ import com.example.gocart.pojo.ProductCartModule
 
 
 @TypeConverters(Converter::class)
-@Database(entities = [Product::class, ProductCartModule::class, OrderObject::class], version = 1,exportSchema = false)
+@Database(entities = [Product::class, ProductCartModule::class, OrderObject::class], version = 2,exportSchema = false)
 abstract class RoomDataBase : RoomDatabase() {
     companion object{
         @Volatile
