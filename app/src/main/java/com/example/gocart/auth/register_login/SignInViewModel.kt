@@ -40,11 +40,11 @@ class SignInViewModel(application: Application, val AuthRepo: AuthRepo) :
                     }
                     LoginErrors.ServerError -> {
 
-                        Toast.makeText(
+                        /*Toast.makeText(
                             getApplication(),
                             "ServerError" + response.message,
                             Toast.LENGTH_SHORT
-                        ).show()
+                        ).show()*/
                     }
                     LoginErrors.CustomerNotFound -> {
                         Toast.makeText(
