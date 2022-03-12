@@ -13,6 +13,7 @@ import com.example.gocart.ui.home.pojo.productdetail.Variants
 import com.example.gocart.ui.home.pojo.search.Products
 import com.example.gocart.ui.home.pojo.search.SearchProduct
 import com.example.gocart.ui.home.repository.HomeRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 
@@ -102,7 +103,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     private fun getSearch() {
-        viewModelScope.launch {
+        viewModelScope.launch (Dispatchers.IO){
             val products = homeRepository.getSearch()
             if (products.isSuccessful) {
                 _allProducts.postValue(products.body())
@@ -127,6 +128,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
             queryList.clear()
             _searchedProduct.postValue(queryList)
         } else {
+            queryList.clear()
             for (s in allProduct.value!!.products) {
                 if (s.title!!.lowercase().contains(query.lowercase())) {
                     queryList.add(s)
@@ -146,10 +148,9 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
     fun sortSearch(i: Int) {
         if (i == 1) {
-            val arr = allProduct.value!!.products
+//            val arr = allProduct.value!!.products
 //            for (io in 0 until arr.size)
                 queryList.sortWith(Comparator { o1, o2 -> o1.vendor!!.compareTo(o2.vendor!!) })
-
             _searchedProduct.postValue(queryList)
         }
     }

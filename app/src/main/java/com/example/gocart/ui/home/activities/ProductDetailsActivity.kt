@@ -11,7 +11,6 @@ import com.example.gocart.databinding.ProductDeatilsActivityBinding
 import com.example.gocart.pojo.Product
 import com.example.gocart.pojo.Variants
 import com.example.gocart.ui.home.adapters.ProductImagesAdapter
-import com.example.gocart.ui.home.fragment.ReviewFragment
 import com.example.gocart.ui.home.viewmodels.HomeViewModel
 
 class ProductDetailsActivity : AppCompatActivity() {
@@ -35,13 +34,6 @@ class ProductDetailsActivity : AppCompatActivity() {
         binding.review.setOnClickListener {
             val intent = Intent(this, ReviewActivity::class.java)
             startActivity(intent)
-//////            findNavController(this.binding.root).navigate(R.id.reviewFragment)
-//            val pendingIntent = NavDeepLinkBuilder(this.applicationContext)
-//                .setGraph(R.navigation.mobile_navigation)
-//                .setDestination(R.id.reviewFragment)
-//                .createPendingIntent()
-//
-//            pendingIntent.send()
         }
 
 
@@ -67,9 +59,18 @@ class ProductDetailsActivity : AppCompatActivity() {
         homeViewModel.varients.observe(this, {
             binding.tvPrice.text = it.price.toString() + "$"
 
-            binding.addToCart.setOnClickListener {view ->
+            binding.addToCart.setOnClickListener { view ->
                 val product = intent.extras!!.getSerializable("cart_product") as Product
-                homeViewModel.addToCart(product.copy(variants = listOf(Variants(id = it.id, price = it.price!!.toDouble()))))
+                homeViewModel.addToCart(
+                    product.copy(
+                        variants = listOf(
+                            Variants(
+                                id = it.id,
+                                price = it.price!!.toDouble()
+                            )
+                        )
+                    )
+                )
                 Toast.makeText(applicationContext, "Added To Cart", Toast.LENGTH_SHORT).show()
             }
         })

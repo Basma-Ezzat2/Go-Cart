@@ -1,5 +1,6 @@
 package com.example.gocart.ui.home.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toolbar
@@ -24,9 +25,11 @@ class ReviewActivity : AppCompatActivity() {
         toolbar = findViewById(R.id.toolbarReview)
 
 
-//        toolbarReview.setNavigationOnClickListener {
-//            findNavController().navigate(R.id.navigation_home)
-//        }
+        toolbar.setNavigationOnClickListener {
+//            val intent = Intent(this, ProductDetailsActivity::class.java)
+//            startActivity(intent)
+            onBackPressed()
+        }
 
         var myArrayList = ArrayList<UserData>()
 

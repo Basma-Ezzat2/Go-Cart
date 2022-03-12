@@ -31,6 +31,7 @@ class SearchAdapter (val context: Context, val productsClickListener: ProductsCl
     }
 
 
+    @SuppressLint("NotifyDataSetChanged")
     fun clearRecycler(){
         this.productsList.clear()
         notifyDataSetChanged()

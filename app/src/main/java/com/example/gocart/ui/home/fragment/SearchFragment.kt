@@ -10,7 +10,6 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.EditText
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -40,21 +39,23 @@ class SearchFragment : Fragment(), SearchAdapter.ProductsClickListener {
 
         homeViewModel = ViewModelProvider(requireActivity())[HomeViewModel::class.java]
         searchAdapter = SearchAdapter(requireContext(), this)
-        activity!!.findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(R.id.nav_view).apply {
-            visibility=View.GONE
-        }
+        activity!!.findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(R.id.nav_view)
+            .apply {
+                visibility = View.GONE
+            }
 
         homeViewModel.searchedProduct.observe(requireActivity(), {
             if (it.isEmpty()) {
                 searchAdapter.clearRecycler()
             } else {
+                searchAdapter.clearRecycler()
                 searchAdapter.addList(it)
                 binding.searchRecycler.adapter = searchAdapter
+
             }
 
 
         })
-
 
 
         val spinnerList = ArrayList<String>()
@@ -67,7 +68,21 @@ class SearchFragment : Fragment(), SearchAdapter.ProductsClickListener {
         binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 if (p2 == 1) {
+                    searchAdapter.clearRecycler()
                     homeViewModel.sortSearch(1)
+                } else {
+                    searchAdapter.clearRecycler()
+                    homeViewModel.searchedProduct.observe(requireActivity(), {
+                        if (it.isEmpty()) {
+                            searchAdapter.clearRecycler()
+                        } else {
+                            searchAdapter.addList(it)
+                            binding.searchRecycler.adapter = searchAdapter
+
+                        }
+
+
+                    })
                 }
             }
 
@@ -110,14 +125,19 @@ class SearchFragment : Fragment(), SearchAdapter.ProductsClickListener {
     override fun onStop() {
         super.onStop()
         etSearch.visibility = View.GONE
-        activity!!.findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(R.id.nav_view).apply {
-            visibility=View.VISIBLE
-        }
+        etSearch.text.clear()
+        activity!!.findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(R.id.nav_view)
+            .apply {
+                visibility = View.VISIBLE
+            }
 
     }
 
+
     override fun onResume() {
         super.onResume()
+        etSearch.requestFocus()
+        etSearch.isFocusableInTouchMode = true
         etSearch.setSelection(etSearch.text.length)
         val imm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager?
         imm?.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
