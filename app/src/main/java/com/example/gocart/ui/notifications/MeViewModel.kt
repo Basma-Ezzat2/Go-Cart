@@ -6,12 +6,27 @@ import androidx.lifecycle.*
 import com.example.gocart.auth.register_login.complete.SignInPasswordViewModel
 import com.example.gocart.auth.repositories.AuthRepo
 import com.example.gocart.auth.sharedpreferences.SharedPreferencesProvider
+import com.example.gocart.pojo.Product
+import com.example.gocart.pojo.ProductCartModule
 import com.example.gocart.retrofit.RetrofitBuilder
+import com.example.gocart.room.RoomDataBase
+import com.example.gocart.room.RoomRepository
+import kotlinx.coroutines.launch
 
 class MeViewModel (
     application: Application,
     val authenticationRepo: AuthRepo
+
 ) : AndroidViewModel(application) {
+    val repo = RoomRepository(RoomDataBase.getInstance(application))
+
+    fun getFourFromWishList(): LiveData<List<Product>> = repo.getFourFromWishList()
+
+    fun deleteOneWishItem(id: Long)= viewModelScope.launch {
+        repo.deleteOneWishItem(id)
+    }
+    fun updateCard( p : ProductCartModule)  = viewModelScope.launch {
+        repo.saveCartItem(p)}
 
 
     class Factory(
@@ -19,12 +34,12 @@ class MeViewModel (
         private val authRepo: AuthRepo
     ) : ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return SignInPasswordViewModel(application, authRepo) as T
+            return MeViewModel(application, authRepo) as T
         }
     }
 
     companion object {
-        fun create(context: Fragment): SignInPasswordViewModel {
+        fun create(context: Fragment): MeViewModel {
             return ViewModelProvider(
                 context,
                 Factory(
@@ -35,7 +50,7 @@ class MeViewModel (
                         context.context?.applicationContext as Application
                     )
                 )
-            )[SignInPasswordViewModel::class.java]
+            )[MeViewModel::class.java]
         }
     }
 }
