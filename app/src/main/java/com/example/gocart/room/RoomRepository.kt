@@ -71,7 +71,4 @@ val roomDao : RoomDAO = roomDatabase!!.roomDAO()
         roomDao.deleteAllWishlist()
     }
 
-    fun getFourWishList(): LiveData<List<Product>> {
-        return roomDao.getFourFromWishList()
-    }
 }

@@ -11,6 +11,7 @@ data class Product (
 	@PrimaryKey
 	@SerializedName("id") val id : Long,
 	@SerializedName("title") val title : String?,
+	@SerializedName("order_state") val order_state : String?,
 	@SerializedName("body_html") val body_html : String?,
 	@SerializedName("vendor") val vendor : String?,
 	@SerializedName("product_type") val product_type : String?,
@@ -26,7 +27,8 @@ data class Product (
 	@SerializedName("variants") val variants : List<Variants>?,
 	@SerializedName("options") var options : List<Options>?,
 	@SerializedName("images") val images : List<Images>?,
-	@SerializedName("image") val image : Image
+	@SerializedName("image") val image : Image,
+	var quantitiy: Long = 1
 ) : Serializable{
 	fun toProductCartModule():ProductCartModule{
 		Log.i("TAG",""+this)

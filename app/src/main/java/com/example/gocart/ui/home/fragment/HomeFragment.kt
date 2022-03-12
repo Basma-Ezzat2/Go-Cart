@@ -101,7 +101,7 @@ class HomeFragment : Fragment(), BrandsAdapter.BrandsClickListener {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.fav_Icon -> {
-                findNavController().navigate(R.id.favouriteFragment)
+                findNavController().navigate(R.id.wishListFragment)
             }
             R.id.searchIcon -> {
                 findNavController().navigate(R.id.searchFragment)

@@ -4,6 +4,7 @@ import android.app.Application
 import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
+import androidx.lifecycle.LiveData
 import com.example.gocart.auth.pojo.Address
 import com.example.gocart.auth.pojo.CustomerModel
 import com.example.gocart.auth.pojo.CustomersModel
@@ -14,8 +15,11 @@ import com.example.gocart.auth.utils.LoginErrors
 import com.example.gocart.auth.utils.RepoErrors
 import com.example.gocart.pojo.AddressModel
 import com.example.gocart.pojo.AddressModelT
+import com.example.gocart.pojo.Product
 import com.example.gocart.retrofit.ApiService
 import com.example.gocart.retrofit.RetrofitBuilder.apiService
+import com.example.gocart.room.RoomDataBase
+import com.example.gocart.room.RoomRepository
 
 
 class AuthRepo(
@@ -23,6 +27,7 @@ class AuthRepo(
     var sharedPref: SharedPreferencesProvider,
     val application: Application
 ) {
+    val repo = RoomRepository(RoomDataBase.getInstance(application))
 
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -129,5 +134,8 @@ class AuthRepo(
             Either.Error(LoginErrors.ServerError, t.message)
         }
     }
+
+    fun getFourFromWishList(): LiveData<List<Product>> = repo.getFourFromWishList()
+
 
 }
