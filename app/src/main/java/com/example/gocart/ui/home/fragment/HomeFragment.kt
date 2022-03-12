@@ -77,7 +77,7 @@ class HomeFragment : Fragment(), BrandsAdapter.BrandsClickListener {
 
         val handler = Handler(Looper.myLooper()!!)
         val Update = Runnable {
-            if (currentPage == 3 - 1) {
+            if (currentPage == 4 - 1) {
                 currentPage = 0
             }
             _binding.viewpager.setCurrentItem(currentPage++, true)

@@ -30,9 +30,12 @@ class ProductAdapter(val context: Context, val productsClickListener: ProductsCl
         return productsList.size
     }
 
-    @SuppressLint("CheckResult")
+    @SuppressLint("CheckResult", "SetTextI18n")
     override fun onBindViewHolder(holder: ProductsViewHolder, position: Int) {
         val productsModel = productsList[position]
+        productsList[position].variants?.forEach {
+            holder.tvPrice.text = it.price.toString() + " USD"
+        }
 
         holder.apply {
 
@@ -53,6 +56,7 @@ class ProductAdapter(val context: Context, val productsClickListener: ProductsCl
         RecyclerView.ViewHolder(binding.root) {
         val ivProduct = binding.productImage
         val tvTitle = binding.productName
+        val tvPrice = binding.productPrice
     }
 
     interface ProductsClickListener {
