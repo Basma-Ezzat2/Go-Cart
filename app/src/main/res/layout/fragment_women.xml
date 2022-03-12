@@ -12,7 +12,7 @@
         android:id="@+id/floatingActionButtonAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/fifth"
+        android:backgroundTint="@color/fourth"
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/ic_baseline_add_24"

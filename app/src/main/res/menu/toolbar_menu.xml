@@ -11,13 +11,6 @@
         android:title="Cart" />
 
     <item
-        android:id="@+id/settings_Icon"
-        android:icon="@drawable/ic_baseline_settings"
-        android:iconTint="@color/white"
-        app:showAsAction="ifRoom"
-        android:title="Settings"/>
-
-    <item
         android:id="@+id/fav_Icon"
         android:icon="@drawable/fav_icon"
         app:showAsAction="ifRoom"

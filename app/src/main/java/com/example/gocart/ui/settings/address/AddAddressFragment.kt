@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -36,6 +37,7 @@ class AddAddressFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        toolbarConfig()
         return inflater.inflate(R.layout.fragment_add_address, container, false)
     }
 
@@ -100,6 +102,11 @@ class AddAddressFragment : Fragment() {
             }
         }
     }
-
+    private fun toolbarConfig() {
+        activity!!.findViewById<Toolbar>(R.id.toolbar).apply {
+            setNavigationOnClickListener { findNavController().navigate(R.id.addressFragment) }
+            setNavigationIcon(R.drawable.ic_arrow_back)
+        }
+    }
 
 }
