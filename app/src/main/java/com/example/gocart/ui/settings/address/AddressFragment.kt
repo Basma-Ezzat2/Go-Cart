@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.withCreated
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,7 +22,9 @@ import com.example.gocart.databinding.FragmentAddressBinding
 import com.example.gocart.pojo.Address
 import com.example.gocart.ui.cart.CartFragment
 import com.example.gocart.ui.cart.CartViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 class AddressFragment : Fragment() {
@@ -54,6 +57,15 @@ class AddressFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
+        addressHandle()
+
+        binding.addNewAddressBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_addressFragment_to_addAddressFragment)
+        }
+
+    }
+
+    fun addressHandle(){
 
         lifecycleScope.launch {
             val address = viewModel.getCustomerAddresses()
@@ -113,29 +125,25 @@ class AddressFragment : Fragment() {
                                 }
                                 is Either.Success -> {
                                     Toast.makeText(requireContext(), "Removed Successfully", Toast.LENGTH_SHORT).show()
+                                    addressHandle()
 
                                 }
                             }
                         }
 
                     })
-                    view.findViewById<RecyclerView>(R.id.settingsAddressRV).apply {
-                        adapter = addressAdapter
-                        layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+                    withContext(Dispatchers.Main){
+                        view?.findViewById<RecyclerView>(R.id.settingsAddressRV)?.apply {
+                            adapter = addressAdapter
+                            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
-
+                        }
                     }
+
                 }
             }
 
         }
 
-
-        binding.addNewAddressBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_addressFragment_to_addAddressFragment)
-        }
-
-
-
-}
+    }
 }

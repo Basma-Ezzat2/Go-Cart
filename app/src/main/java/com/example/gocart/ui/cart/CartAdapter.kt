@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide
 import com.example.gocart.R
 import com.example.gocart.databinding.ItemCartBinding
 import com.example.gocart.pojo.ProductCartModule
+import com.example.gocart.utils.Constants.convertPrice
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -35,7 +36,9 @@ class CartAdapter (
 
         holder.myView.itemCartTitle.text = cartList[position].title
         holder.myView.itemCountText.text = cartList[position].quantitiy.toString()
-        holder.myView.itemCartPrice.text = cartList[position].variants?.get(0)?.price.toString()+" USD"
+        CoroutineScope(Dispatchers.Main).launch {
+            holder.myView.itemCartPrice.text = convertPrice(cartList[position].variants?.get(0)?.price)
+        }
         holder.myView.decreaseButton.setOnClickListener{
             decreamenter(cartList[position])
         }

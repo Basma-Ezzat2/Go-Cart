@@ -12,6 +12,10 @@ import com.example.gocart.pojo.Product
 import com.example.gocart.pojo.Variants
 import com.example.gocart.ui.home.adapters.ProductImagesAdapter
 import com.example.gocart.ui.home.viewmodels.HomeViewModel
+import com.example.gocart.utils.Constants.convertPrice
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class ProductDetailsActivity : AppCompatActivity() {
 
@@ -57,7 +61,9 @@ class ProductDetailsActivity : AppCompatActivity() {
         })
 
         homeViewModel.varients.observe(this, {
-            binding.tvPrice.text = it.price.toString() + "$"
+            CoroutineScope(Dispatchers.Main).launch {
+                binding.tvPrice.text = convertPrice(it.price?.toDouble())
+            }
 
             binding.addToCart.setOnClickListener { view ->
                 val product = intent.extras!!.getSerializable("cart_product") as Product

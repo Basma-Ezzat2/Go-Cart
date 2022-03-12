@@ -54,4 +54,7 @@ interface RoomDAO {
     @Query("SELECT * FROM Orders")
     fun getAllOrderList(): LiveData<List<OrderObject>>
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun saveOrderList(orderItem: OrderObject)
+
 }

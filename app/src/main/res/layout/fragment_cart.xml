@@ -5,6 +5,7 @@
     android:background="@color/first"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     >
     <androidx.constraintlayout.widget.Group
         android:id="@+id/whenThereIsItemsGroup"
@@ -13,7 +14,7 @@
         android:visibility="visible"
         app:constraint_referenced_ids="checkoutCard,rv_cartItems" />
     <androidx.constraintlayout.widget.Group
-        android:id="@+id/empty_state_group"
+        android:id="@+id/whenNotLoggedIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
@@ -45,23 +46,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
+        android:text="@string/log_in_to_see_your_shopping_cart"
         android:textColor="@color/fourth"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/empty_text"
-        android:text="log in to see shopping cart" />
-    <Button
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/empty_text" />
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/login_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:background="@drawable/button_round"
         android:padding="10dp"
-        android:text="Sign in / register"
+        android:text="@string/sign_in_register"
         android:textColor="@color/white"
         android:textSize="20dp"
         android:textStyle="bold"
-        app:backgroundTint="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/empty1_text" />
@@ -115,6 +116,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/fourth"
                 android:textStyle="bold"
+                android:layout_marginLeft="5dp"
                 tools:text="20000"
                 android:textSize="18sp"/>
 
@@ -153,5 +155,47 @@
             android:paddingTop="8dp"
             android:paddingStart="25dp"/>
     </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/whenNoInternet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="textView3,imageView6"
+            />
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="You're Offline"
+            android:textSize="26sp"
+            android:textColor="@color/fourth"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/textView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/no_internet" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
