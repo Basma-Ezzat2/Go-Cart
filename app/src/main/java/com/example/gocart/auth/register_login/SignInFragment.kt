@@ -50,8 +50,7 @@ class SignInFragment : Fragment() {
                 viewModel.getData(userEmail)
                 viewModel.loginSuccess.observe(viewLifecycleOwner) {
                     if (it!!) {
-                        Toast.makeText(requireContext(), "You entered your mail ", Toast.LENGTH_LONG)
-                            .show()
+                        //Toast.makeText(requireContext(), "You entered your mail ", Toast.LENGTH_LONG).show()
                       findNavController().navigate(R.id.signInPasswordFragment)
                     }
                 }

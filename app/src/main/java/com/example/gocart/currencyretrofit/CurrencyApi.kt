@@ -7,6 +7,6 @@ import retrofit2.http.Query
 
 interface CurrencyApi {
 
-    @GET("EGP")
-    suspend fun getRates(  ) : Response<CurrencyResponse>
+    @GET("latest/USD")
+    suspend fun getCurrenciesValueNow(): Response<CurrencyResponse>
 }

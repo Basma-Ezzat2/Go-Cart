@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.gocart.R
 import com.example.gocart.databinding.FragmentMeBinding
 import com.example.gocart.databinding.SettingsFragmentBinding
+import com.example.gocart.utils.Constants.isUSD
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class SettingsFragment : Fragment() {
@@ -52,11 +53,13 @@ class SettingsFragment : Fragment() {
             var sheetView : View = LayoutInflater.from(context).inflate(R.layout.fragment_bottom_sheet, view.findViewById(R.id.bottom_sheet))
             sheetView.findViewById<Button>(R.id.currencyEgpBtn).setOnClickListener {
                 Toast.makeText(context, "chosen EGP", Toast.LENGTH_SHORT).show()
+                isUSD = false
                 bottomSheetDialog.dismiss()
             }
 
             sheetView.findViewById<Button>(R.id.currencyUsdBtn).setOnClickListener {
                 Toast.makeText(context, "chosen USD", Toast.LENGTH_SHORT).show()
+                isUSD = true
                 bottomSheetDialog.dismiss()
             }
 

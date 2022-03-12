@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/second"
+    android:background="@color/first"
     tools:context=".ui.checkout.ConfirmPaymentFragment">
 
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,38 +23,29 @@
             android:layout_height="match_parent">
 
 
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/sub_total"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/sub_total"
+                android:textColor="@color/fourth"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/subTotalId"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:text="260"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toStartOf="@+id/textView9"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:text="USD"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/subTotalId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="260"
+                android:textColor="@color/fourth"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textView10"
@@ -62,30 +53,20 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="@string/shipping_fees"
+                android:textColor="@color/fourth"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="@+id/textView7"
                 app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/shippingFee"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="USD"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="@+id/textView9"
-                app:layout_constraintStart_toStartOf="@+id/textView9"
-                app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
                 android:text="10"
+                android:textColor="@color/fourth"
                 android:textSize="18sp"
-                app:layout_constraintEnd_toStartOf="@+id/textView11"
+                app:layout_constraintEnd_toEndOf="@+id/subTotalId"
                 app:layout_constraintStart_toStartOf="@+id/subTotalId"
                 app:layout_constraintTop_toBottomOf="@+id/subTotalId" />
 
@@ -93,12 +74,14 @@
                 android:id="@+id/discountEt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="14dp"
                 android:layout_marginTop="32dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="@string/coupon"
                 android:background="@drawable/edit_round"
+                android:ems="10"
+                android:hint="@string/coupon"
+                android:inputType="textPersonName"
+                android:padding="14dp"
+                android:textColor="@color/fourth"
+                android:textColorHint="@color/fourth"
                 app:layout_constraintStart_toStartOf="@+id/textView10"
                 app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
@@ -108,7 +91,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/button_round"
-                android:text="Check"
+                android:text="@string/check"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="@+id/discountEt"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -120,30 +103,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="@string/discount"
+                android:textColor="@color/fourth"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="@+id/discountEt"
                 app:layout_constraintTop_toBottomOf="@+id/discountEt" />
 
             <TextView
-                android:id="@+id/textView14"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="USD"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="@+id/discountBtn"
-                app:layout_constraintTop_toBottomOf="@+id/discountBtn" />
-
-            <TextView
                 android:id="@+id/discountTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="16dp"
                 android:text="0"
+                android:textColor="@color/fourth"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView14"
-                app:layout_constraintEnd_toStartOf="@+id/textView14"
-                app:layout_constraintTop_toTopOf="@+id/textView14" />
+                app:layout_constraintBottom_toBottomOf="@+id/textView13"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView13" />
 
             <TextView
                 android:id="@+id/textView16"
@@ -151,49 +126,45 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:text="@string/total"
+                android:textColor="@color/fourth"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/textView13"
                 app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
             <TextView
-                android:id="@+id/textView17"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:text="USD"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/textView14"
-                app:layout_constraintTop_toBottomOf="@+id/textView14" />
-
-            <TextView
                 android:id="@+id/grandTotalId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="16dp"
                 android:text="230"
+                android:textColor="@color/fourth"
                 android:textSize="22sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/textView17"
-                app:layout_constraintEnd_toStartOf="@+id/textView17"
-                app:layout_constraintTop_toTopOf="@+id/textView17" />
+                app:layout_constraintBottom_toBottomOf="@+id/textView16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView16" />
+
+            <include
+                android:id="@+id/googlePayButton"
+                layout="@layout/buy_with_googlepay_button"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/buy_button_height"
+                android:visibility="visible"
+                app:layout_constraintBottom_toTopOf="@+id/cashOnDelBtn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/confirmPaymentBtn"
-                android:layout_width="wrap_content"
+                android:id="@+id/cashOnDelBtn"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:layout_marginBottom="8dp"
-                android:background="@drawable/button_round"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                android:text="@string/confirm_order"
-                android:textColor="@color/white"
+                android:text="@string/cash_on_delivery"
+                android:background="@color/second"
+                android:textColor="@color/fourth"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView16" />
+                app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

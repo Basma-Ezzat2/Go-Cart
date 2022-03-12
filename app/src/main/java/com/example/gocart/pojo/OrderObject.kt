@@ -6,8 +6,8 @@ import com.google.gson.annotations.SerializedName
 @Entity(tableName = "Orders")
 data class OrderObject(
     @PrimaryKey
-    @SerializedName("id") val id : Long,
+    @SerializedName("id") val id : Long = 0,
     @SerializedName("title") val title : String?,
     @SerializedName("price") val price : Double?,
-    @SerializedName("src") val src : String?,
-    @SerializedName("item_number") val item_number : String?)
+    @SerializedName("src") val src : String?= null,
+    @SerializedName("item_number") val item_number : String? = null)

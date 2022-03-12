@@ -1,10 +1,13 @@
 package com.example.gocart.ui.activities
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -65,4 +68,17 @@ class MainActivity : AppCompatActivity() {
 
         })
     }
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        Log.i("HOSSAM","Main activity messageee")
+
+        liveData.postValue(ActivityResultDataClass(requestCode,resultCode,data))
+
+    }
+
+    var liveData = MutableLiveData<ActivityResultDataClass?>()
+
+    data class ActivityResultDataClass (val requestCode: Int,val resultCode: Int,val data: Intent?)
 }
