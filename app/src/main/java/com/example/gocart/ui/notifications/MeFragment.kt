@@ -48,6 +48,15 @@ class MeFragment : Fragment() {
                     layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
                 }
             })
+
+
+            meViewModel.getTwoFromOrderList().observe(viewLifecycleOwner, Observer {
+                val ad = MeOrderAdapter(it, meViewModel, requireContext())
+                view!!.findViewById<RecyclerView>(R.id.orderRecyclerView).apply {
+                    adapter = ad
+                    layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+                }
+            })
         }else{
            // binding.usernameTv.text = getString(R.string.please_login)
             binding.whenUserLogged.visibility = View.GONE
@@ -74,6 +83,13 @@ class MeFragment : Fragment() {
             findNavController().navigate(R.id.wishListFragment)
         }
 
+        binding.meLoginbutton.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_notifications_to_signInFragment)
+        }
+
+        binding.moreOrders.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_notifications_to_orderFragment)
+        }
         //binding.usernameTv.text = meViewModel.authenticationRepo.sharedPref.getSettings().customer!!.firstName
 
 

@@ -60,4 +60,6 @@
     <string name="alertAddToCartMessage">Do You Want To Add This product to cart?</string>
     <string name="yes">yes</string>
     <string name="no">no</string>
+    <string name="total_price">Total Price:</string>
+    <string name="order_date">Order Date:</string>
 </resources>

@@ -57,4 +57,7 @@ interface RoomDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun saveOrderList(orderItem: OrderObject)
 
+    @Query("SELECT * FROM Orders LIMIT 2")
+    fun getTwoFromOrderList(): LiveData<List<OrderObject>>
+
 }

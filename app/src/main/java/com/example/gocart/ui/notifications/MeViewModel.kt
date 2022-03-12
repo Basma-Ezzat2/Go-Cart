@@ -6,6 +6,7 @@ import androidx.lifecycle.*
 import com.example.gocart.auth.register_login.complete.SignInPasswordViewModel
 import com.example.gocart.auth.repositories.AuthRepo
 import com.example.gocart.auth.sharedpreferences.SharedPreferencesProvider
+import com.example.gocart.pojo.OrderObject
 import com.example.gocart.pojo.Product
 import com.example.gocart.pojo.ProductCartModule
 import com.example.gocart.retrofit.RetrofitBuilder
@@ -21,6 +22,8 @@ class MeViewModel (
     val repo = RoomRepository(RoomDataBase.getInstance(application))
 
     fun getFourFromWishList(): LiveData<List<Product>> = repo.getFourFromWishList()
+    fun getTwoFromOrderList(): LiveData<List<OrderObject>> = repo.getTwoFromOrderList()
+
 
     fun deleteOneWishItem(id: Long)= viewModelScope.launch {
         repo.deleteOneWishItem(id)

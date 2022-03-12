@@ -35,6 +35,10 @@ val roomDao : RoomDAO = roomDatabase!!.roomDAO()
 
     // ORDER
 
+    fun getTwoFromOrderList(): LiveData<List<OrderObject>> {
+        return  roomDao.getTwoFromOrderList()
+    }
+
     fun getAllOrderList(): LiveData<List<OrderObject>> {
         return  roomDao.getAllOrderList()
     }
