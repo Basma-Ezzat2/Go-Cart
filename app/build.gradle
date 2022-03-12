@@ -100,5 +100,9 @@ dependencies {
     implementation "androidx.room:room-ktx:2.4.1"
 
 
+    //google pay
+    implementation 'com.google.android.gms:play-services-wallet:19.1.0'
+
+
 
 }

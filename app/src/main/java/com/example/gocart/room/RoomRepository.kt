@@ -39,6 +39,10 @@ val roomDao : RoomDAO = roomDatabase!!.roomDAO()
         return  roomDao.getAllOrderList()
     }
 
+    suspend fun saveOrderList(orderItem: OrderObject) {
+        roomDao.saveOrderList(orderItem)
+    }
+
 
 
 

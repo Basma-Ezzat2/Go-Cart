@@ -157,12 +157,21 @@
         <action
             android:id="@+id/action_cartFragment_to_chooseAddressAndPaymentFragment"
             app:destination="@id/chooseAddressAndPaymentFragment" />
+        <action
+            android:id="@+id/action_cartFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_cartFragment_to_navigation_dashboard"
+            app:destination="@id/navigation_dashboard" />
+        <action
+            android:id="@+id/action_cartFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/chooseAddressAndPaymentFragment"
         android:name="com.example.gocart.ui.checkout.ChooseAddressAndPaymentFragment"
-        android:label="@string/proceed_to_checkout"
+        android:label="@string/your_address"
         tools:layout="@layout/choose_address_payment_fragment" >
         <action
             android:id="@+id/action_chooseAddressAndPaymentFragment_to_confirmPaymentFragment"

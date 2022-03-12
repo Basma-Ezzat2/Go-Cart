@@ -3,6 +3,7 @@ package com.example.gocart.ui.notifications
 import android.os.Bundle
 import android.view.*
 import android.widget.TextView
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -33,6 +34,13 @@ class MeFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_me, container, false)
 
 
+        if (meViewModel.authenticationRepo.sharedPref.getSettings().customer != null){
+           // println(meViewModel.authenticationRepo.sharedPref.getSettings().customer)
+            binding.usernameTv.text = meViewModel.authenticationRepo.sharedPref.getSettings().customer!!.firstName
+        }else{
+            binding.usernameTv.text = getString(R.string.please_login)
+        }
+
 //
 //        binding.goToSettingsBtn.setOnClickListener {
 //            findNavController().navigate(R.id.action_navigation_notifications_to_settingsFragment)
@@ -47,7 +55,7 @@ class MeFragment : Fragment() {
             findNavController().navigate(R.id.signInFragment)
         }
 
-        binding.usernameTv.text = meViewModel.authenticationRepo.sharedPref.getSettings().customer!!.firstName
+        //binding.usernameTv.text = meViewModel.authenticationRepo.sharedPref.getSettings().customer!!.firstName
 
 
     }

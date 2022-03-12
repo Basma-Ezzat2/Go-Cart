@@ -47,7 +47,7 @@ class ProductFragment : Fragment(), ProductAdapter.ProductsClickListener {
 
     private fun toolbarConfig() {
         activity!!.findViewById<Toolbar>(R.id.toolbar).apply {
-            title = arguments!!.getString("BrandName")
+//            title = arguments!!.getString("BrandName")
             setNavigationOnClickListener { findNavController().navigate(R.id.navigation_home) }
             setNavigationIcon(R.drawable.ic_arrow_back)
         }
