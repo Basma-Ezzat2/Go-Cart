@@ -102,6 +102,9 @@
         <action
             android:id="@+id/action_navigation_notifications_to_signInFragment"
             app:destination="@id/signInFragment" />
+        <action
+            android:id="@+id/action_navigation_notifications_to_wishListFragment"
+            app:destination="@id/wishListFragment" />
     </fragment>
 
     <fragment
@@ -240,4 +243,9 @@
         android:id="@+id/productDetailsActivity"
         android:name="com.example.gocart.ui.home.activities.ProductDetailsActivity"
         android:label="ProductDetailsActivity" />
+    <fragment
+        android:id="@+id/wishListFragment"
+        android:name="com.example.gocart.ui.wishList.WishListFragment"
+        android:label="WishListFragment"
+        tools:layout="@layout/fragment_wish_list"/>
 </navigation>

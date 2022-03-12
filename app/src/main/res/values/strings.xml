@@ -56,4 +56,8 @@
     <string name="okay">Okay</string>
     <string name="log_in_to_see_your_shopping_cart">Log in to see your shopping cart</string>
     <string name="sign_in_register">Sign in / register</string>
+    <string name="alertDeleteMessage">Do You Want To delete This product?</string>
+    <string name="alertAddToCartMessage">Do You Want To Add This product to cart?</string>
+    <string name="yes">yes</string>
+    <string name="no">no</string>
 </resources>

@@ -23,20 +23,37 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
              />
+
         <TextView
             android:id="@+id/title"
+            android:layout_width="120dp"
+            android:layout_height="131dp"
+            android:gravity="center"
+            android:lines="3"
+            android:padding="5dp"
+            android:text="name"
+            android:textColor="@color/fourth"
             android:textColorHint="@color/fourth"
             android:textSize="15sp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/tv_price"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/itemImage" />
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="120dp"
+            android:layout_height="33dp"
+            android:gravity="center"
             android:lines="3"
             android:padding="5dp"
             android:text="7.00EGP"
-            android:gravity="center"
             android:textColor="@color/fourth"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/itemImage" />
+            android:textColorHint="@color/fourth"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            tools:layout_editor_absoluteX="1dp" />
 
         <ImageButton
             android:id="@+id/delete"
@@ -48,11 +65,26 @@
             android:src="@drawable/ic_baseline_close"
             app:layout_constraintBottom_toTopOf="@id/itemImage"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.5"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.25"
+            app:layout_constraintVertical_bias="0.0"
             tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <ImageButton
+            android:id="@+id/addToCart"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/car_icon"
+            android:backgroundTint="@color/fourth"
+            android:padding="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
