@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -52,7 +53,7 @@ class CartFragment : Fragment() {
 
 
 
-
+       toolbarConfig()
         return binding.root
     }
 
@@ -207,6 +208,11 @@ class CartFragment : Fragment() {
 
     }
 
-
+    private fun toolbarConfig() {
+        activity!!.findViewById<Toolbar>(R.id.toolbar).apply {
+            setNavigationOnClickListener { findNavController().navigate(R.id.navigation_home) }
+            setNavigationIcon(R.drawable.ic_arrow_back)
+        }
+    }
 
 }

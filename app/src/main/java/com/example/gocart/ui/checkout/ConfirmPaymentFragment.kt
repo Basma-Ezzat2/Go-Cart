@@ -13,8 +13,10 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gocart.R
@@ -87,7 +89,7 @@ class ConfirmPaymentFragment : Fragment() {
 
         // Check whether Google Pay can be used to complete a payment
         viewModel.canUseGooglePay.observe(this, Observer(::setGooglePayAvailable))
-
+        toolbarConfig()
         return binding.root
     }
 
@@ -232,6 +234,11 @@ class ConfirmPaymentFragment : Fragment() {
     }
 
 
-
+    private fun toolbarConfig() {
+        activity!!.findViewById<Toolbar>(R.id.toolbar).apply {
+            setNavigationOnClickListener { findNavController().navigate(R.id.chooseAddressAndPaymentFragment) }
+            setNavigationIcon(R.drawable.ic_arrow_back)
+        }
+    }
 
 }

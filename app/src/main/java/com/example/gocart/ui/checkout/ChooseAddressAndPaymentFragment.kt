@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -43,6 +44,7 @@ class ChooseAddressAndPaymentFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        toolbarConfig()
         return binding.root
     }
 
@@ -97,6 +99,12 @@ class ChooseAddressAndPaymentFragment : Fragment() {
                 }
             }
 
+        }
+    }
+    private fun toolbarConfig() {
+        activity!!.findViewById<Toolbar>(R.id.toolbar).apply {
+            setNavigationOnClickListener { findNavController().navigate(R.id.cartFragment) }
+            setNavigationIcon(R.drawable.ic_arrow_back)
         }
     }
 

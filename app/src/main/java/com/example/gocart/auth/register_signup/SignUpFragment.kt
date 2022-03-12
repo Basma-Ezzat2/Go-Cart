@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -32,6 +33,7 @@ class SignUpFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_sign_up, container, false)
+        toolbarConfig()
         return binding.root
 
 
@@ -110,7 +112,13 @@ class SignUpFragment : Fragment() {
         }
         return true
     }
-
+    private fun toolbarConfig() {
+        activity!!.findViewById<Toolbar>(R.id.toolbar).apply {
+            title="Sign Up"
+            setNavigationOnClickListener { findNavController().navigate(R.id.signInFragment) }
+            setNavigationIcon(R.drawable.ic_arrow_back)
+        }
+    }
 //    private fun bindUi() {
 //        binding.tvSignIn.setOnClickListener {
 //            findNavController().navigate(R.id.signInFragment)

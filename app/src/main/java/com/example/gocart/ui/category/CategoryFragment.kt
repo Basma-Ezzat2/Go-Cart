@@ -37,10 +37,17 @@ class CategoryFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val navController = findNavController()
+        when (item.itemId) {
+            R.id.fav_Icon -> {
+                findNavController().navigate(R.id.wishListFragment)
+            }
+            R.id.searchIcon -> {
+                findNavController().navigate(R.id.searchFragment)
+            }
 
-        if (item.itemId == R.id.cartIcon){
-            navController.navigate(R.id.action_navigation_dashboard_to_cartFragment)
+            R.id.cartIcon -> {
+                findNavController().navigate(R.id.cartFragment)
+            }
         }
         return super.onOptionsItemSelected(item)
     }

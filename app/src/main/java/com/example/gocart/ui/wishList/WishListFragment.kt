@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -27,8 +29,7 @@ class WishListFragment : Fragment() {
 
 
         bindingAllWishListFragment = FragmentWishListBinding.inflate(inflater, container, false)
-
-
+        toolbarConfig()
         return bindingAllWishListFragment.root
     }
 
@@ -43,9 +44,13 @@ class WishListFragment : Fragment() {
                 layoutManager = GridLayoutManager(context, 2,LinearLayoutManager.VERTICAL, false)
             }
         })
-
-
     }
-
+    private fun toolbarConfig() {
+        activity!!.findViewById<Toolbar>(R.id.toolbar).apply {
+            title="My WishList"
+            setNavigationOnClickListener { findNavController().navigate(R.id.navigation_home) }
+            setNavigationIcon(R.drawable.ic_arrow_back)
+        }
+    }
 
 }

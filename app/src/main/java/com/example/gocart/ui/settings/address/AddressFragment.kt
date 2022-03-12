@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.withCreated
@@ -50,6 +51,7 @@ class AddressFragment : Fragment() {
 
 
         // Inflate the layout for this fragment
+        toolbarConfig()
         return binding.root
     }
 
@@ -145,5 +147,11 @@ class AddressFragment : Fragment() {
 
         }
 
+    }
+    private fun toolbarConfig() {
+        activity!!.findViewById<Toolbar>(R.id.toolbar).apply {
+            setNavigationOnClickListener { findNavController().navigate(R.id.settingsFragment) }
+            setNavigationIcon(R.drawable.ic_arrow_back)
+        }
     }
 }
