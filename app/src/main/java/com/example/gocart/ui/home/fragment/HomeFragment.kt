@@ -64,9 +64,9 @@ class HomeFragment : Fragment(), BrandsAdapter.BrandsClickListener {
         })
 
         var list = mutableListOf<Int>()
-        list.add(R.drawable.cc)
-        list.add(R.drawable.dd)
-        list.add(R.drawable.aa)
+        list.add(R.drawable.sale1)
+        list.add(R.drawable.sale2)
+        list.add(R.drawable.sale3)
         adsAdapter = AdsAdapter(requireContext())
         adsAdapter.setContentList(list)
 
