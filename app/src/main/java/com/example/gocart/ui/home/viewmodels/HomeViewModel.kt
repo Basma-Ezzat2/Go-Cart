@@ -19,7 +19,7 @@ import kotlinx.coroutines.launch
 
 class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
-    var mylist: ArrayList<Products> = ArrayList()
+//    var mylist: ArrayList<Products> = ArrayList()
 
 
     //    var api = RetrofitBuilder.retro.create(ApiService::class.java)
@@ -153,7 +153,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         if (i == 1) {
 //            val arr = allProduct.value!!.products
 //            for (io in 0 until arr.size)
-                queryList.sortWith(Comparator { o1, o2 -> o1.vendor!!.compareTo(o2.vendor!!) })
+                queryList.sortWith(Comparator { o1, o2 -> o1.vendor!!.compareTo(o2.vendor!! )})
             _searchedProduct.postValue(queryList)
         }
     }

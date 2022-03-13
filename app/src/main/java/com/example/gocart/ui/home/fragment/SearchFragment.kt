@@ -1,6 +1,7 @@
 package com.example.gocart.ui.home.fragment
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
@@ -10,6 +11,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.EditText
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -18,6 +20,8 @@ import com.example.gocart.databinding.SearchFragmentBinding
 import com.example.gocart.ui.home.activities.ProductDetailsActivity
 import com.example.gocart.ui.home.adapters.SearchAdapter
 import com.example.gocart.ui.home.viewmodels.HomeViewModel
+import androidx.core.content.ContextCompat.getSystemService
+
 
 class SearchFragment : Fragment(), SearchAdapter.ProductsClickListener {
 
@@ -68,21 +72,21 @@ class SearchFragment : Fragment(), SearchAdapter.ProductsClickListener {
         binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 if (p2 == 1) {
-                    searchAdapter.clearRecycler()
+//                    searchAdapter.clearRecycler()
                     homeViewModel.sortSearch(1)
                 } else {
-                    searchAdapter.clearRecycler()
-                    homeViewModel.searchedProduct.observe(requireActivity(), {
-                        if (it.isEmpty()) {
-                            searchAdapter.clearRecycler()
-                        } else {
-                            searchAdapter.addList(it)
-                            binding.searchRecycler.adapter = searchAdapter
-
-                        }
-
-
-                    })
+//                    searchAdapter.clearRecycler()
+//                    homeViewModel.searchedProduct.observe(requireActivity(), {
+//                        if (it.isEmpty()) {
+//                            searchAdapter.clearRecycler()
+//                        } else {
+//                            searchAdapter.addList(it)
+//                            binding.searchRecycler.adapter = searchAdapter
+//
+//                        }
+//
+//
+//                    })
                 }
             }
 
@@ -130,6 +134,8 @@ class SearchFragment : Fragment(), SearchAdapter.ProductsClickListener {
             .apply {
                 visibility = View.VISIBLE
             }
+        val imm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager?
+        imm!!.hideSoftInputFromWindow(view!!.windowToken, 0)
 
     }
 

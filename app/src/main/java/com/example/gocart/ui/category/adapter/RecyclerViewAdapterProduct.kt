@@ -38,7 +38,7 @@ class RecyclerViewAdapterProduct(
 
 
         holder.apply {
-            tvDesc.text = productsModel.title
+            tvDesc.text = productsModel.title?.substringAfter("|")
             Glide.with(context).apply {
                 load(productsModel.image!!.src).into(imageProduct)
             }

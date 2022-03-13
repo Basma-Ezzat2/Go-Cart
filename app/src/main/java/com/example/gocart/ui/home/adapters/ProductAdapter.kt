@@ -10,7 +10,7 @@ import com.example.gocart.databinding.ProductItemBinding
 import com.example.gocart.pojo.Product
 import com.example.gocart.ui.home.pojo.product.Products
 
-class ProductAdapter(val context: Context, val productsClickListener: ProductsClickListener) :
+class ProductAdapter(val context: Context, private val productsClickListener: ProductsClickListener) :
     RecyclerView.Adapter<ProductAdapter.ProductsViewHolder>() {
 
     private val productsList: ArrayList<Product> = ArrayList()
@@ -39,7 +39,10 @@ class ProductAdapter(val context: Context, val productsClickListener: ProductsCl
 
         holder.apply {
 
-            tvTitle.text = productsModel.title
+            tvTitle.text = productsModel.title?.substringAfter("|")
+
+
+
 
             Glide.with(context).apply {
                 load(productsModel.image!!.src).into(ivProduct)
