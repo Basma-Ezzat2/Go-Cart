@@ -10,7 +10,7 @@ import com.example.gocart.databinding.ProductItemBinding
 import com.example.gocart.databinding.SearchItemBinding
 import com.example.gocart.ui.home.pojo.search.Products
 
-class SearchAdapter (val context: Context, val productsClickListener: ProductsClickListener)
+class SearchAdapter (val context: Context, private val productsClickListener: ProductsClickListener)
     : RecyclerView.Adapter<SearchAdapter.ProductSearchViewHolder>() {
 
     private val productsList: ArrayList<Products> = ArrayList()
