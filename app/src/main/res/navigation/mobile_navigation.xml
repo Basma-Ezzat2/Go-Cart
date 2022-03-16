@@ -108,6 +108,9 @@
         <action
             android:id="@+id/action_navigation_notifications_to_orderFragment"
             app:destination="@id/orderFragment" />
+        <action
+            android:id="@+id/action_navigation_notifications_to_navigation_home"
+            app:destination="@id/navigation_home" />
     </fragment>
 
     <fragment
@@ -205,6 +208,9 @@
         <action
             android:id="@+id/action_signInFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_navigation_notifications"
+            app:destination="@id/navigation_notifications" />
     </fragment>
     <fragment
         android:id="@+id/signInPasswordFragment"

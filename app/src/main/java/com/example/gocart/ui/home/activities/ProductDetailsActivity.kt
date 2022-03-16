@@ -79,9 +79,18 @@ class ProductDetailsActivity : AppCompatActivity() {
                 )
                 Toast.makeText(applicationContext, "Added To Cart", Toast.LENGTH_SHORT).show()
             }
-            binding.addToFav.setOnClickListener {
+            binding.addToFav.setOnClickListener {view ->
                 val product = intent.extras!!.getSerializable("cart_product") as Product
-                homeViewModel.saveWishList(product)
+                homeViewModel.saveWishList(
+                    product.copy(
+                        variants = listOf(
+                            Variants(
+                                id = it.id,
+                                price = it.price!!.toDouble()
+                    )
+                )
+                    )
+                )
                 Toast.makeText(applicationContext, "Added To Wishlist", Toast.LENGTH_SHORT).show()
             }
         })

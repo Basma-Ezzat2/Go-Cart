@@ -1,4 +1,4 @@
-package com.stash.shopeklobek.model.entities
+package com.example.gocart.pojo
 
 import com.google.gson.annotations.SerializedName
 

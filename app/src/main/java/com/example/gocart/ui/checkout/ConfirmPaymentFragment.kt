@@ -112,6 +112,7 @@ class ConfirmPaymentFragment : Fragment() {
 
         // The price provided to the API should include taxes and shipping.
         // This price is not displayed to the user.
+
         val dummyPriceCents = (binding.grandTotalId.text.toString().toDouble()*100).toLong()
         val task = viewModel.getLoadPaymentDataTask(dummyPriceCents)
 

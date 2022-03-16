@@ -48,13 +48,27 @@ class OrderFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        orderViewModel.getAllOrderList().observe(viewLifecycleOwner, Observer {
-            orderListAdapter = OrderAdapter(it, orderViewModel, requireContext())
-            view.findViewById<RecyclerView>(R.id.favRec).apply {
-                adapter = orderListAdapter
-                layoutManager = GridLayoutManager(context, 2, LinearLayoutManager.VERTICAL, false)
-            }
-        })
+
+
+        if (orderViewModel.authenticationRepo.sharedPref.isSignIn){
+
+            binding.whenNotLogged.visibility = View.GONE
+            binding.whenLogged.visibility = View.VISIBLE
+
+            orderViewModel.getAllOrderList().observe(viewLifecycleOwner, Observer {
+                orderListAdapter = OrderAdapter(it, orderViewModel, requireContext())
+                view.findViewById<RecyclerView>(R.id.favRec).apply {
+                    adapter = orderListAdapter
+                    layoutManager = GridLayoutManager(context, 2, LinearLayoutManager.VERTICAL, false)
+                }
+            })
+
+
+        }else {
+             binding.whenNotLogged.visibility = View.VISIBLE
+             binding.whenLogged.visibility = View.GONE
+        }
+
     }
 
 }

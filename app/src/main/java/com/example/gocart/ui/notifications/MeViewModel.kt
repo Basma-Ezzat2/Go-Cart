@@ -3,7 +3,6 @@ package com.example.gocart.ui.notifications
 import android.app.Application
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.*
-import com.example.gocart.auth.register_login.complete.SignInPasswordViewModel
 import com.example.gocart.auth.repositories.AuthRepo
 import com.example.gocart.auth.sharedpreferences.SharedPreferencesProvider
 import com.example.gocart.pojo.OrderObject

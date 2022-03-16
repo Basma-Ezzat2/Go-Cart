@@ -14,11 +14,13 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.gocart.R
 import com.example.gocart.databinding.FragmentSignInBinding
+import com.example.gocart.utils.Constants.IS_LOGIN
 
 
 class SignInFragment : Fragment() {
     private lateinit var binding: FragmentSignInBinding
     private lateinit var userEmail: String
+    private lateinit var pass: String
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -49,11 +51,14 @@ class SignInFragment : Fragment() {
         binding.loginBtn.setOnClickListener {
             if (validteForm()) {
                 Log.d("email", "" + userEmail)
-                viewModel.getData(userEmail)
+                viewModel.getData(userEmail, pass)
                 viewModel.loginSuccess.observe(viewLifecycleOwner) {
                     if (it!!) {
+                       // IS_LOGIN = true
+                           viewModel.AuthRepo.sharedPref.checkSignIn(true)
                         //Toast.makeText(requireContext(), "You entered your mail ", Toast.LENGTH_LONG).show()
-                      findNavController().navigate(R.id.signInPasswordFragment)
+                        findNavController().navigate(R.id.action_signInFragment_to_navigation_notifications)
+
                     }
                 }
             }
@@ -63,9 +68,16 @@ class SignInFragment : Fragment() {
 
     private fun validteForm(): Boolean {
         userEmail = binding.emailEdt.text.toString()
+        pass =binding.passwordEdt.text.toString()
         if (userEmail.isEmpty()) {
             binding.emailEdt.requestFocus()
             binding.emailEdt.error = "Required"
+            return false
+        }
+
+        if (pass.isEmpty()) {
+            binding.passwordEdt.requestFocus()
+            binding.passwordEdt.error = "Required"
             return false
         }
         return true
