@@ -77,12 +77,7 @@ class CartFragment : Fragment() {
 
             if (isConnected){
                 binding.whenNoInternet.visibility = View.GONE
-                if (viewModel.authenticationRepo.sharedPref.getSettings().customer == null){
-                    binding.whenNotLoggedIn.visibility = View.VISIBLE
-                    binding.whenThereIsItemsGroup.visibility = View.GONE
-                    binding.whenThereIsNoItemsGroup.visibility = View.GONE
-                }else {
-
+                if (viewModel.authenticationRepo.sharedPref.isSignIn){
 
                     viewModel.getAllData().observe(viewLifecycleOwner, {
                         if (it.isEmpty()) {
@@ -184,6 +179,14 @@ class CartFragment : Fragment() {
                         }
 
                     })
+
+
+                }else {
+
+                    binding.whenNotLoggedIn.visibility = View.VISIBLE
+                    binding.whenThereIsItemsGroup.visibility = View.GONE
+                    binding.whenThereIsNoItemsGroup.visibility = View.GONE
+
                 }
 
             }else{

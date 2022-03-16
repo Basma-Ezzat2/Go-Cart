@@ -65,6 +65,7 @@
             app:layout_constraintBottom_toTopOf="@+id/floatingActionButton2"
             app:layout_constraintEnd_toEndOf="@+id/floatingActionButton2"
             app:layout_constraintStart_toStartOf="@+id/floatingActionButton2" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewMyProduct2"
             android:layout_width="match_parent"

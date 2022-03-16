@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.gocart.auth.register_login.complete.SignInPasswordViewModel
 import com.example.gocart.auth.repositories.AuthRepo
 import com.example.gocart.auth.sharedpreferences.SharedPreferencesProvider
 import com.example.gocart.pojo.ProductCartModule

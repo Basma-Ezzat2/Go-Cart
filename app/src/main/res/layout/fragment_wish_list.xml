@@ -7,48 +7,66 @@
 
     </data>
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
         tools:context=".ui.withList.WishListFragment">
 
+        <androidx.constraintlayout.widget.Group
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/whenLogged"
+            android:visibility="visible"
+            app:constraint_referenced_ids="favRec"
+            />
+
+        <androidx.constraintlayout.widget.Group
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/whenNotLogged"
+            android:visibility="gone"
+            app:constraint_referenced_ids="empty1_text, login_btn"
+            />
+
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_gravity="center"
-            android:background="@color/white"
             android:id="@+id/favRec"
             android:layout_width="wrap_content"
-            android:visibility="visible"
-            tools:listitem="@layout/wish_list_item"
-            android:layout_height="match_parent" />
-
-
-        <ImageButton
-            android:id="@+id/emptyAnimationView"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:visibility="gone"
+            android:background="@color/white"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.4"
-            android:background="@drawable/ic_bag" />
+            app:layout_constraintTop_toTopOf="@+id/empty1_text"
+            tools:listitem="@layout/wish_list_item" />
+
 
         <TextView
-            android:id="@+id/empty_text"
+            android:id="@+id/empty1_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:layout_marginTop="50dp"
-            android:visibility="gone"
-            android:layout_gravity="center"
+            android:text="@string/login_to_see_your_wish_list"
             android:textColor="@color/fourth"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/emptyAnimationView"
-            android:text="it is empty here" />
-    </FrameLayout>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/empty_text" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/login_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/button_round"
+            android:padding="10dp"
+            android:text="@string/sign_in_register"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/empty1_text" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

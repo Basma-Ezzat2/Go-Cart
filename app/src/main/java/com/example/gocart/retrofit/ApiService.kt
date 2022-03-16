@@ -9,7 +9,7 @@ import com.example.gocart.ui.home.pojo.brands.Brands
 import com.example.gocart.ui.home.pojo.product.ProductsModel
 import com.example.gocart.ui.home.pojo.productdetail.ProductDetails
 import com.example.gocart.ui.home.pojo.search.SearchProduct
-import com.stash.shopeklobek.model.entities.CustomerAddressModel
+import com.example.gocart.pojo.CustomerAddressModel
 import io.reactivex.Observable
 import retrofit2.Call
 import retrofit2.Response
@@ -47,16 +47,16 @@ interface ApiService {
 
 
     //main categories api
-    @GET("collections/398034600167/products.json")
+    @GET("collections/272069066799/products.json")
     suspend fun getWomenProductsList(): Response<ExampleJson2KtKotlin>
 
-    @GET("collections/398034632935/products.json")
+    @GET("collections/272069099567/products.json")
     suspend fun getKidsProductsList(): Response<ExampleJson2KtKotlin>
     //
-    @GET("collections/398034567399/products.json")
+    @GET("collections/272069034031/products.json")
     suspend fun getMenProductsList(): Response<ExampleJson2KtKotlin>
 
-    @GET("collections/398034665703/products.json")
+    @GET("collections/272069132335/products.json")
     suspend fun getOnSaleProductsList(): Response<ExampleJson2KtKotlin>
 
    /* @GET("products/{product_id}.json")

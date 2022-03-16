@@ -1,5 +1,6 @@
-package com.stash.shopeklobek.model.entities
+package com.example.gocart.pojo
 
+import com.example.gocart.pojo.CustomerAddress
 import com.google.gson.annotations.SerializedName
 
 data class CustomerAddressModel(

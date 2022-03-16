@@ -62,4 +62,5 @@
     <string name="no">no</string>
     <string name="total_price">Total Price:</string>
     <string name="order_date">Order Date:</string>
+    <string name="login_to_see_your_wish_list">Login to see your Wish List</string>
 </resources>
