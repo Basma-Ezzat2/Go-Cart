@@ -1,20 +1,11 @@
 package com.example.gocart.ui.order
 
-import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.example.gocart.R
 import com.example.gocart.databinding.OrderItemBinding
-import com.example.gocart.databinding.WishListItemBinding
 import com.example.gocart.pojo.OrderObject
-import com.example.gocart.pojo.Product
-import com.example.gocart.pojo.ProductCartModule
-import com.example.gocart.ui.notifications.MeViewModel
-import com.example.gocart.ui.wishList.WishListAdapter
-import com.example.gocart.ui.wishList.WishListViewModel
 
 class OrderAdapter (var orderList: List<OrderObject>, val viewModel: OrderViewModel, val context: Context) : RecyclerView.Adapter<OrderAdapter.ViewHolder>() {
 

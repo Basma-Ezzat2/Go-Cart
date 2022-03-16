@@ -71,17 +71,17 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:text="Reviews"
-                        android:textSize="22sp"
+                        android:textSize="20dp"
                         android:textStyle="bold"
-                        android:textColor="@color/black"
+                        android:textColor="@color/grey"
                         android:layout_marginTop="1dp"
-                        android:layout_marginEnd="10dp"></TextView>
+                        android:layout_marginEnd="10dp" />
 
                     <TextView
                         android:id="@+id/tv_productName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="18dp"
                         android:padding="10dp"
                         android:text="product name"
                         android:textColor="@color/black"
@@ -137,7 +137,7 @@
                         android:padding="10dp"
                         android:text="Description"
                         android:textColor="@color/fourth"
-                        android:textSize="32sp"
+                        android:textSize="30sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -148,7 +148,7 @@
                         android:padding="10dp"
                         android:text="Detail"
                         android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        android:textSize="18dp" />
 
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -162,17 +162,15 @@
         android:layout_alignParentBottom="true"
         android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/add_to_fav"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="6dp"
-            android:src="@drawable/fav_icon"
-            android:text="add to bag"
-            android:textColor="@color/white"
-            android:textSize="18sp" />
+        <CheckBox
+            android:id="@+id/cbHeart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/selector_wishlist_item"
+            android:layout_marginStart="25dp"
+            app:useMaterialThemeColors="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/add_to_cart"

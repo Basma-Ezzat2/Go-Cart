@@ -31,8 +31,6 @@ class ProductDetailsActivity : AppCompatActivity() {
         homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
         title = ""
-
-
         binding.toolbar3.setNavigationOnClickListener { finish() }
         binding.ratingCount.rating = 3.5f
         binding.review.setOnClickListener {
@@ -79,7 +77,7 @@ class ProductDetailsActivity : AppCompatActivity() {
                 )
                 Toast.makeText(applicationContext, "Added To Cart", Toast.LENGTH_SHORT).show()
             }
-            binding.addToFav.setOnClickListener {view ->
+            binding.cbHeart.setOnClickListener {view ->
                 val product = intent.extras!!.getSerializable("cart_product") as Product
                 homeViewModel.saveWishList(
                     product.copy(
@@ -91,11 +89,21 @@ class ProductDetailsActivity : AppCompatActivity() {
                 )
                     )
                 )
-                Toast.makeText(applicationContext, "Added To Wishlist", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(applicationContext, "Added To Wishlist", Toast.LENGTH_SHORT).show()
             }
         })
 
+       binding.cbHeart.setOnCheckedChangeListener { checkBox, isChecked ->
 
+            if (isChecked) {
+                showToast("Item added to Wishlist")
+            } else {
+                showToast("Item removed from Wishlist")
+            }
+        }
+    }
+    private fun showToast(str: String) {
+        Toast.makeText(this, str, Toast.LENGTH_SHORT).show()
     }
 
     fun onAddToCart(collection: Product, position: Int) {

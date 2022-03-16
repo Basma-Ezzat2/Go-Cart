@@ -15,7 +15,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gocart.R
-import com.example.gocart.databinding.FragmentCompleteBinding
 import com.example.gocart.databinding.FragmentMeBinding
 import com.example.gocart.ui.activities.MainActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
