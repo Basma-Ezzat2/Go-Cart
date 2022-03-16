@@ -120,11 +120,14 @@
                         android:textCursorDrawable="@drawable/cursor_color" />
                 </com.google.android.material.card.MaterialCardView>
 
+
+
+
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/tv_passField"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="12dp"
                     android:textColorHint="@color/fourth"
                     app:cardCornerRadius="70dp"
                     app:hintTextColor="@color/fourth"
@@ -133,7 +136,23 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_emailField"
                     app:passwordToggleEnabled="true"
                     app:strokeColor="@color/fourth"
-                    tools:ignore="MissingConstraints" />
+                    tools:ignore="MissingConstraints" >
+
+                    <EditText
+                        android:id="@+id/password_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:backgroundTint="@color/white"
+                        android:drawableStart="@drawable/ic_email"
+                        android:drawablePadding="10dp"
+                        android:ems="10"
+                        android:hint="Password"
+                        android:minHeight="48dp"
+                        android:textColor="@color/fourth"
+                        android:textColorHint="@color/fourth"
+                        android:textCursorDrawable="@drawable/cursor_color"/>
+                </com.google.android.material.card.MaterialCardView>
 
                 <Button
                     android:id="@+id/login_btn"
