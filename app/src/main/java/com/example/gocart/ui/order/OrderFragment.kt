@@ -6,8 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -37,7 +39,7 @@ class OrderFragment : Fragment() {
     ): View? {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_order, container, false)
-
+        toolbarConfig()
         return binding.root
     }
 
@@ -68,7 +70,13 @@ class OrderFragment : Fragment() {
              binding.whenNotLogged.visibility = View.VISIBLE
              binding.whenLogged.visibility = View.GONE
         }
-
+    }
+    private fun toolbarConfig() {
+        activity!!.findViewById<Toolbar>(R.id.toolbar).apply {
+            title="Your Orders"
+            setNavigationOnClickListener { findNavController().navigate(R.id.navigation_notifications) }
+            setNavigationIcon(R.drawable.ic_arrow_back)
+        }
     }
 
 }

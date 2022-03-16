@@ -33,17 +33,12 @@ class ProductAdapter(val context: Context, private val productsClickListener: Pr
     @SuppressLint("CheckResult", "SetTextI18n")
     override fun onBindViewHolder(holder: ProductsViewHolder, position: Int) {
         val productsModel = productsList[position]
+
         productsList[position].variants?.forEach {
             holder.tvPrice.text = it.price.toString() + " USD"
         }
-
         holder.apply {
-
             tvTitle.text = productsModel.title?.substringAfter("|")
-
-
-
-
             Glide.with(context).apply {
                 load(productsModel.image!!.src).into(ivProduct)
             }

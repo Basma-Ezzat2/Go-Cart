@@ -51,6 +51,8 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+
            }
     private fun checkNetworkConnection() {
         connectivity = Connectivity(application)

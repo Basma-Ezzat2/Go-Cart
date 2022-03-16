@@ -16,6 +16,8 @@ class RecyclerViewAdapterProduct(
     val context: Context,
     private val onItemClickListener: OnItemClickListener
 ) : RecyclerView.Adapter<RecyclerViewAdapterProduct.MyViewHolder>() {
+
+
     private var productList: ArrayList<Product> = ArrayList()
     fun addList(productList: List<Product>) {
         this.productList.clear()
@@ -36,7 +38,9 @@ class RecyclerViewAdapterProduct(
         val productsModel = productList[position]
 
 
-
+        /*productList[position].variants?.forEach {
+            holder.tvPrice.text = it.price.toString() + " USD"
+        }*/
         holder.apply {
             tvDesc.text = productsModel.title?.substringAfter("|")
             Glide.with(context).apply {
@@ -46,18 +50,13 @@ class RecyclerViewAdapterProduct(
             itemView.setOnClickListener {
                 onItemClickListener.onItemEditClickProduct(productsModel, position)
             }
-
         }
     }
-
     class MyViewHolder(binding: CardViewProductBinding) : RecyclerView.ViewHolder(binding.root) {
-        val tvDesc: TextView = binding.tvDesc
-
-        //private val tvPrice: TextView = binding.tvPrice
+        val tvDesc: TextView = binding.tvTitle
+        //val tvPrice: TextView = binding.tvPrice
         val imageProduct: ImageView = binding.imageProduct
-
     }
-
     interface OnItemClickListener {
         fun onItemEditClickProduct(book: Product, position: Int)
     }
