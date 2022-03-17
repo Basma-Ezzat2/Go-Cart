@@ -60,7 +60,8 @@ class MeFragment : Fragment() {
                 }
             })
         }else{
-            binding.usernameTv.text = getString(R.string.please_login)
+
+           // binding.usernameTv.text = getString(R.string.please_login)
             binding.whenUserLogged.visibility = View.GONE
             binding.whenUserNotLogged.visibility = View.VISIBLE
 

@@ -145,6 +145,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     fun addToCart(product: Product) = viewModelScope.launch {
         repo.saveCartItem(product.toProductCartModule())
     }
+
     fun saveWishList(product: Product)=viewModelScope.launch {
         repo.saveWishList(product)
     }

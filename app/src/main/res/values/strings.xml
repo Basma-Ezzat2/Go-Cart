@@ -63,4 +63,8 @@
     <string name="total_price">Total Price:</string>
     <string name="order_date">Order Date:</string>
     <string name="login_to_see_your_wish_list">Login to see your Wish List</string>
+    <string name="choose_your_language">Choose Your Language</string>
+    <string name="english">English</string>
+    <string name="arabic">Arabic</string>
+    <string name="save">Save</string>
 </resources>

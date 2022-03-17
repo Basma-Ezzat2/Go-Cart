@@ -65,7 +65,7 @@ class CategoryFragment : Fragment() {
                 .add("Men", MenFragment::class.java)
                 .add("Women", WomenFragment::class.java)
                 .add("Kids", KidsFragment::class.java)
-                .add("OnSale", SalesFragment::class.java)
+                .add("On Sale", SalesFragment::class.java)
                 .create()
         )
         _binding.viewpager2.adapter = adapter

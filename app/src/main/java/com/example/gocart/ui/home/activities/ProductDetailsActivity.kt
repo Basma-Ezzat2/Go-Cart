@@ -31,6 +31,7 @@ class ProductDetailsActivity : AppCompatActivity() {
         homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
         title = ""
+
         binding.toolbar3.setNavigationOnClickListener { finish() }
         binding.ratingCount.rating = 3.5f
         binding.review.setOnClickListener {
@@ -85,7 +86,7 @@ class ProductDetailsActivity : AppCompatActivity() {
                             Variants(
                                 id = it.id,
                                 price = it.price!!.toDouble()
-                    )
+                        )
                 )
                     )
                 )

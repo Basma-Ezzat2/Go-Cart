@@ -85,7 +85,7 @@ class AuthRepo(
                 } else
                     return Either.Error(LoginErrors.ServerError, res.message())
             } else
-                return Either.Error(LoginErrors.ConnectionFiled, "Connection Filed")
+                return Either.Error(LoginErrors.NoInternetConnection, "Connection Filed")
 
         } catch (t: Throwable) {
             Either.Error(LoginErrors.ServerError, t.message)
