@@ -63,10 +63,9 @@ class WishListFragment : Fragment() {
     }
     private fun toolbarConfig() {
         activity!!.findViewById<Toolbar>(R.id.toolbar).apply {
-            title="My WishList"
+            title="Your WishList"
             setNavigationOnClickListener { findNavController().navigate(R.id.navigation_home) }
             setNavigationIcon(R.drawable.ic_arrow_back)
         }
     }
-
 }

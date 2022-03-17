@@ -27,17 +27,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/product_Image"
-            android:fontFamily="@font/carter_one"
+            android:textStyle="bold"
             android:text="Product Name"
             android:textColor="@color/black"
-            android:textSize="14sp" />
+            android:textSize="14dp" />
         <TextView
             android:id="@+id/product_Price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_below="@id/product_Name"
-            android:fontFamily="@font/carter_one"
+            android:textStyle="bold"
             android:text="Product Price"
             android:textColor="@color/black"
             android:textSize="14sp" />

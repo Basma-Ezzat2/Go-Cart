@@ -1,5 +1,6 @@
 package com.example.gocart.retrofit
 
+import android.database.Observable
 import com.example.gocart.auth.pojo.CustomerModel
 import com.example.gocart.auth.pojo.CustomersModel
 import com.example.gocart.auth.pojo.EditCustomerModel
@@ -10,7 +11,6 @@ import com.example.gocart.ui.home.pojo.product.ProductsModel
 import com.example.gocart.ui.home.pojo.productdetail.ProductDetails
 import com.example.gocart.ui.home.pojo.search.SearchProduct
 import com.example.gocart.pojo.CustomerAddressModel
-import io.reactivex.Observable
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.*

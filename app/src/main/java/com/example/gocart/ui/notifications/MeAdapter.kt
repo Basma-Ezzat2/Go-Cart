@@ -4,15 +4,12 @@ import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.gocart.R
-import com.example.gocart.databinding.ItemCartBinding
 import com.example.gocart.databinding.WishListItemBinding
 import com.example.gocart.pojo.Product
 import com.example.gocart.pojo.ProductCartModule
-import com.example.gocart.ui.cart.CartAdapter
 
 class MeAdapter(var wishList: List<Product>, val viewModel: MeViewModel, val context: Context) : RecyclerView.Adapter<MeAdapter.ViewHolder>() {
 
