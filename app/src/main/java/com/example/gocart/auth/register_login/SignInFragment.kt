@@ -31,7 +31,6 @@ class SignInFragment : Fragment() {
         toolbarConfig()
         return binding.root
 
-
     }
 
     @RequiresApi(Build.VERSION_CODES.M)

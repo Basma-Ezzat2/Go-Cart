@@ -15,7 +15,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gocart.R
-import com.example.gocart.databinding.FragmentCompleteBinding
 import com.example.gocart.databinding.FragmentMeBinding
 import com.example.gocart.ui.activities.MainActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -61,7 +60,8 @@ class MeFragment : Fragment() {
                 }
             })
         }else{
-            binding.usernameTv.text = getString(R.string.please_login)
+
+           // binding.usernameTv.text = getString(R.string.please_login)
             binding.whenUserLogged.visibility = View.GONE
             binding.whenUserNotLogged.visibility = View.VISIBLE
 

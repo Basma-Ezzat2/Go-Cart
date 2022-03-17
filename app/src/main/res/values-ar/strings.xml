@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Go Cart</string>
+    <string name="title_home">الرئيسية</string>
+    <string name="title_category">الفئة</string>
+    <string name="title_me">صفحتي</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="total">الاجمالي: </string>
+    <string name="waiting_for_payment">في انتظار الدفع</string>
+    <string name="payment_method">طريقة الدفع</string>
+    <string name="cash_on_delivery">الدفع عند الاستلام</string>
+    <string name="paypal">باي بال PayPal</string>
+    <string name="go_pay">جوجل باي Google Pay</string>
+    <string name="choose_address">اختر العنوان</string>
+    <string name="sub_total">المجموع الفرعي</string>
+    <string name="shipping_fees">مصاريف الشحن</string>
+    <string name="coupon">كوبون</string>
+    <string name="discount">خصم</string>
+    <string name="confirm_order">تأكيد الطلب</string>
+    <string name="address">العنوان</string>
+    <string name="currency">العملة</string>
+    <string name="language">اللغة</string>
+    <string name="about_us">معلومات عننا</string>
+    <string name="log_out">تسجيل الخروج</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="country">البلد</string>
+    <string name="street_name">اسم الشارع</string>
+    <string name="city">المدينة</string>
+    <string name="building_no_floor_apartment">رقم المبني., رقم الطابق, رقم الشقة</string>
+    <string name="government">Government</string>
+    <string name="full_name">الاسم بالكامل</string>
+    <string name="phone">الهاتف</string>
+    <string name="continue_to_payment">الانتقال الى الدفع</string>
+    <string name="checkout">الدفع</string>
+    <string name="your_cart_is_empty">حقيبتك فارغة :(</string>
+    <string name="egp">ج.م</string>
+    <string name="usd">د.أ</string>
+    <string name="settings">الاعدادات</string>
+    <string name="your_addresses">عناوينك</string>
+    <string name="your_address">عنوانك</string>
+    <string name="add_an_address">اضافة عنوان</string>
+    <string name="your_cart">حقيبتك</string>
+    <string name="proceed_to_checkout">الانتقال الى الدفع</string>
+    <string name="confirm_payment">تأكيد طلبك</string>
+    <string name="payments_show_name" translatable="false">Successfully received payment data for %s!</string>
+    <string name="please_login">برجاء تسجيل الدخول لرؤية بياناتك</string>
+    <string name="title_activity_checkout">صفحة الدفع</string>
+    <string name="checkout_item_description">الوصف</string>
+    <string name="googlepay_status_unavailable" translatable="false">Unfortunately, Google Pay is not available on this phone.</string>
+    <string name="add_address">اضافة عنوان</string>
+    <string name="check">فحص</string>
+    <string name="congratulations_payment_completed_successfully">تهانينا! تم الدفع بنجاح</string>
+    <string name="success">نجاح</string>
+    <string name="okay">حسنا</string>
+    <string name="log_in_to_see_your_shopping_cart">برجاء تسجيل الدخول لرؤية حقيبتك</string>
+    <string name="sign_in_register">الدخول \ التسجيل</string>
+    <string name="alertDeleteMessage">هل تريد ازالة هذا المنتج ؟</string>
+    <string name="alertAddToCartMessage">هل تريد اضافة هذا المنتج الى حقيبتك</string>
+    <string name="yes">نعم</string>
+    <string name="no">لا</string>
+    <string name="total_price">السعر الاجمالي:</string>
+    <string name="order_date">تاريخ الطلب:</string>
+    <string name="login_to_see_your_wish_list">برجاء تسجيل الدخول لرؤية قائمة المفضلة</string>
+</resources>

@@ -73,15 +73,15 @@ class AddAddressFragment : Fragment() {
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }
-                            LoginErrors.ServerError -> {
 
+                            LoginErrors.ServerError -> {
                                 Toast.makeText(
                                     requireContext(),
                                     "ServerError" + address.message,
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }
-                            LoginErrors.CustomerNotFound -> {
+                            LoginErrors.UserNotFound -> {
                                 Toast.makeText(
                                     requireContext(),
                                     "CustomerNotFound" + address.message,

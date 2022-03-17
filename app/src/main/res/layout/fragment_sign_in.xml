@@ -144,14 +144,15 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:backgroundTint="@color/white"
-                        android:drawableStart="@drawable/ic_email"
+                        android:drawableStart="@drawable/ic_baseline_lock_24"
                         android:drawablePadding="10dp"
                         android:ems="10"
                         android:hint="Password"
+                        android:inputType="textPassword"
                         android:minHeight="48dp"
                         android:textColor="@color/fourth"
                         android:textColorHint="@color/fourth"
-                        android:textCursorDrawable="@drawable/cursor_color"/>
+                        android:textCursorDrawable="@drawable/cursor_color" />
                 </com.google.android.material.card.MaterialCardView>
 
                 <Button

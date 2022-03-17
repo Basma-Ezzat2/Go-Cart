@@ -17,7 +17,6 @@ enum class LoginErrors {
     NoInternetConnection,
     UserNotFound,
     IncorrectPassword,
-    ConnectionFiled,
     ServerError,
-    CustomerNotFound,
+    CustomerNotFound
 }

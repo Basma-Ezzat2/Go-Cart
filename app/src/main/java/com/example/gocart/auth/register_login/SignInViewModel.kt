@@ -30,7 +30,7 @@ class SignInViewModel(application: Application, val AuthRepo: AuthRepo) :
 
             when (val response: Either<CustomersModel, LoginErrors> = AuthRepo.signIn(email,pass)) {
                 is Either.Error -> when (response.errorCode) {
-                    LoginErrors.ConnectionFiled -> {
+                    LoginErrors.NoInternetConnection -> {
                         Toast.makeText(
                             getApplication(),
                             "NoInternetConnection" + response.message,
