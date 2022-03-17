@@ -4,17 +4,18 @@ import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.gocart.R
-import com.example.gocart.databinding.ItemCartBinding
 import com.example.gocart.databinding.WishListItemBinding
 import com.example.gocart.pojo.Product
-import com.example.gocart.pojo.ProductCartModule
-import com.example.gocart.ui.cart.CartAdapter
+import com.example.gocart.ui.home.adapters.ProductAdapter
+import com.example.gocart.utils.Constants.convertPrice
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
-class WishListAdapter(var wishList: List<Product>, val viewModel: WishListViewModel, val context: Context) : RecyclerView.Adapter<WishListAdapter.ViewHolder>() {
+class WishListAdapter(var wishList: List<Product>, val viewModel: WishListViewModel, val context: Context, private val productsClickListener: WishListFragment) : RecyclerView.Adapter<WishListAdapter.ViewHolder>() {
 
     class ViewHolder(var myView: WishListItemBinding) : RecyclerView.ViewHolder(myView.root)
 
@@ -27,8 +28,12 @@ class WishListAdapter(var wishList: List<Product>, val viewModel: WishListViewMo
     }
 
     override fun onBindViewHolder(holder: WishListAdapter.ViewHolder, position: Int) {
+       val productsModel = wishList[position]
+
         holder.myView.title.text= wishList[position].title
-        holder.myView.tvPrice.text= wishList[position].variants?.get(0)?.price.toString()
+        CoroutineScope(Dispatchers.Main).launch {
+            holder.myView.tvPrice.text= convertPrice(wishList[position].variants?.get(0)?.price)
+        }
         Glide.with(holder.myView.itemImage.context)
             .load(wishList[position].image.src)
             .fitCenter()
@@ -45,9 +50,14 @@ class WishListAdapter(var wishList: List<Product>, val viewModel: WishListViewMo
             builder.show()
         }
 
+        holder.apply {
+            itemView.setOnClickListener {
+                productsClickListener.onProductClickListener(productsModel, position)
+            }
+        }
 
 
-        holder.myView.addToCart.setOnClickListener {
+        /*holder.myView.addToCart.setOnClickListener {
             val cartProduct= wishList[position]
             val product= ProductCartModule(
                 cartProduct.id,
@@ -80,11 +90,15 @@ class WishListAdapter(var wishList: List<Product>, val viewModel: WishListViewMo
             builder.setNegativeButton(R.string.no, null)
             builder.show()
 
-        }
+        }*/
     }
 
     override fun getItemCount(): Int {
         return wishList.size
+    }
+
+    interface ProductsClickListener {
+        fun onProductClickListener(collection: Product, position: Int)
     }
 
 }

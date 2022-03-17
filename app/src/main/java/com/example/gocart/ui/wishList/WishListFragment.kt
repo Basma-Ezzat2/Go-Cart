@@ -1,5 +1,6 @@
 package com.example.gocart.ui.wishList
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,17 +8,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gocart.R
 import com.example.gocart.databinding.FragmentWishListBinding
-import com.example.gocart.ui.home.pojo.productdetail.Product
-import com.example.gocart.ui.order.OrderViewModel
+import com.example.gocart.ui.home.activities.ProductDetailsActivity
+import com.example.gocart.ui.home.adapters.ProductAdapter
 
-class WishListFragment : Fragment() {
+class WishListFragment : Fragment() , ProductAdapter.ProductsClickListener{
 
     private lateinit var bindingAllWishListFragment: FragmentWishListBinding
     private lateinit var withListAdapter: WishListAdapter
@@ -46,7 +46,7 @@ class WishListFragment : Fragment() {
             bindingAllWishListFragment.whenNotLogged.visibility = View.GONE
             bindingAllWishListFragment.whenLogged.visibility = View.VISIBLE
             wishlistViewModel.getAllWishList().observe(viewLifecycleOwner, Observer {
-                withListAdapter = WishListAdapter(it, wishlistViewModel, requireContext())
+                withListAdapter = WishListAdapter(it, wishlistViewModel, requireContext(),this)
                 view.findViewById<RecyclerView>(R.id.favRec).apply {
                     adapter = withListAdapter
                     layoutManager = GridLayoutManager(context, 2,LinearLayoutManager.VERTICAL, false)
@@ -67,5 +67,15 @@ class WishListFragment : Fragment() {
             setNavigationOnClickListener { findNavController().navigate(R.id.navigation_home) }
             setNavigationIcon(R.drawable.ic_arrow_back)
         }
+    }
+
+    override fun onProductClickListener(
+        collection: com.example.gocart.pojo.Product,
+        position: Int
+    ) {
+        val intent = Intent(requireActivity(), ProductDetailsActivity::class.java)
+        intent.putExtra("product_id",collection.id)
+        intent.putExtra("cart_product",collection )
+        startActivity(intent)
     }
 }

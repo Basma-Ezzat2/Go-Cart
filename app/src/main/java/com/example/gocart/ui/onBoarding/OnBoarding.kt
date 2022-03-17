@@ -111,4 +111,6 @@ class OnBoarding : AppCompatActivity() {
 
         return sharedPreferences!!.getBoolean("isFirstTimeRun", false)
     }
+
+
 }

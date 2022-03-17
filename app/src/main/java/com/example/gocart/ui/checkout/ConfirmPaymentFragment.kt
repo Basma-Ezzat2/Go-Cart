@@ -24,7 +24,9 @@ import com.example.gocart.databinding.ConfirmPaymentFragmentBinding
 import com.example.gocart.pojo.OrderObject
 import com.example.gocart.ui.activities.MainActivity
 import com.example.gocart.ui.cart.CartAdapter
+import com.example.gocart.ui.cart.CartViewModel
 import com.example.gocart.ui.settings.address.AddressViewModel
+import com.example.gocart.utils.Constants.convertPrice
 import com.google.android.gms.wallet.AutoResolveHelper
 import com.google.android.gms.wallet.PaymentData
 import kotlinx.coroutines.launch
@@ -55,6 +57,10 @@ class ConfirmPaymentFragment : Fragment() {
         ConfirmPaymentViewModel.create(this)
     }
 
+    val cartViewModel by lazy {
+        CartViewModel.create(this)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -73,16 +79,17 @@ class ConfirmPaymentFragment : Fragment() {
         btnOk = dialog.findViewById(R.id.btn_okay)
         btnOk.setOnClickListener {
             dialog.dismiss()
+            findNavController().navigate(R.id.action_confirmPaymentFragment_to_navigation_home)
         }
 
 
 
         binding.cashOnDelBtn.setOnClickListener {
             //Toast.makeText(context, "Payment Successfull", Toast.LENGTH_LONG).show()
-            var order = OrderObject( title = Date().toString(), price = binding.grandTotalId.text.toString().toDouble() )
+            var order = OrderObject( title = Date().toString(), price = binding.grandTotalPaymentiD.text.toString().toDouble() )
             lifecycleScope.launch {
                 viewModel.addOrder(order)
-
+                cartViewModel.deleteAllCart()
             }
             dialog.show()
         }
@@ -113,7 +120,7 @@ class ConfirmPaymentFragment : Fragment() {
         // The price provided to the API should include taxes and shipping.
         // This price is not displayed to the user.
 
-        val dummyPriceCents = (binding.grandTotalId.text.toString().toDouble()*100).toLong()
+        val dummyPriceCents = (binding.grandTotalPaymentiD.text.toString().toDouble()*100).toLong()
         val task = viewModel.getLoadPaymentDataTask(dummyPriceCents)
 
         // Shows the payment sheet and forwards the result to the onActivityResult method.
@@ -162,9 +169,10 @@ class ConfirmPaymentFragment : Fragment() {
             Log.d("BillingName", billingName)
 
             //Toast.makeText(context, getString(R.string.payments_show_name, billingName), Toast.LENGTH_LONG).show()
-            var order = OrderObject( title = Date().toString(), price = binding.grandTotalId.text.toString().toDouble() )
+            var order = OrderObject( title = Date().toString(), price = binding.grandTotalPaymentiD.text.toString().toDouble() )
             lifecycleScope.launch {
                 viewModel.addOrder(order)
+                cartViewModel.deleteAllCart()
             }
             dialog.show()
 
@@ -209,11 +217,18 @@ class ConfirmPaymentFragment : Fragment() {
             for (i in it) {
                 totalPrice += i.quantitiy * (i.variants?.get(0)?.price ?: 0.0)
             }
-            binding.subTotalId.text = totalPrice.toString()
+            lifecycleScope.launch {
+                binding.subTotalId.text = convertPrice(totalPrice)
+            }
 
             grandPrice = totalPrice+10
 
-            binding.grandTotalId.text = grandPrice.toString()
+            lifecycleScope.launch {
+                binding.grandTotalId.text = convertPrice(grandPrice)
+                binding.grandTotalPaymentiD.text = grandPrice.toString()
+                binding.shippingFee.text = convertPrice(10.0)
+            }
+
 
             binding.discountBtn.setOnClickListener {
                 lifecycleScope.launch {
@@ -221,12 +236,12 @@ class ConfirmPaymentFragment : Fragment() {
 
                     if (discount == null){
                         Toast.makeText(context, "invalid code", Toast.LENGTH_SHORT).show()
-                        binding.grandTotalId.text = grandPrice.toString()
+                        binding.grandTotalId.text = convertPrice(grandPrice)
                     }
                     else{
                         grandPrice += discount.value!!.toDouble()
-                        binding.grandTotalId.text = grandPrice.toString()
-                        binding.discountTv.text = discount.value!!.toString()
+                        binding.grandTotalId.text = convertPrice(grandPrice)
+                        binding.discountTv.text = convertPrice(discount.value!!.toDouble())
                     }
                 }
             }

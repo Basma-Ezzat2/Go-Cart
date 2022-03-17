@@ -124,6 +124,9 @@
         <action
             android:id="@+id/action_settingsFragment_to_addressFragment"
             app:destination="@id/addressFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_aboutUsFragment"
+            app:destination="@id/aboutUsFragment" />
     </fragment>
 
     <dialog
@@ -191,7 +194,11 @@
         android:id="@+id/confirmPaymentFragment"
         android:name="com.example.gocart.ui.checkout.ConfirmPaymentFragment"
         android:label="@string/confirm_payment"
-        tools:layout="@layout/confirm_payment_fragment" />
+        tools:layout="@layout/confirm_payment_fragment" >
+        <action
+            android:id="@+id/action_confirmPaymentFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.gocart.ui.home.fragment.SearchFragment"
@@ -202,9 +209,7 @@
         android:name="com.example.gocart.auth.register_login.SignInFragment"
         android:label="SignInFragment"
         tools:layout="@layout/fragment_sign_in">
-        <action
-            android:id="@+id/action_signInFragment_to_signInPasswordFragment"
-            app:destination="@id/signInPasswordFragment" />
+
         <action
             android:id="@+id/action_signInFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
@@ -212,15 +217,7 @@
             android:id="@+id/action_signInFragment_to_navigation_notifications"
             app:destination="@id/navigation_notifications" />
     </fragment>
-    <fragment
-        android:id="@+id/signInPasswordFragment"
-        android:name="com.example.gocart.auth.register_login.complete.SignInPasswordFragment"
-        android:label="SignInPasswordFragment"
-        tools:layout="@layout/fragment_complete">
-        <action
-            android:id="@+id/action_signInPasswordFragment_to_navigation_notifications"
-            app:destination="@id/navigation_notifications" />
-    </fragment>
+
     <fragment
         android:id="@+id/signUpFragment"
         android:name="com.example.gocart.auth.register_signup.SignUpFragment"
@@ -261,4 +258,9 @@
         android:id="@+id/orderFragment"
         android:name="com.example.gocart.ui.order.OrderFragment"
         android:label="OrderFragment" />
+    <fragment
+        android:id="@+id/aboutUsFragment"
+        android:name="com.example.gocart.ui.settings.aboutus.AboutUsFragment"
+        android:label="fragment_about_us"
+        tools:layout="@layout/fragment_about_us" />
 </navigation>

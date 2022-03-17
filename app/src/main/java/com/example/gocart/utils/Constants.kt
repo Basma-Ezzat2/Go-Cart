@@ -6,6 +6,8 @@ import com.example.gocart.currencyretrofit.RetroBuilder.currencyApiService
 
 object Constants {
 
+
+
     // sharedPreferences Tags
     const val ALL_DATA_ROUTE = "ALL_DATA_ROUTE"
     var IS_LOGIN = false
@@ -28,9 +30,12 @@ object Constants {
         if (isUSD){
             return  ""+price+" USD"
         }else{
-            return  ""+((price?:0.0)*15.70)+" EGP"//""+((RetroBuilder.currencyApiService.getCurrenciesValueNow().body()?.conversion_rates?.EGP)?:0.0)*(price?:0.0)+" EGP"
+            return  ""+round((price?:0.0)*15.70)+" EGP"//""+((RetroBuilder.currencyApiService.getCurrenciesValueNow().body()?.conversion_rates?.EGP)?:0.0)*(price?:0.0)+" EGP"
         }
     }
 
+    fun round(v:Double):String{
+        return "%.2f".format(v)
+    }
 
 }

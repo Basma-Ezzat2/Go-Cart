@@ -9,6 +9,10 @@ import com.bumptech.glide.Glide
 import com.example.gocart.databinding.ProductItemBinding
 import com.example.gocart.pojo.Product
 import com.example.gocart.ui.home.pojo.product.Products
+import com.example.gocart.utils.Constants.convertPrice
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class ProductAdapter(val context: Context, private val productsClickListener: ProductsClickListener) :
     RecyclerView.Adapter<ProductAdapter.ProductsViewHolder>() {
@@ -35,7 +39,9 @@ class ProductAdapter(val context: Context, private val productsClickListener: Pr
         val productsModel = productsList[position]
 
         productsList[position].variants?.forEach {
-            holder.tvPrice.text = it.price.toString() + " USD"
+            CoroutineScope(Dispatchers.Main).launch {
+                holder.tvPrice.text = convertPrice(it.price )
+            }
         }
         holder.apply {
             tvTitle.text = productsModel.title?.substringAfter("|")

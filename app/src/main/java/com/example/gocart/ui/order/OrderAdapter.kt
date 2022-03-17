@@ -6,6 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gocart.databinding.OrderItemBinding
 import com.example.gocart.pojo.OrderObject
+import com.example.gocart.utils.Constants.convertPrice
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class OrderAdapter (var orderList: List<OrderObject>, val viewModel: OrderViewModel, val context: Context) : RecyclerView.Adapter<OrderAdapter.ViewHolder>() {
 
@@ -21,8 +25,10 @@ class OrderAdapter (var orderList: List<OrderObject>, val viewModel: OrderViewMo
     }
 
     override fun onBindViewHolder(holder: OrderAdapter.ViewHolder, position: Int) {
-        holder.myView.orderPriceId.text= orderList[position].price.toString()
-        holder.myView.orderDateId.text= orderList[position].id.toString()
+        CoroutineScope(Dispatchers.Main).launch {
+            holder.myView.orderPriceId.text= convertPrice(orderList[position].price)
+        }
+        holder.myView.orderDateId.text= orderList[position].title.toString()
 
        /* holder.myView.delete.setOnClickListener {
             val builder = AlertDialog.Builder(context)

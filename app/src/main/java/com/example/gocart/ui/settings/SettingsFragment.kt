@@ -68,6 +68,10 @@ class SettingsFragment : Fragment() {
             findNavController().navigate(R.id.action_settingsFragment_to_addressFragment)
         }
 
+        binding.settingsAboutUsCvId.setOnClickListener {
+            findNavController().navigate(R.id.action_settingsFragment_to_aboutUsFragment)
+        }
+
        /* binding.settingsCurrencyCvId.setOnClickListener {
             bottomSheetDialog = BottomSheetDialog(context!!,R.style.BottomSheetTheme)
             var sheetView : View = LayoutInflater.from(context).inflate(R.layout.fragment_bottom_sheet, view.findViewById(R.id.bottom_sheet))
@@ -136,7 +140,6 @@ class SettingsFragment : Fragment() {
             isUSD = false
             currency  = "egp"
         }
-
 
 
         viewModel.setSetting(SettingsModel(lang, currency))

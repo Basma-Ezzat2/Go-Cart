@@ -10,6 +10,10 @@ import com.example.gocart.R
 import com.example.gocart.databinding.WishListItemBinding
 import com.example.gocart.pojo.Product
 import com.example.gocart.pojo.ProductCartModule
+import com.example.gocart.utils.Constants.convertPrice
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class MeAdapter(var wishList: List<Product>, val viewModel: MeViewModel, val context: Context) : RecyclerView.Adapter<MeAdapter.ViewHolder>() {
 
@@ -25,7 +29,9 @@ class MeAdapter(var wishList: List<Product>, val viewModel: MeViewModel, val con
 
     override fun onBindViewHolder(holder: MeAdapter.ViewHolder, position: Int) {
         holder.myView.title.text= wishList[position].title
-        holder.myView.tvPrice.text= wishList[position].variants?.get(0)?.price.toString()
+        CoroutineScope(Dispatchers.Main).launch {
+            holder.myView.tvPrice.text= convertPrice(wishList[position].variants?.get(0)?.price)
+        }
         Glide.with(holder.myView.itemImage.context)
             .load(wishList[position].image.src)
             .fitCenter()
@@ -41,7 +47,7 @@ class MeAdapter(var wishList: List<Product>, val viewModel: MeViewModel, val con
             builder.setNegativeButton(R.string.no, null)
             builder.show()
         }
-        holder.myView.addToCart.setOnClickListener {
+        /*holder.myView.addToCart.setOnClickListener {
             val cartProduct= wishList[position]
             val product= ProductCartModule(
                 cartProduct.id,
@@ -66,7 +72,7 @@ class MeAdapter(var wishList: List<Product>, val viewModel: MeViewModel, val con
                 cartProduct.quantitiy
           )
             viewModel.updateCard(product)
-        }
+        }*/
     }
 
     override fun getItemCount(): Int {

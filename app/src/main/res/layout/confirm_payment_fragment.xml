@@ -145,6 +145,20 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textView16" />
 
+            <TextView
+                android:id="@+id/grandTotalPaymentiD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="230"
+                android:textColor="@color/fourth"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/textView16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView16" />
+
             <include
                 android:id="@+id/googlePayButton"
                 layout="@layout/buy_with_googlepay_button"

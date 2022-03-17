@@ -6,11 +6,14 @@ import android.content.DialogInterface
 import android.graphics.Color
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
@@ -92,7 +95,10 @@ class CartFragment : Fragment() {
                                     totalPrice += i.quantitiy * (i.variants?.get(0)?.price ?: 0.0)
                                 }
                                 CoroutineScope(Dispatchers.Main).launch {
-                                    text = convertPrice(totalPrice)
+                                    val number:Double = totalPrice
+                                    val number3digits:Double = String.format("%.3f", number).toDouble()
+                                    val number2digits:Double = String.format("%.2f", number3digits).toDouble()
+                                    text = convertPrice(number2digits)
                                 }
                             }
                             val cartAdapter = CartAdapter(it, { productCartModule ->
@@ -217,5 +223,7 @@ class CartFragment : Fragment() {
             setNavigationIcon(R.drawable.ic_arrow_back)
         }
     }
+
+
 
 }

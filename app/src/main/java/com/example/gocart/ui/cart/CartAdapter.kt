@@ -36,8 +36,11 @@ class CartAdapter (
 
         holder.myView.itemCartTitle.text = cartList[position].title
         holder.myView.itemCountText.text = cartList[position].quantitiy.toString()
+        var itemPrice = 0.0
+            itemPrice += cartList[position].quantitiy * (cartList[position].variants?.get(0)?.price ?: 0.0)
+
         CoroutineScope(Dispatchers.Main).launch {
-            holder.myView.itemCartPrice.text = convertPrice(cartList[position].variants?.get(0)?.price)
+            holder.myView.itemCartPrice.text = convertPrice(itemPrice)
         }
         holder.myView.decreaseButton.setOnClickListener{
             decreamenter(cartList[position])

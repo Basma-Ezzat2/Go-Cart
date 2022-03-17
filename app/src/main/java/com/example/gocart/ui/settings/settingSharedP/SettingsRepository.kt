@@ -4,6 +4,7 @@ import android.app.Activity
 import android.app.Application
 import android.content.res.Configuration
 import android.content.res.Resources
+import androidx.core.app.ActivityCompat
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import java.util.*
@@ -21,6 +22,7 @@ class SettingsRepository (application: Application) : AndroidViewModel(applicati
         val config: Configuration = resources.configuration
         config.setLocale(locale)
         resources.updateConfiguration(config, resources.displayMetrics)
+
     }
 
     fun getSetting(): LiveData<SettingsModel> {

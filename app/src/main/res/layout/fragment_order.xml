@@ -7,7 +7,7 @@
 
     </data>
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
@@ -30,12 +30,16 @@
             />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:background="@color/white"
             android:id="@+id/favRec"
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
             android:visibility="visible"
-            tools:listitem="@layout/order_item"
-            android:layout_height="match_parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/empty1_text"
+            tools:listitem="@layout/order_item" />
 
 
         <TextView
@@ -46,9 +50,10 @@
             android:text="@string/login_to_see_your_wish_list"
             android:textColor="@color/fourth"
             android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/empty_text" />
+            app:layout_constraintTop_toTopOf="parent" />
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/login_btn"
             android:layout_width="match_parent"
@@ -66,5 +71,5 @@
 
 
 
-    </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

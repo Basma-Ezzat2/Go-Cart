@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 @Entity(tableName = "Orders")
 data class OrderObject(
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @SerializedName("id") val id : Long = 0,
     @SerializedName("title") val title : String?,
     @SerializedName("price") val price : Double?,

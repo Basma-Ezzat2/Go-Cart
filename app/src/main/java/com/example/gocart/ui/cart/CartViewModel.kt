@@ -21,6 +21,8 @@ class CartViewModel(application: Application, val authenticationRepo: AuthRepo) 
 
     suspend fun deleteCartItem(product : ProductCartModule) = repo.deleteOnCartItem(product.id)
 
+    suspend fun deleteAllCart() = repo.deleteAllFromCart()
+
     class Factory(
         private val application: Application,
         private val authRepo: AuthRepo

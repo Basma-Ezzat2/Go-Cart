@@ -61,7 +61,7 @@ class OrderFragment : Fragment() {
                 orderListAdapter = OrderAdapter(it, orderViewModel, requireContext())
                 view.findViewById<RecyclerView>(R.id.favRec).apply {
                     adapter = orderListAdapter
-                    layoutManager = GridLayoutManager(context, 2, LinearLayoutManager.VERTICAL, false)
+                    layoutManager = LinearLayoutManager(context,  LinearLayoutManager.VERTICAL, false)
                 }
             })
 
