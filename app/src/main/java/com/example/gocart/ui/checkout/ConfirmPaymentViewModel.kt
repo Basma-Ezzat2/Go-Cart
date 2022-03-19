@@ -103,4 +103,6 @@ class ConfirmPaymentViewModel(val authenticationRepo: AuthRepo, application: App
 
     suspend fun addOrder( p : OrderObject)  = repo.saveOrderList(p)
 
+    suspend fun createOrderAp(p:OrderObject) = apiService.createOrder(authenticationRepo.sharedPref.getSettings().customer!!.customerId!!, p)
+
 }

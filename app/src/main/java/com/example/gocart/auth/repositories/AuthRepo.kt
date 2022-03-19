@@ -13,10 +13,7 @@ import com.example.gocart.auth.utils.Connectivity
 import com.example.gocart.auth.utils.Either
 import com.example.gocart.auth.utils.LoginErrors
 import com.example.gocart.auth.utils.RepoErrors
-import com.example.gocart.pojo.AddressModel
-import com.example.gocart.pojo.AddressModelT
-import com.example.gocart.pojo.Orders
-import com.example.gocart.pojo.Product
+import com.example.gocart.pojo.*
 import com.example.gocart.retrofit.ApiService
 import com.example.gocart.retrofit.RetrofitBuilder
 import com.example.gocart.retrofit.RetrofitBuilder.apiService
@@ -92,59 +89,8 @@ class AuthRepo(
         }
     }
 
-    suspend fun getAddresses (id : Long) : Either<List<Address>, LoginErrors>{
-        return try {
-            if (Connectivity.isOnline(application.applicationContext)) {
-                val res = apiService.getAddress(id)
-                if (res.isSuccessful) {
 
-                  return Either.Success(res.body()?.customer?.addresses!!)
-                } else
-                    return Either.Error(LoginErrors.ServerError, res.message())
-            } else
-                return Either.Error(LoginErrors.NoInternetConnection, "NoInternetConnection")
-
-        } catch (t: Throwable) {
-            Either.Error(LoginErrors.ServerError, t.message)
-        }
-    }
-
-    suspend fun addAddresses (id : Long, address: AddressModel) : Either<Unit, LoginErrors>{
-        return try {
-            if (Connectivity.isOnline(application.applicationContext)) {
-                val res = apiService.addAddress(id,address)
-                if (res.isSuccessful) {
-
-                    return Either.Success(Unit)
-                } else
-                    return Either.Error(LoginErrors.ServerError, res.message())
-            } else
-                return Either.Error(LoginErrors.NoInternetConnection, "NoInternetConnection")
-
-        } catch (t: Throwable) {
-            Either.Error(LoginErrors.ServerError, t.message)
-        }
-    }
-
-    suspend fun deleteAddresses (id : Long, address: AddressModelT) : Either<Unit, LoginErrors>{
-        return try {
-            if (Connectivity.isOnline(application.applicationContext)) {
-                val res = apiService.deleteAddress(id,address.address?.id!!)
-                if (res.isSuccessful) {
-
-                    return Either.Success(Unit)
-                } else
-                    return Either.Error(LoginErrors.ServerError, res.message())
-            } else
-                return Either.Error(LoginErrors.NoInternetConnection, "NoInternetConnection")
-
-        } catch (t: Throwable) {
-            Either.Error(LoginErrors.ServerError, t.message)
-        }
-    }
-
-
-    suspend fun createOrder (id : Long, orders: Orders) : Either<Unit, LoginErrors> {
+    suspend fun createOrder (id : Long, orders: OrderObject) : Either<Unit, LoginErrors> {
         return try {
             if (Connectivity.isOnline(application.applicationContext)) {
                 val response = apiService.createOrder(id, orders)

@@ -37,8 +37,8 @@
     <string name="continue_to_payment">الانتقال الى الدفع</string>
     <string name="checkout">الدفع</string>
     <string name="your_cart_is_empty">حقيبتك فارغة :(</string>
-    <string name="egp">ج.م</string>
-    <string name="usd">د.أ</string>
+    <string name="egp">جنيه</string>
+    <string name="usd">دولار</string>
     <string name="settings">الاعدادات</string>
     <string name="your_addresses">عناوينك</string>
     <string name="your_address">عنوانك</string>
@@ -65,4 +65,52 @@
     <string name="total_price">السعر الاجمالي:</string>
     <string name="order_date">تاريخ الطلب:</string>
     <string name="login_to_see_your_wish_list">برجاء تسجيل الدخول لرؤية قائمة المفضلة</string>
+
+    <string name="choose_your_language">اختر اللغة</string>
+    <string name="english">الانجليزية</string>
+    <string name="arabic">العربية</string>
+    <string name="save">حفظ</string>
+    <string name="made_by">صنع بواسطة</string>
+    <string name="brands">الماركات</string>
+    <string name="hello">مرحبا</string>
+    <string name="register_login">الدخول \ التسجيل</string>
+    <string name="my_orders">طلباتي</string>
+    <string name="see_more">رؤية المزيد</string>
+    <string name="wish_list">قائمة الامنيات</string>
+    <string name="description">الوصف</string>
+    <string name="detail">التفاصيل</string>
+    <string name="sign_in">تسجيل الدخول</string>
+    <string name="register">انشاء حساب</string>
+    <string name="email_address">البريد الالكتروني</string>
+    <string name="password">كلمة السر</string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="choose_your_currency">اختر العملة</string>
+    <string name="men">رجال</string>
+    <string name="women">سيدات</string>
+    <string name="kids">اطفال</string>
+    <string name="sales">تخفيضات</string>
+    <string name="registered_successfully">تم انشاء الحساب بنجاح</string>
+    <string name="register_unsuccessfull">فشل انشاء الحساب</string>
+    <string name="added_to_cart">تمت الاضافة الي عربتك</string>
+    <string name="added_to_wishlist">تمت الاضافة الى الامنيات</string>
+    <string name="are_you_sure">هل انت متأكد من ازالة هذا المنتج</string>
+    <string name="cancel">الفاء</string>
+    <string name="cancelled">تم الالفاء</string>
+    <string name="your_wishlist">قائمة امنياتك</string>
+    <string name="add_to_bag">اضافة الى العربة</string>
+    <string name="reviews">التقييمات</string>
+    <string name="add_new_address">اضافة عنوان جديد</string>
+    <string name="search">بحث</string>
+    <string name="copied">تم نسخ كوبون الخصم</string>
+    <string name="user_name">اسم المستخدم</string>
+    <string name="confirm_password">تأكيد كلمة السر</string>
+
+
+    <string-array name="spinner">
+        <item>عرض الكل</item>
+        <item>عرض بحسب النوع</item>
+    </string-array>
+
+
+
 </resources>

@@ -11,11 +11,14 @@ import retrofit2.create
 
 object RetroBuilder {
 
+    lateinit var retrofit: Retrofit
     val retrofit2: Retrofit by lazy {
-        Retrofit.Builder()
+        retrofit = Retrofit.Builder()
             .baseUrl(Constants.CURRENCY_BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
+
+        retrofit
     }
 
     var currencyApiService: CurrencyApi = retrofit2.create(CurrencyApi::class.java)

@@ -14,14 +14,6 @@
         >
 
 
-        <RadioButton
-            android:id="@+id/addressRadioButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <TextView
             android:id="@+id/checkoutAddressCountryId"
             android:layout_width="wrap_content"
@@ -42,9 +34,8 @@
             android:layout_marginTop="4dp"
             android:text="28 abdeltahman st, Sharabyah, Azap, Cairo"
             android:textAlignment="center"
-            android:textSize="16sp"
             android:textColor="@color/fourth"
-            app:layout_constraintBottom_toBottomOf="@+id/addressRadioButton"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/checkoutAddressCountryId" />

@@ -105,15 +105,15 @@ class CartFragment : Fragment() {
                                 if (productCartModule.quantitiy <= 1) {
                                     //add confirmation dialog
                                     var builder = AlertDialog.Builder(requireContext())
-                                    builder.setMessage("Are you sure you want to delete this item ?")
+                                    builder.setMessage(R.string.are_you_sure)
                                     builder.setPositiveButton("Yes") { dialogInterface, i ->
                                         lifecycleScope.launch {
                                             viewModel.deleteCartItem(productCartModule)
                                         }
                                     }
 
-                                    builder.setNegativeButton("Cancel") { dialogInterface, i ->
-                                        Toast.makeText(context, "Canceled", Toast.LENGTH_SHORT).show()
+                                    builder.setNegativeButton(R.string.cancel) { dialogInterface, i ->
+                                        Toast.makeText(context, R.string.cancelled, Toast.LENGTH_SHORT).show()
                                     }
 
                                     val alertDialog: AlertDialog = builder.create()
@@ -147,15 +147,15 @@ class CartFragment : Fragment() {
                             }, { productCartModule ->
 
                                 var builder = AlertDialog.Builder(requireContext())
-                                builder.setMessage("Are you sure you want to delete this item ?")
-                                builder.setPositiveButton("Yes") { dialogInterface, i ->
+                                builder.setMessage(R.string.are_you_sure)
+                                builder.setPositiveButton(R.string.yes) { dialogInterface, i ->
                                     lifecycleScope.launch {
                                         viewModel.deleteCartItem(productCartModule.copy(quantitiy = productCartModule.quantitiy - 1))
                                     }
                                 }
 
-                                builder.setNegativeButton("Cancel") { dialogInterface, i ->
-                                    Toast.makeText(context, "Canceled", Toast.LENGTH_SHORT).show()
+                                builder.setNegativeButton(R.string.cancel) { dialogInterface, i ->
+                                    Toast.makeText(context, R.string.cancelled, Toast.LENGTH_SHORT).show()
                                 }
 
                                 val alertDialog: AlertDialog = builder.create()

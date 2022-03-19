@@ -31,7 +31,7 @@
                 android:layout_height="match_parent"
                 android:background="@null"
                 android:visibility="gone"
-                android:hint="Search"
+                android:hint="@string/search"
                 android:textSize="18sp">
             </EditText>
 

@@ -35,7 +35,7 @@ data class Customer(
     val totalSpent: String? = "",
 
     @SerializedName( "addresses")
-    val addresses: List<Address>? = listOf(),
+    val addresses: List<com.example.gocart.pojo.Address>? = listOf(),
 
     @SerializedName( "password")
     val password: String? = "",

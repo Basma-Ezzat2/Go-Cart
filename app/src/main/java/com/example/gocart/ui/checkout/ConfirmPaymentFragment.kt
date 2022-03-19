@@ -17,10 +17,12 @@ import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gocart.R
 import com.example.gocart.databinding.ConfirmPaymentFragmentBinding
+import com.example.gocart.pojo.Address
 import com.example.gocart.pojo.OrderObject
 import com.example.gocart.ui.activities.MainActivity
 import com.example.gocart.ui.cart.CartAdapter
@@ -61,10 +63,16 @@ class ConfirmPaymentFragment : Fragment() {
         CartViewModel.create(this)
     }
 
+    val address:Address? by lazy {
+        arguments?.get("address") as Address?
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        Log.e("address", "onCreateView: "+address, )
 
         googlePayButton = binding.googlePayButton.root
         googlePayButton.setOnClickListener { requestPayment() }
@@ -84,11 +92,14 @@ class ConfirmPaymentFragment : Fragment() {
 
 
 
+
+
         binding.cashOnDelBtn.setOnClickListener {
             //Toast.makeText(context, "Payment Successfull", Toast.LENGTH_LONG).show()
-            var order = OrderObject( title = Date().toString(), price = binding.grandTotalPaymentiD.text.toString().toDouble() )
+            var order = OrderObject( title = Date().toString(), price = binding.grandTotalPaymentiD.text.toString().toDouble(),address = address )
             lifecycleScope.launch {
                 viewModel.addOrder(order)
+                viewModel.createOrderAp(order)
                 cartViewModel.deleteAllCart()
             }
             dialog.show()
@@ -169,9 +180,10 @@ class ConfirmPaymentFragment : Fragment() {
             Log.d("BillingName", billingName)
 
             //Toast.makeText(context, getString(R.string.payments_show_name, billingName), Toast.LENGTH_LONG).show()
-            var order = OrderObject( title = Date().toString(), price = binding.grandTotalPaymentiD.text.toString().toDouble() )
+            var order = OrderObject( title = Date().toString(), price = binding.grandTotalPaymentiD.text.toString().toDouble() , address = address)
             lifecycleScope.launch {
                 viewModel.addOrder(order)
+                viewModel.createOrderAp(order)
                 cartViewModel.deleteAllCart()
             }
             dialog.show()

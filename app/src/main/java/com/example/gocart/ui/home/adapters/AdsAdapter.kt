@@ -6,9 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gocart.R
+import com.example.gocart.pojo.Product
 import com.makeramen.roundedimageview.RoundedImageView
 
-class AdsAdapter(val context: Context) : RecyclerView.Adapter<AdsAdapter.AdsViewHolder>() {
+class AdsAdapter(val context: Context,  private val imageClickListener: ImageClickListener) : RecyclerView.Adapter<AdsAdapter.AdsViewHolder>() {
 
     lateinit var list: List<Int>
     fun setContentList(list: List<Int>) {
@@ -28,6 +29,14 @@ class AdsAdapter(val context: Context) : RecyclerView.Adapter<AdsAdapter.AdsView
 
     override fun onBindViewHolder(holder: AdsViewHolder, position: Int) {
         holder.image.setImageResource(list[position])
+
+
+
+        holder.apply {
+            itemView.setOnClickListener {
+                imageClickListener.onImageClickListener(list, position)
+            }
+        }
     }
 
     override fun getItemCount(): Int {
@@ -35,5 +44,7 @@ class AdsAdapter(val context: Context) : RecyclerView.Adapter<AdsAdapter.AdsView
     }
 
 
-
+    interface ImageClickListener {
+        fun onImageClickListener(listt: List<Int>, position: Int)
+    }
 }

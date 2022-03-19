@@ -198,7 +198,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
-                    android:text="Choose Your Currency"
+                    android:text="@string/choose_your_currency"
                     android:textColor="@color/fourth"
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"

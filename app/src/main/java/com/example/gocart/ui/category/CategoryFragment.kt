@@ -62,10 +62,10 @@ class CategoryFragment : Fragment() {
         val adapter = FragmentPagerItemAdapter(
             childFragmentManager,
             FragmentPagerItems.with(activity)
-                .add("Men", MenFragment::class.java)
-                .add("Women", WomenFragment::class.java)
-                .add("Kids", KidsFragment::class.java)
-                .add("On Sale", SalesFragment::class.java)
+                .add(R.string.men, MenFragment::class.java)
+                .add(R.string.women, WomenFragment::class.java)
+                .add(R.string.kids, KidsFragment::class.java)
+                .add(R.string.sales, SalesFragment::class.java)
                 .create()
         )
         _binding.viewpager2.adapter = adapter

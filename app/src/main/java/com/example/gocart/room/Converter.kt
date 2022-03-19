@@ -2,14 +2,22 @@ package com.example.gocart.room
 
 
 import androidx.room.TypeConverter
-import com.example.gocart.pojo.Image
-import com.example.gocart.pojo.Images
-import com.example.gocart.pojo.Options
-import com.example.gocart.pojo.Variants
+import com.example.gocart.pojo.*
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 class Converter {
+
+    @TypeConverter
+    fun fromJsonToAddress(gson: String): Address? {
+        val type = object : TypeToken<Address>() {}.type
+        return Gson().fromJson(gson, type)
+    }
+
+    @TypeConverter
+    fun fromAddressToGeson(list: Address?): String {
+        return Gson().toJson(list)
+    }
 
     @TypeConverter
     fun fromVariantToGeson(list: List<Variants>?): String {

@@ -21,7 +21,7 @@ class OrderViewModel (val authenticationRepo: AuthRepo, application: Application
     fun getTwoFromOrderList(): LiveData<List<OrderObject>> = repo.getTwoFromOrderList()
     fun getAllOrderList(): LiveData<List<OrderObject>> = repo.getAllOrderList()
     suspend fun addOrder( p : OrderObject)  = repo.saveOrderList(p)
-   // suspend fun createOrder(order: Orders) = authenticationRepo.createOrder(authenticationRepo.sharedPref.getSettings().customer!!.customerId!!, order)
+    suspend fun createOrder(order: OrderObject) = authenticationRepo.createOrder(authenticationRepo.sharedPref.getSettings().customer!!.customerId!!, order)
 
     class Factory(private val application: Application, val AuthRepo: AuthRepo) :
         ViewModelProvider.Factory {

@@ -188,6 +188,9 @@
         <action
             android:id="@+id/action_chooseAddressAndPaymentFragment_to_confirmPaymentFragment"
             app:destination="@id/confirmPaymentFragment" />
+        <argument
+            android:name="address"
+            app:argType="com.example.gocart.pojo.Address" />
     </fragment>
 
     <fragment
@@ -198,6 +201,9 @@
         <action
             android:id="@+id/action_confirmPaymentFragment_to_navigation_home"
             app:destination="@id/navigation_home" />
+        <argument
+            android:name="address"
+            app:argType="com.example.gocart.pojo.Address" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -252,7 +258,7 @@
     <fragment
         android:id="@+id/wishListFragment"
         android:name="com.example.gocart.ui.wishList.WishListFragment"
-        android:label="WishListFragment"
+        android:label="@string/wish_list"
         tools:layout="@layout/fragment_wish_list"/>
     <fragment
         android:id="@+id/orderFragment"

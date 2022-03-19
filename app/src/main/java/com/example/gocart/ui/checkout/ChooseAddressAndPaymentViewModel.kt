@@ -11,15 +11,16 @@ import com.example.gocart.pojo.Address
 import com.example.gocart.pojo.AddressModel
 import com.example.gocart.pojo.AddressModelT
 import com.example.gocart.retrofit.RetrofitBuilder
+import com.example.gocart.ui.settings.address.AddressRepository
 import com.example.gocart.ui.settings.address.AddressViewModel
 
-class ChooseAddressAndPaymentViewModel (val authenticationRepo: AuthRepo, application: Application) : AndroidViewModel(application) {
+class ChooseAddressAndPaymentViewModel (val aaddressRepository: AddressRepository, application: Application) : AndroidViewModel(application) {
 
 
     class Factory(private val application: Application, val AuthRepo: AuthRepo) :
         ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return ChooseAddressAndPaymentViewModel(AuthRepo, application) as T
+            return ChooseAddressAndPaymentViewModel(AddressRepository(application,SharedPreferencesProvider(application)), application) as T
         }
     }
 
@@ -42,5 +43,5 @@ class ChooseAddressAndPaymentViewModel (val authenticationRepo: AuthRepo, applic
 
 
     suspend fun getCustomerAddresses() =
-        authenticationRepo.getAddresses(authenticationRepo.sharedPref.getSettings().customer!!.customerId!!)
+        aaddressRepository.getAddresses(aaddressRepository.sharedPref.getSettings().customer!!.customerId!!)
 }

@@ -97,8 +97,8 @@ interface ApiService {
 
     @POST("orders.json")
     suspend fun createOrder(
-        customerId:Long,
-        @Body order: Orders
+        @Query ("customer_id") customerId:Long,
+        @Body order: OrderObject
     ): Response<OneOrderResponce>
 
     @GET("orders.json")

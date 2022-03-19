@@ -1,7 +1,9 @@
 package com.example.gocart.currencypojo
 
+import com.google.gson.annotations.SerializedName
+
 data class ConversionRates(
-    val AED: Double,
+   /* val AED: Double,
     val AFN: Double,
     val ALL: Double,
     val AMD: Double,
@@ -161,5 +163,7 @@ data class ConversionRates(
     val YER: Double,
     val ZAR: Double,
     val ZMW: Double,
-    val ZWL: Double
+    val ZWL: Double*/
+    @SerializedName( "USD_EGP")
+    val egp: Double
 )

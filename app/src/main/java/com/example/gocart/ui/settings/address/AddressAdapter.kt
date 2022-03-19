@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.gocart.auth.pojo.Address
+import com.example.gocart.pojo.Address
 import com.example.gocart.databinding.AddressItemBinding
 import com.example.gocart.databinding.SettingsAddressItemBinding
 import com.example.gocart.pojo.AddressModel
@@ -27,6 +27,10 @@ class AddressAdapter (var addressList: List<Address>, var context: Context, var 
         holder.myView.deleteSettingsAddress.setOnClickListener {
             deleter(addressList[position])
         }
+
+//        holder.myView.root.setOnClickListener {
+//            selector(addressList[position])
+//        }
 
     }
 

@@ -63,7 +63,7 @@ class WishListFragment : Fragment() , ProductAdapter.ProductsClickListener{
     }
     private fun toolbarConfig() {
         activity!!.findViewById<Toolbar>(R.id.toolbar).apply {
-            title="Your WishList"
+           // title=R.string.your_wishlist.toString()
             setNavigationOnClickListener { findNavController().navigate(R.id.navigation_home) }
             setNavigationIcon(R.drawable.ic_arrow_back)
         }

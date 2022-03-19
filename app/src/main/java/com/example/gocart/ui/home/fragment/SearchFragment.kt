@@ -62,12 +62,12 @@ class SearchFragment : Fragment(), SearchAdapter.ProductsClickListener {
         })
 
 
-        val spinnerList = ArrayList<String>()
-        spinnerList.add("عرض الكل")
-        spinnerList.add("عرض بحسب النوع")
-        val Adapter =
-            ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, spinnerList)
-        binding.spinner.adapter = Adapter
+      /*  val spinnerList = ArrayList<String>()
+        spinnerList.add(R.string.show_all.toString())
+        spinnerList.add(R.string.show_by_type.toString())*/
+        /*val Adapter =
+            ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line)
+        binding.spinner.adapter = Adapter*/
 
         binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {

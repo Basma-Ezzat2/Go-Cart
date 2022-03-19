@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.example.gocart.R
 
 import com.example.gocart.databinding.ProductDeatilsActivityBinding
 import com.example.gocart.pojo.Product
@@ -76,7 +77,7 @@ class ProductDetailsActivity : AppCompatActivity() {
                         )
                     )
                 )
-                Toast.makeText(applicationContext, "Added To Cart", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, resources.getString(R.string.added_to_cart), Toast.LENGTH_SHORT).show()
             }
             binding.cbHeart.setOnClickListener {view ->
                 val product = intent.extras!!.getSerializable("cart_product") as Product
@@ -92,16 +93,19 @@ class ProductDetailsActivity : AppCompatActivity() {
                 )
                 //Toast.makeText(applicationContext, "Added To Wishlist", Toast.LENGTH_SHORT).show()
             }
+
+            binding.cbHeart.setOnCheckedChangeListener { checkBox, isChecked ->
+
+                if (isChecked) {
+                    showToast(resources.getString(R.string.added_to_wishlist))
+                } else {
+                    /*showToast("Item remov   ed from Wishlist")
+                    homeViewModel.deleteOneWishItem(it.id!!)*/
+                }
+            }
         })
 
-       binding.cbHeart.setOnCheckedChangeListener { checkBox, isChecked ->
 
-            if (isChecked) {
-                showToast("Item added to Wishlist")
-            } else {
-                showToast("Item removed from Wishlist")
-            }
-        }
     }
     private fun showToast(str: String) {
         Toast.makeText(this, str, Toast.LENGTH_SHORT).show()

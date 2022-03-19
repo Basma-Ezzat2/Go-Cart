@@ -87,7 +87,7 @@ class MeFragment : Fragment() {
             .setMessage("Do you want to sign out?")
             .setPositiveButton("Ok") { _, _ ->
                 requireActivity().deleteSharedPreferences("myPref")
-                Toast.makeText(requireActivity(), "Successfull", Toast.LENGTH_SHORT)
+                Toast.makeText(requireActivity(), R.string.success, Toast.LENGTH_SHORT)
                     .show()
                 meViewModel.authenticationRepo.sharedPref.checkSignIn(false)
                 findNavController().navigate(R.id.action_navigation_notifications_to_navigation_home)

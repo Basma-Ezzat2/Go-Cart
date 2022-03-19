@@ -6,5 +6,5 @@ import com.google.gson.annotations.SerializedName
 
 data class AddressModelT(
     @SerializedName( "address")
-    val address: com.example.gocart.auth.pojo.Address?,
+    val address: Address?,
 )

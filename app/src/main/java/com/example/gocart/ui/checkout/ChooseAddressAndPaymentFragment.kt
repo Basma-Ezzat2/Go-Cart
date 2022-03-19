@@ -18,6 +18,7 @@ import com.example.gocart.auth.utils.Either
 import com.example.gocart.auth.utils.LoginErrors
 import com.example.gocart.databinding.ChooseAddressPaymentFragmentBinding
 import com.example.gocart.databinding.FragmentAddressBinding
+import com.example.gocart.pojo.Address
 import com.example.gocart.ui.settings.address.AddressAdapter
 import com.example.gocart.ui.settings.address.AddressViewModel
 import kotlinx.coroutines.launch
@@ -38,7 +39,6 @@ class ChooseAddressAndPaymentFragment : Fragment() {
         fun newInstance() = ChooseAddressAndPaymentFragment()
     }
 
-    lateinit var finishOrder : Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,10 +55,7 @@ class ChooseAddressAndPaymentFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        finishOrder = view.findViewById(R.id.finishOrderBtn)
-        finishOrder.setOnClickListener {
-            findNavController().navigate(R.id.action_chooseAddressAndPaymentFragment_to_confirmPaymentFragment)
-        }
+
 
 
         lifecycleScope.launch {
@@ -89,7 +86,14 @@ class ChooseAddressAndPaymentFragment : Fragment() {
                     }
                 }
                 is Either.Success -> {
-                    val chooseAddressAdapter = CheckoutAddressAdapter(address.data,requireContext())
+                    val chooseAddressAdapter = CheckoutAddressAdapter(address.data,requireContext(),
+                        {add ->   var bundle = Bundle().apply {
+                            putSerializable("address",add)
+                        }
+                            findNavController().navigate(R.id.action_chooseAddressAndPaymentFragment_to_confirmPaymentFragment,bundle)
+
+
+                        })
                     view.findViewById<RecyclerView>(R.id.chooseAddressRV).apply {
                         adapter = chooseAddressAdapter
                         layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)

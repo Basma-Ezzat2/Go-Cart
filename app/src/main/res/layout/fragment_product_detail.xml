@@ -93,7 +93,7 @@
                     android:id="@+id/txtdescription"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Description"
+                    android:text="@string/description"
                     android:textColor="@color/fourth"
                     android:textSize="32sp"
                     android:textStyle="bold"></TextView>
@@ -102,7 +102,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtdescription"
-                    android:text="Detail"
+                    android:text="@string/detail"
                     android:textColor="@color/fourth"
                     android:textSize="32sp"
                     android:textStyle="bold"></TextView>

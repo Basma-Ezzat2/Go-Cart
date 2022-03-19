@@ -14,14 +14,14 @@ import com.example.gocart.pojo.AddressModel
 import com.example.gocart.pojo.AddressModelT
 import com.example.gocart.retrofit.RetrofitBuilder
 
-class AddressViewModel(val authenticationRepo: AuthRepo, application: Application) : AndroidViewModel(application) {
+class AddressViewModel(val addressRepository: AddressRepository, application: Application) : AndroidViewModel(application) {
 
 
 
     class Factory(private val application: Application, val AuthRepo: AuthRepo) :
         ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return AddressViewModel(AuthRepo,application) as T
+            return AddressViewModel(AddressRepository(application,SharedPreferencesProvider(application)),application) as T
         }
     }
 
@@ -42,8 +42,8 @@ class AddressViewModel(val authenticationRepo: AuthRepo, application: Applicatio
         }
     }
 
-    suspend fun addAddress(address: Address) = authenticationRepo.addAddresses(authenticationRepo.sharedPref.getSettings().customer!!.customerId!!, AddressModel(address))
-    suspend fun deleteAddress(address: com.example.gocart.auth.pojo.Address) = authenticationRepo.deleteAddresses(authenticationRepo.sharedPref.getSettings().customer!!.customerId!!, AddressModelT(address))
-    suspend fun getCustomerAddresses() = authenticationRepo.getAddresses(authenticationRepo.sharedPref.getSettings().customer!!.customerId!!)
+    suspend fun addAddress(address: Address) = addressRepository.addAddresses(addressRepository.sharedPref.getSettings().customer!!.customerId!!, AddressModel(address))
+    suspend fun deleteAddress(address: Address) = addressRepository.deleteAddresses(addressRepository.sharedPref.getSettings().customer!!.customerId!!, AddressModelT(address))
+    suspend fun getCustomerAddresses() = addressRepository.getAddresses(addressRepository.sharedPref.getSettings().customer!!.customerId!!)
 
 }

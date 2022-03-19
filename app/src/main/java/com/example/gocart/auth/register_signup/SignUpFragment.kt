@@ -64,7 +64,7 @@ class SignUpFragment : Fragment() {
                     if (it!!) {
                         Toast.makeText(
                             requireContext(),
-                            "Registered successfully",
+                            resources.getString(R.string.registered_successfully),
                             Toast.LENGTH_LONG
                         ).show()
                     } else Toast.makeText(

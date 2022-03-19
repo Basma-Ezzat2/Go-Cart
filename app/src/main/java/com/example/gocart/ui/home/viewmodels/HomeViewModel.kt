@@ -62,7 +62,6 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
             val repo = homeRepository.getBrands()
             if (repo.isSuccessful) {
                 mutableResponse.postValue(repo.body())
-                // Log.d("ayaaa333", "HomeViewModel: Sucess " )
             } else {
                 handleError("حدث خطا اثناء تحميل المنتجات")
             }
@@ -91,11 +90,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
                     varientsMutable.postValue(it)
                 }
 
-
-
-                Log.d("ayaa", "getProductDetails: " + productDetails.raw().request().url())
             } else {
-                Log.d("ayaa", "getProductDetails: " + productDetails.raw().request().url())
                 handleError("حدث خطا اثناء تحميل المنتجات")
             }
             cancel()
@@ -124,18 +119,21 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
      }*/
 
     fun searchAll(query: String) {
-        if (query.isEmpty()) {
-            queryList.clear()
-            _searchedProduct.postValue(queryList)
-        } else {
-            queryList.clear()
-            for (s in allProduct.value!!.products) {
-                if (s.title!!.lowercase().contains(query.lowercase())) {
-                    queryList.add(s)
-                    _searchedProduct.postValue(queryList)
+        viewModelScope.launch {
+            if (query.isEmpty()) {
+                queryList.clear()
+                _searchedProduct.postValue(queryList)
+            } else {
+                queryList.clear()
+                for (s in allProduct.value!!.products) {
+                    if (s.title!!.lowercase().contains(query.lowercase())) {
+                        queryList.add(s)
+                        _searchedProduct.postValue(queryList)
+                    }
                 }
             }
         }
+
     }
 
     private fun handleError(errorMsg: String) {
@@ -150,13 +148,18 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         repo.saveWishList(product)
     }
 
+    fun deleteOneWishItem(id: Long)= viewModelScope.launch {
+        repo.deleteOneWishItem(id)
+    }
+
     fun sortSearch(i: Int) {
-        if (i == 1) {
-//            val arr = allProduct.value!!.products
-//            for (io in 0 until arr.size)
+        viewModelScope.launch {
+            if (i == 1) {
                 queryList.sortWith(Comparator { o1, o2 -> o1.vendor!!.compareTo(o2.vendor!! )})
-            _searchedProduct.postValue(queryList)
+                _searchedProduct.postValue(queryList)
+            }
         }
+
     }
 
 

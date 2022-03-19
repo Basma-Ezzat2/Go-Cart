@@ -10,4 +10,6 @@ data class OrderObject(
     @SerializedName("title") val title : String?,
     @SerializedName("price") val price : Double?,
     @SerializedName("src") val src : String?= null,
-    @SerializedName("item_number") val item_number : String? = null)
+    @SerializedName("item_number") val item_number : String? = null,
+    val address : Address? = null
+)

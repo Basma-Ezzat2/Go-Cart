@@ -1,6 +1,7 @@
 package com.example.gocart.ui.order
 
 import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -29,6 +30,14 @@ class OrderAdapter (var orderList: List<OrderObject>, val viewModel: OrderViewMo
             holder.myView.orderPriceId.text= convertPrice(orderList[position].price)
         }
         holder.myView.orderDateId.text= orderList[position].title.toString()
+
+        holder.apply {
+            itemView.setOnClickListener {
+                val bundle = Bundle().apply {
+                    
+                }
+            }
+        }
 
        /* holder.myView.delete.setOnClickListener {
             val builder = AlertDialog.Builder(context)

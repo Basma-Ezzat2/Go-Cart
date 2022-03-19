@@ -1,5 +1,11 @@
 package com.example.gocart.ui.home.fragment
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
+import android.content.Context.CLIPBOARD_SERVICE
+import android.widget.Toast
+
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -20,7 +26,7 @@ import com.example.gocart.ui.home.viewmodels.HomeViewModel
 import java.util.*
 
 
-class HomeFragment : Fragment(), BrandsAdapter.BrandsClickListener {
+class HomeFragment : Fragment(), BrandsAdapter.BrandsClickListener, AdsAdapter.ImageClickListener {
 
     private lateinit var homeViewModel: HomeViewModel
     private lateinit var _binding: FragmentHomeBinding
@@ -52,6 +58,11 @@ class HomeFragment : Fragment(), BrandsAdapter.BrandsClickListener {
             context, 2,
             RecyclerView.HORIZONTAL, false
         )
+
+
+
+
+
         homeViewModel = ViewModelProvider(requireActivity())[HomeViewModel::class.java]
         homeViewModel.liveDataResponse.observe(requireActivity(), {
             if(it.smartCollections.isEmpty()!=null){
@@ -67,7 +78,7 @@ class HomeFragment : Fragment(), BrandsAdapter.BrandsClickListener {
         list.add(R.drawable.sale1)
         list.add(R.drawable.sale2)
         list.add(R.drawable.sale3)
-        adsAdapter = AdsAdapter(requireContext())
+        adsAdapter = AdsAdapter(requireContext(),this)
         adsAdapter.setContentList(list)
 
 
@@ -122,6 +133,15 @@ class HomeFragment : Fragment(), BrandsAdapter.BrandsClickListener {
         bundle.putString("BrandName", collection.title)
         findNavController().navigate(R.id.productFragment,bundle)
     }
+
+    override fun onImageClickListener(listt: List<Int>, position: Int) {
+
+            val clipBoard : ClipboardManager = requireActivity().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            val clip: ClipData = ClipData.newPlainText("EditText", "SUMMERSALE50OFF")
+
+            clipBoard.setPrimaryClip(clip)
+            Toast.makeText(requireContext(), R.string.copied, Toast.LENGTH_SHORT).show()
+        }
 
 
 }
